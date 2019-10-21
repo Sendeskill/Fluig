@@ -1,0 +1,193 @@
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link type="text/css" rel="stylesheet" href="/style-guide/css/fluig-style-guide.min.css"/>
+	<link rel="stylesheet" type="text/css" href="style.css">
+
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
+	<script type="text/javascript" src="/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
+	<script type="text/javascript" src="script.js"></script>
+</head>
+<body>
+	<div class="fluig-style-guide" id="fluig-sicoob">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-sm-12" id="header">
+					<div id="logo" class="col-md-1 col-md-offset-1">
+						<img src="img/logo_sicoob.png" class="hidden-phone"/>
+					</div>
+					<span class="col-sm-8 col-md-8">Pendência Credora</span>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-12" id="header2">	
+				</div>
+			</div>
+
+			<div class="row">
+				<!-- tabs -->
+				<div class="tabs" id="tabs-container">
+					<ul class="nav nav-tabs " role="tablist" id="tabs">
+						<li><a href="#formulario-container" role="tab" data-toggle="tab" id="formulario-tab">Formulário</a></li>
+						<li><a href="#cobrar-acompanhamento-gri-container" role="tab" data-toggle="tab" id="cobrar-acompanhamento-gri-tab">Cobrar Acompanhamento GRI</a></li>
+						<li><a href="#tratativa-container" role="tab" data-toggle="tab" id="tratativa-tab">Tratativa</a></li>
+					</ul>
+				</div>
+				<!-- tabs -->
+			</div>
+
+			<form name="form" role="form" class="col-xs-12 col-md-8 col-md-offset-2">
+
+				<div class="row tab-content">
+					<div class="tab-pane fade" id="formulario-container">
+						<div class="row">
+							<div class="form-group col-xs-8 col-sm-4">
+								<label for="cooperativa">Cooperativa</label>
+								<input type="text" name="cooperativa" class="form-control">
+							</div>
+
+							<div class="form-group col-xs-8 col-sm-4">
+								<label for="cooperativa_nome">Nome Cooperativa</label>
+								<input type="text" name="cooperativa_nome" class="form-control">
+							</div>
+							
+							<input type="hidden" name="cooperativa_atribuicao" class="form-control">
+						</div>
+
+						<div class="row">
+							<div class="form-group col-xs-8 col-sm-4">
+								<label>Data da Inconsistência</label><br>
+								<input type="text" name="inconsistencia_data" class="calendar form-control">
+							</div>
+							<div class="form-group col-xs-8 col-sm-4">
+								<label>Valor</label><br>
+								<div class="input-group">
+								    <span class="input-group-addon">R$</span>
+								    <input type="text" name="inconsistencia_valor" id="inconsistencia_valor" class="money form-control" data-thousands="." data-decimal="," />
+								</div>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-xs-12 col-sm-12 col-md-8">
+								<div class="form-group">
+									<label for="inconsistencia_descricao">Descrição</label><br>
+									<textarea name="inconsistencia_descricao" id="inconsistencia_descricao" class="descricao form-control" rows="5"></textarea>
+								</div>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="form-group col-xs-6 col-sm-3 col-md-3">
+								<label>Tratativa</label><br>
+								<input type="text" name="tratativa" class="form-control">
+							</div>
+						</div>
+
+						<div class="panel panel-default" id="info-protocolo-gri">
+							<div class="panel-heading">Informações do Protocolo no GRI</div>
+							<div class="panel-body">
+								<div class="row">
+									<div class="form-group col-xs-4 col-sm-4">
+										<label for="abertura_gri">Data de abertura</label>
+										<input type="text" name="abertura" class="form-control calendar" />
+									</div>
+
+									<div class="form-group col-xs-4 col-sm-4 GRI-fields">
+										<label>Número Protocolo</label><br>
+										<input type="text" name="protocolo_gri" class="form-control"/>
+									</div>
+		
+									<div class="form-group col-xs-4 col-sm-4">
+										<label for="sla">SLA</label>
+										<input type="text" name="sla" id="sla" class="form-control" />
+									</div>
+								</div>
+							</div>
+						</div>
+		
+						<div class="row" id="select-departamento">
+							<div class="form-group col-sm-3">
+								<label for="departamento">Departamento</label><br>
+								<select name="departamento" class="form-control">
+									<option value="Pool:Group:DEPARTAMENTO-1">DEPARTAMENTO-1</option>
+									<option value="Pool:Group:DEPARTAMENTO-2">DEPARTAMENTO-2</option>
+									<option value="Pool:Group:DEPARTAMENTO-3">DEPARTAMENTO-3</option>
+								</select>
+							</div>
+						</div>
+					</div><!-- formulario-content -->
+
+					<div class="tab-pane fade" id="cobrar-acompanhamento-gri-container">
+						<div class="row">
+							<div class="form-group col-xs-12">
+								<label for="analise_tratativa">Acompanhamento GRI</label><br>
+								<div class="custom-radio custom-radio-inline custom-radio-success">
+									<input type="radio" name="resolvido_gri" id="resolvido_gri_y" value="Y">
+									<label for="resolvido_gri_y">Resolvido</label>
+								</div>
+								<div class="custom-radio custom-radio-inline custom-radio-success">
+									<input type="radio" name="resolvido_gri" id="resolvido_gri_n" value="N">
+									<label for="resolvido_gri_n">Não Resolvido</label>
+								</div>
+							</div>
+
+							<div class="form-group col-xs-12" id="dar-tratativa">
+								<label for="analise_tratativa">Tipo</label><br>
+								<div class="custom-radio custom-radio-inline custom-radio-success">
+									<input type="radio" name="tipo_resposta_gri" id="tipo_resposta_gri_gri" value="GRI">
+									<label for="tipo_resposta_gri_gri">GRI vai dar tratativa</label>
+								</div>
+								<div class="custom-radio custom-radio-inline custom-radio-success">
+									<input type="radio" name="tipo_resposta_gri" id="tipo_resposta_gri_central" value="Central">
+									<label for="tipo_resposta_gri_central">Central vai dar tratativa</label>
+								</div>
+							</div>
+
+							<div class="form-group col-xs-4" id="tratativa-data-container">
+								<div class="form-group">
+									<label for="tratativa_data">Prazo GRI Tratativa</label>
+									<input type="text" name="tratativa_data" id="tratativa_data" class="form-control calendar">
+								</div>
+							</div>
+						</div>
+					</div><!-- cobrar-acompanhamento-gri-container -->
+
+					<div class="tab-pane fade" id="tratativa-container">
+
+						<div class="row" id="tratativa-solucao-container">
+							<div class="form-group col-xs-8 col-sm-4">
+								<label for="tratativa_solucao">Solução</label>
+								<textarea class="form-control" rows="4" name="tratativa_solucao" id="tratativa_solucao"></textarea>
+							</div>
+						</div>
+
+						<div class="row" id="tratativa-analise-container">
+							<div class="form-group col-xs-8 col-sm-4">
+								<label for="tratativa_analise">Análise</label>
+								<textarea class="form-control" rows="4" name="tratativa_analise" id="tratativa_analise"></textarea>
+							</div>
+						</div>
+
+						<div class="row" id="tratativa-choose-container">
+							<div class="form-group col-xs-12">
+								<label for="abertura_gri">Tratativa satisfatória?</label><br>
+								<div class="custom-radio custom-radio-inline custom-radio-success">
+									<input type="radio" name="tratativa_satisfatoria" id="tratativa_satisfatoria_y" value="Y">
+									<label for="tratativa_satisfatoria_y">Sim</label>
+								</div>
+								<div class="custom-radio custom-radio-inline custom-radio-success">
+									<input type="radio" name="tratativa_satisfatoria" id="tratativa_satisfatoria_n" value="N">
+									<label for="tratativa_satisfatoria_n">Não</label>
+								</div>
+							</div>
+						</div>
+					</div><!-- gri-tratativa-container -->
+				</div>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

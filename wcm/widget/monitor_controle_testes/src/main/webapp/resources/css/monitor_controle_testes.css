@@ -1,0 +1,232 @@
+/* Coloque aqui seu codigo CSS */
+.message {
+    margin-top: 10px;
+}
+
+.slotint {
+	background-color: transparent !important;
+}
+
+body {
+	background: #FAFAFA;
+}
+
+@media (min-width: 1400px) {
+    .fluig-style-guide .container {
+        width: 1370px;
+    }
+}
+
+.fluig-style-guide .default-table {
+	background: white;
+	width: 100%;
+	border-collapse:separate;
+	border-radius: 10px;
+	overflow: hidden;
+	box-shadow: 0 5px 6px -3px rgba(0, 0, 0, 0.18);
+}
+.fluig-style-guide .default-table th,
+.fluig-style-guide .default-table td {
+	padding: 10px;
+}
+
+
+.fluig-style-guide .default-table tr {
+ 	-webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.fluig-style-guide .default-table tr th:first-child,
+.fluig-style-guide .default-table tr td:first-child {
+	padding-left: 20px;
+}
+
+.fluig-style-guide .default-table tr th:last-child,
+.fluig-style-guide .default-table tr td:last-child {
+	padding-right: 15px;
+}
+
+.fluig-style-guide .default-table thead {
+	background: #00AE9D;
+}
+
+.fluig-style-guide .default-table thead th {
+	color: white;
+}
+
+.subinfo {
+	display: block;
+	color: #aaa;
+}
+
+div#fluig-sicoob {
+    background: #fff;
+    min-height: 550px;
+}
+
+#fluig-sicoob .btn.btn-primary {
+	background-color: #00ae9d;
+	padding: 7px 20px;
+	letter-spacing: 0.5px;
+	font-weight: 600;
+	border-radius: 5px;
+	text-transform: uppercase;
+}
+
+button#criar-pro {
+    float: right;
+}
+
+#fluig-sicoob .custom-checkbox.custom-checkbox-success input[type=checkbox]:checked+label:before {
+    background-color: #00ae9d;
+}
+
+#fluig-sicoob .custom-checkbox input[type=checkbox]+label:before,
+#fluig-sicoob .custom-checkbox input[type=radio]+label:before,
+#fluig-sicoob .custom-radio input[type=checkbox]+label:before,
+#fluig-sicoob .custom-radio input[type=radio]+label:before {
+    width: 18px;
+    height: 18px;
+}
+
+#fluig-sicoob .custom-checkbox input[type=checkbox]+label:before {
+    border-radius: 5px;
+}
+
+#fluig-sicoob .custom-checkbox input[type=checkbox]:checked+label:after,
+#fluig-sicoob .custom-checkbox input[type=checkbox]:not(:checked)+label:after {
+    width: 20px;
+    height: 20px;
+}
+
+#fluig-sicoob tbody tr:hover {
+	cursor: pointer;
+}
+
+#fluig-sicoob tbody tr:not(:first-child):hover td,
+#fluig-sicoob tbody tr:hover +tr td {
+	border-top: 2px solid #00ae9d;
+}
+
+#fluig-sicoob tbody tr:last-child td {
+	border-bottom: 2px solid white;
+}
+
+#fluig-sicoob tbody tr:last-child td:last-child {
+	border-radius: 0 0 10px 0;
+}
+
+#fluig-sicoob tbody tr:last-child td:first-child {
+	border-radius: 0 0 0 10px;
+}
+
+#fluig-sicoob tbody tr:last-child:hover td,
+#fluig-sicoob tbody tr:last-child:hover td {
+	border-bottom: 2px solid #00ae9d;
+}
+
+#fluig-sicoob tbody tr:not(:first-child) td,
+#fluig-sicoob tbody tr +tr td {
+	border-top: 2px solid #f8f8f8;
+}
+
+#fluig-sicoob tbody tr td:first-child {
+	border-left: 2px solid white;
+}
+
+#fluig-sicoob tbody tr td:last-child {
+	border-right: 2px solid white;
+}
+
+#fluig-sicoob tbody tr:hover td:first-child {
+	border-left: 2px solid #00ae9d;
+}
+
+#fluig-sicoob tbody tr:hover td:last-child {
+	border-right: 2px solid #00ae9d;
+}
+
+#fluig-sicoob i.fluigicon.fluigicon-verified.icon-sm {
+    background: #fff;
+    width: 18px;
+    height: 18px;
+    padding: 3.5px;
+    color: #00ae9d;
+    font-size: 12px;
+    border-radius: 5px;
+}
+
+#fluig-sicoob .default-table td {
+    border-right: 1px solid #f8f8f8;
+}
+
+#fluig-sicoob .btn.btn-second {
+    background: #fff;
+    font-weight: 800;
+    color: #00ae9d;
+    border: 2px solid #00ae9d;
+}
+
+/* Tabs */
+#fluig-sicoob .container.tabs {
+    background-color: #fff;
+}
+
+#fluig-sicoob #tabs.container {
+    padding: 0;
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+}
+
+#fluig-sicoob .tabs {
+    background: #003641;
+    padding: 10px 12% 0;
+}
+
+#fluig-sicoob .nav-tabs>li.active>a, #fluig-sicoob .nav-tabs>li.active>a:focus, #fluig-sicoob .nav-tabs>li.active>a:hover {
+    color: #003641;
+    border: 0;
+    font-weight: 700;
+    padding-bottom: 11px;
+    border-bottom: 1px solid #fff;
+    background-color: #fff;
+    box-shadow: rgba(0, 0, 0, 0.01) 0px 1px 10px;
+}
+
+#fluig-sicoob .nav-tabs>li a {
+    color: #fff;
+    font-weight: 700;
+    border-radius: 5px 5px 0 0;
+    border: 0;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 1px;
+    line-height: 15px;
+    height: 36px;
+    padding: 12px 30px 10px;
+    transition: 0.2s all ease-in-out;
+}
+
+
+#fluig-sicoob ul#tabs {
+    border-bottom: 0;
+}
+
+#fluig-sicoob  .nav>li>a:focus, #fluig-sicoob .nav>li>a:hover {
+    background-color: #00ae9d;
+}
+
+#modal-teste [deletar-teste] {
+    background: rgb(199, 26, 26);
+}
+
+#modal-teste [salvar-teste] {
+    background: rgb(20, 153, 31);
+    color: white;
+}
+

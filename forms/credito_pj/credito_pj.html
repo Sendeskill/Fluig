@@ -1,0 +1,1764 @@
+<html lang="pt-br">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" rel="stylesheet" href="/style-guide/css/fluig-style-guide.min.css"/>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+
+    <script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+    <script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
+    <script type="text/javascript" src="/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="jquery.maskMoney.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="jquery.mask.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="handlebars.min-latest.js" charset="utf-8"></script>
+    <script src="/style-guide/js/fluig-style-guide-richeditor.min.js"></script>
+    <script type="text/javascript" src="alx.js" charset="utf-8"></script>
+    <script type="text/javascript" src="script.js" charset="utf-8"></script>
+    
+</head>
+<body id="fluig-sicoob">
+<div class="fluig-style-guide bg">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12" id="header">
+                <img src="img/logo_sicoob.png" class="hidden-phone"/>
+                <div id="logo"></div>
+                <span class="center">Análise de Crédito PJ</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12" id="header2">
+            </div>
+        </div>
+    </div>
+
+	<form name="form" role="form">
+		<div class="container" id="inicio">
+			<div class="row">
+				<div class="form-group col-xs-12 col-md-6 col-md-offset-3">
+					<label for="nome">Buscar cliente</label>
+					<div class="input-group">
+					    <input type="text" name="buscaCliente" placeholder="Razão Social ou CNPJ" class="form-control">
+					    <span class="input-group-btn"><button class="btn btn-primary"><i class="fluigicon fluigicon-search icon-sm"></button></i></span>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-sm-12 col-md-6 col-md-offset-3">
+					<label>Situação</label>
+					<input type="text" name="limite" class="input-info">
+				</div>
+				<div class="col-sm-12 col-md-3 col-md-offset-3">
+					<label>Limite</label>
+					<input type="text" name="valor_limite" class="input-info">
+				</div>
+				<div class="col-sm-12 col-md-3">
+					<label>Data de Vencimento</label>
+					<input type="text" name="data_vencimento" class="input-info">
+				</div>
+			</div>
+
+			<input type="hidden" name="dados_cadastrais" value="N">
+		</div>
+
+		<div class="container" id="confirma_atualizacao">
+			<div class="row">
+				<div class="col-xs-12 col-md-4 col-md-offset-4 fs-xl-margin-top">
+					<div class="custom-checkbox custom-checkbox-success custom-checkbox-lg">
+					    <input type="checkbox" name="atualizado_sisbr" id="feitoSisbr">
+					    <label for="feitoSisbr">Atualização feita no SISBR</label>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="container" id="consultas">
+			<div class="serasa">
+				<div class="row">
+					<div class="col-xs-12">
+						<p class="p-title">Consulta Serasa</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-4">
+						<div class="form-group">
+							<label>Tem restrição?</label>
+							<div class="custom-radio custom-radio-success">
+							    <input type="radio" name="restricao" value="sim" id="Rsim">
+							    <label for="Rsim">Sim</label>
+							</div>
+							<div class="custom-radio custom-radio-success">
+							    <input type="radio" name="restricao" value="não" id="Rnao">
+							    <label for="Rnao">Não</label>
+							</div>
+						</div>
+					</div>
+					<div class="col-xs-12 col-md-4">
+						<button class="btn btn-primary" onclick="showCamera();">Anexar Consulta Serasa</button>
+					</div>
+					<div class="col-xs-12">
+						<div class="form-group">
+							<label for="justificativa">Justificativa</label>
+							<textarea name="justificativa" rows="5" class="form-control"></textarea>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+
+			<div class="bacen">
+				<div class="row">
+					<div class="col-xs-12">
+						<p class="p-title">Consulta Bacen</p>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-xs-12 col-md-3">
+						<label for="restricao_bacen">Restrição:</label>
+						<input type="text" name="restricao_bacen" value="Sim" class="input-info fs-no-border">							
+					</div>
+					<div class="col-xs-12">
+						<div class="form-group">
+							<label for="justificativa">Justificativa</label>
+							<textarea name="justif_restricao" rows="5" class="form-control"></textarea>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="form-group col-xs-12 col-md-6">
+						<label>Baixar relatório</label>
+						<select name="baixar_relatorio" class="form-control">
+							<option>Consulta SCR BACEN (MCM)</option>
+							<option>Síntese de uma Data Base</option>
+							<option>Fluxo de Vencimentos Consolidados</option>
+							<option>Modalidade x Data Base</option>
+							<option>Modalidade x Situação de Vencimento</option>
+							<option>Histórico das Data Base</option>	
+						</select>	
+					</div>	
+					<div class="col-xs-12 col-md-6 fs-lg-margin-top">	
+						<button class="btn btn-primary">	
+							<i class="fluigicon fluigicon-download icon-sm"></i> Fazer Download</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="container" id="relatorio">
+
+			<div class="row">
+				<div class="col-xs-6 col-md-3">
+					<label>Cooperativa</label>
+					<input type="text" name="coop" value="4340" class="input-info">
+				</div>
+				<div class="col-xs-6 col-md-4 col-md-offset-1">
+					<label>Nome</label>
+					<input type="text" name="nome" value="SICOOB"  class="input-info">
+				</div>
+				<div class="col-xs-6 col-md-2 col-md-offset-1">
+					<label>PAC</label>
+					<input type="text" name="pac" value="14" class="input-info">
+				</div>
+			</div>
+
+
+			<div class="row">
+				<div class="col-xs-12 fs-xl-margin-top">
+					<p class="p-title fs-txt-center">CALCRED - RELATÓRIO DE VISITA À EMPRESA</p>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-xs-12 col-md-4">
+					<div class="form-group">
+						<label>Empresa</label>
+						<input type="text" name="empresa" class="form-control">
+					</div>
+				</div>
+				<div class="col-xs-7 col-md-4">
+					<div class="form-group">
+						<label>Ramo de Atividade</label>
+						<input type="text" name="ramo" class="form-control">
+					</div>
+				</div>
+				<div class="col-xs-5 col-md-4">
+					<div class="form-group">
+						<label>Qtd. Empregados</label>
+						<input type="number" name="empregados" class="form-control">
+					</div>
+				</div>
+			</div>
+
+			<hr>
+
+			<div class="row">
+				<div class="col-xs-7 col-md-5">
+					<div class="form-group">
+						<label>Pessoa para contato</label>
+						<input type="text" name="contato" class="form-control">
+					</div>
+				</div>
+				<div class="col-xs-5 col-md-2">
+					<div class="form-group">
+						<label>Telefone</label>
+						<input type="text" name="tel_p" class="form-control">
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="form-group col-xs-7 col-md-5">
+					<label>Contador</label>
+					<input type="text" name="contador" class="form-control">
+				</div>
+				<div class="form-group col-xs-5 col-md-2">
+					<label>Telefone</label>
+					<input type="text" name="tel_c" class="form-control">
+				</div>
+				<div class="form-group col-xs-12">
+					<div class="custom-checkbox custom-checkbox-primary">
+					    <input name="contDireto" type="checkbox" id="cd">
+					    <label for="cd">Caso necessário esclarecimentos adicionais pode-se contata-lo diretamente</label>
+					</div>
+				</div>
+			</div>
+
+			<hr>
+
+			<div class="row checks">
+				<div class="col-md-12">
+					<div class="form-group">
+						<label>01. Regime de tributação</label>
+						<div class="custom-radio custom-radio-info">
+						    <input type="radio" name="regime" value="SimplesF" id="sf">
+						    <label for="sf">Simples Federal</label>
+						</div>
+						<div class="custom-radio custom-radio-info">
+						    <input type="radio" name="regime" value="LucroP" id="lp">
+						    <label for="lp">Lucro Presumido</label>
+						</div>
+						<div class="custom-radio custom-radio-info">
+						    <input type="radio" name="regime" value="LucroR" id="lr">
+						    <label for="lr">Lucro Real</label>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-12">
+					<div class="form-group">
+						<label>02. Nível tecnológico da empresa</label>
+						<div class="custom-radio custom-radio-info">
+						    <input type="radio" name="nivel_tec" value="avancado" id="avanc">
+						    <label for="avanc">Avançado</label>
+						</div>
+						<div class="custom-radio custom-radio-info">
+						    <input type="radio" name="nivel_tec" value="atualizado" id="atualzd">
+						    <label for="atualzd">Atualizado</label>
+						</div>
+						<div class="custom-radio custom-radio-info">
+						    <input type="radio" name="nivel_tec" value="Desatualizado" id="desatualzd">
+						    <label for="desatualzd">Desatualizado</label>
+						</div>
+						<div class="custom-radio custom-radio-info">
+						    <input type="radio" name="nivel_tec" value="obsoleto" id="obsol">
+						    <label for="obsol">Obsoleto</label>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-12">
+					<div class="form-group">
+						<label>03. Sede da empresa</label>
+						<div class="custom-radio custom-radio-info">
+						    <input type="radio" name="sede" value="ImovelEmp" id="imovelEmp">
+						    <label for="ImovelEmp">Imóvel da Empresa</label>
+						</div>
+						<div class="custom-radio custom-radio-info">
+						    <input type="radio" name="sede" value="ImovelSoc" id="imovelSoc">
+						    <label for="imovelSoc">Imóvel dos Sócios</label>
+						</div>
+						<div class="custom-radio custom-radio-info">
+						    <input type="radio" name="sede" value="imovelAlug" id="imovelAl">
+						    <label for="imovelAl">Imóvel Alugado</label>
+						</div>
+						<div class="custom-radio custom-radio-info">
+						    <input type="radio" name="sede" value="residencia" id="residencia">
+						    <label for="residencia">Residência dos Sócios</label>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-12">
+					<div class="form-group">
+						<label>04. Controles gerenciais existentes</label>
+						<div class="custom-checkbox custom-checkbox-info">
+						    <input type="checkbox" name="fluxoCaixa" id="fCaixa">
+						    <label for="fCaixa">Fluxo de caixa</label>
+						</div>
+						<div class="custom-checkbox custom-checkbox-info">
+						    <input type="checkbox" name="controleEst" id="cEstoq">
+						    <label for="cEstoq">Controle de estoque</label>
+						</div>
+						<div class="custom-checkbox custom-checkbox-info">
+						    <input type="checkbox" name="contasPagar" id="contasPagar">
+						    <label for="contasPagar">Contas a pagar/ receber</label>
+						</div>
+						<div class="custom-checkbox custom-checkbox-info">
+						    <input type="checkbox" name="planilhaCustos" id="planilha">
+						    <label for="planilha">Planilha de Custos</label>
+						</div>
+						<div class="custom-checkbox custom-checkbox-info">
+						    <input type="checkbox" name="balanco" id="balanco">
+						    <label for="balanco">Balanço/Balancete DRE</label>
+						</div>
+						<div class="custom-checkbox custom-checkbox-info">
+						    <input type="checkbox" name="semControle" id="nControle">
+						    <label for="nControle">Não tem controle formal</label>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-12">
+					<div class="form-group">
+						<label>05. Concentração de compras nos 05 (cinco) principais fornecedores</label>
+						<div class="custom-radio custom-radio-info">
+						    <input type="radio" name="concComprasF" value="20%" id="20p">
+						    <label for="20p">Até 20%</label>
+						</div>
+						<div class="custom-radio custom-radio-info">
+						    <input type="radio" name="concCompras" value="20,01-50%" id="50p">
+						    <label for="50p">De 20,01% a 50%</label>
+						</div>
+						<div class="custom-radio custom-radio-info">
+						    <input type="radio" name="concCompras" value="50,01%-80%" id="80p">
+						    <label for="80p">De 50,01% a 80%</label>
+						</div>
+						<div class="custom-radio custom-radio-info">
+						    <input type="radio" name="concCompras" value=">80%" id="80mais">
+						    <label for="80mais">Maior que 80%</label>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-12">
+					<div class="form-group">
+						<label>06. Concentração de compras nos 05 (cinco) principais clientes</label>
+						<div class="custom-radio custom-radio-info">
+						    <input type="radio" name="concComprasC" value="20%" id="20pC">
+						    <label for="20pC">Até 20%</label>
+						</div>
+						<div class="custom-radio custom-radio-info">
+						    <input type="radio" name="concComprasC" value="20,01-50%" id="50pC">
+						    <label for="50pC">De 20,01% a 50%</label>
+						</div>
+						<div class="custom-radio custom-radio-info">
+						    <input type="radio" name="concComprasC" value="50,01%-80%" id="80pC">
+						    <label for="80pC">De 50,01% a 80%</label>
+						</div>
+						<div class="custom-radio custom-radio-info">
+						    <input type="radio" name="concComprasC" value=">80%" id="80maisC">
+						    <label for="80maisC">Maior que 80%</label>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-12">
+					<div class="form-group">
+						<label>07. Principais clientes (somente o que participa com maior percentual)</label>
+						<div class="custom-radio custom-radio-info">
+						    <input type="radio" name="prClientes" value="Pessoas Físicas" id="pFisicas">
+						    <label for="pFisicas">Pessoas Físicas</label>
+						</div>
+						<div class="custom-radio custom-radio-info">
+						    <input type="radio" name="prClientes" value="Micro, peq., media" id="mpm">
+						    <label for="mpm">Micro, pequena ou média empresa</label>
+						</div>
+						<div class="custom-radio custom-radio-info">
+						    <input type="radio" name="prClientes" value="Grande Empresa" id="gEmp">
+						    <label for="gEmp">Grande Empresa</label>
+						</div>
+						<div class="custom-radio custom-radio-info">
+						    <input type="radio" name="prClientes" value="Outros" id="out">
+						    <label for="out">Outros</label>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-12">
+					<div class="form-group">
+						<label>08. O(s) principal(is) dirigente(s) da empresa é (são)</label>
+						<div class="custom-radio custom-radio-info">
+						    <input type="radio" name="dirigentes" value="Um sócio" id="umSoc">
+						    <label for="umSoc">Apenas um sócio</label>
+						</div>
+						<div class="custom-radio custom-radio-info">
+						    <input type="radio" name="dirigentes" value="Mais de um sócio" id="maisSoc">
+						    <label for="maisSoc">Mais de um sócio</label>
+						</div>
+						<div class="custom-radio custom-radio-info">
+						    <input type="radio" name="dirigentes" value="Executivo" id="Exec">
+						    <label for="Exec">Executivo, não sócio</label>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-12">
+					<div class="form-group">
+						<label>09. Mercado de atuação</label>
+						<div class="custom-radio custom-radio-info">
+						    <input type="radio" name="mercado" value="100%" id="100p">
+						    <label for="100p">100% interno</label>
+						</div>
+						<div class="custom-radio custom-radio-info">
+						    <input type="radio" name="mercado" value="80%" id="80p">
+						    <label for="80p">80% interno</label>
+						</div>
+						<div class="custom-radio custom-radio-info">
+						    <input type="radio" name="mercado" value="50%" id="50p">
+						    <label for="50p">50% interno</label>
+						</div>
+						<div class="custom-radio custom-radio-info">
+						    <input type="radio" name="mercado" value="menos que 50%" id="m50p">
+						    <label for="m50p">Menos que 50% interno</label>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-12">
+					<div class="form-group">
+						<label>10. Prazo de pagamento aos fornecedores</label>
+						<div class="custom-radio custom-radio-info">
+						    <input type="radio" name="prazoPag" value="60+" id="60d">
+						    <label for="60d">Maior que 60 dias</label>
+						</div>
+						<div class="custom-radio custom-radio-info">
+						    <input type="radio" name="prazoPag" value="41a60" id="41a60">
+						    <label for="41a60">De 41 a 60 dias</label>
+						</div>
+						<div class="custom-radio custom-radio-info">
+						    <input type="radio" name="prazoPag" value="31a40" id="31a40">
+						    <label for="31a40">De 31 a 40 dias</label>
+						</div>
+						<div class="custom-radio custom-radio-info">
+						    <input type="radio" name="prazoPag" value="16a30" id="16a30">
+						    <label for="16a30">De 16 a 30 dias</label>
+						</div>
+						<div class="custom-radio custom-radio-info">
+						    <input type="radio" name="prazoPag" value="16a30" id="16a30">
+						    <label for="16a30">De 8 a 15 dias</label>
+						</div>
+						<div class="custom-radio custom-radio-info">
+						    <input type="radio" name="prazoPag" value="16a30" id="16a30">
+						    <label for="16a30">À vista (até 7 dias)</label>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-12">
+					<div class="form-group">
+						<label>11. Produto/mercadoria/serviço depende de importação</label>
+						<div class="custom-checkbox custom-checkbox-info">
+						    <input type="checkbox" name="importacao" id="import">
+						    <label for="import">Sim</label>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-12">
+					<div class="form-group">
+						<label>12. Atividade sujeita a sazonalidade</label>
+						<div class="custom-checkbox custom-checkbox-info">
+						    <input type="checkbox" name="sazonalidade" id="sazonal">
+						    <label for="sazonal">Sim</label>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-12">
+					<div class="form-group">
+						<label>13. Administração atual</label>
+						<div class="custom-radio custom-radio-info">
+						    <input type="radio" name="administracao" value="Profissional" id="profi">
+						    <label for="profi">Profissional</label>
+						</div>
+						<div class="custom-radio custom-radio-info">
+						    <input type="radio" name="administracao" value="Misto" id="misto">
+						    <label for="misto">Misto</label>
+						</div>
+						<div class="custom-radio custom-radio-info">
+						    <input type="radio" name="administracao" value="Familiar" id="fam">
+						    <label for="fam">Familiar</label>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-12">
+					<div class="form-group">
+						<label>14. Tempo de experiência dos sócios na atividade</label>
+						<div class="custom-radio custom-radio-info">
+						    <input type="radio" name="expSocios" value="Mais de 4" id="4m">
+						    <label for="4m">Mais de 4 anos</label>
+						</div>
+						<div class="custom-radio custom-radio-info">
+						    <input type="radio" name="expSocios" value="2 a 4" id="2e4">
+						    <label for="2e4">Entre 2 e 4 anos</label>
+						</div>
+						<div class="custom-radio custom-radio-info">
+						    <input type="radio" name="expSocios" value="1 a 2" id="1e2">
+						    <label for="1e2">Entre 1 e 2 anos</label>
+						</div>
+						<div class="custom-radio custom-radio-info">
+						    <input type="radio" name="expSocios" value="Menos de 1" id="m1">
+						    <label for="m1">Menos de 1 ano</label>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<table tablename="tabelaProds" noaddbutton="true" nodeletebutton="true">
+					<thead><tr><th></th></tr></thead>
+					<tbody>
+						<tr>
+							<td>
+								<div>
+									<div class="form-group col-md-7">
+										<label>Descrição</label>
+										<input type="text" name="produto" class="form-control">	
+									</div>
+									<div class="form-group col-md-2">
+										<label>Faturamento</label>
+										<input type="text" name="particip_fat" class="form-control">
+									</div>
+								</div>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+
+				<div class="col-md-12">
+					<div class="form-group">
+						<label>15. Principais produtos/mercadorias/serviços</label>
+
+						<div alx-container-rows="tabelaProds"></div>
+					</div>
+					<button class="btn btn-add fs-sm-margin-top" onclick="alxProds.add();"><i class="fluigicon fluigicon-plus-circle icon-sm"></i></button>
+				</div>
+
+			</div>
+
+			<div class="row">
+				<table tablename="tabelaPClientes" noaddbutton="true" nodeletebutton="true">
+					<thead><tr><th></th></tr></thead>
+					<tbody>
+						<tr>
+							<td>
+								<div>
+									<div class="col-md-4">
+										<div class="form-group">
+											<label>Nome</label>
+											<input type="text" name="cliente" class="form-control">
+										</div>
+									</div>
+									<div class="col-md-3">
+										<div class="form-group">
+											<label>CPF/CNPJ</label>
+											<input type="text" name="CNPJcliente" class="form-control">
+										</div>
+									</div>
+									<div class="col-md-2">
+										<div class="form-group">
+											<label>% Vendas</label>
+											<input type="text" name="vendas" class="form-control">
+										</div>
+									</div>
+								</div>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+
+				<div class="col-md-12">
+					<div class="form-group">
+						<label>16. Principais Clientes</label>
+
+						<div alx-container-rows="tabelaPClientes"></div>
+					</div>
+					<button class="btn btn-add fs-sm-margin-top" onclick="alxClientes.add();"><i class="fluigicon fluigicon-plus-circle icon-sm"></i></button>
+				</div>
+			</div>
+
+			<div class="row">
+				<table tablename="tabelaPForns" noaddbutton="true" nodeletebutton="true">
+					<thead><tr><th></th></tr></thead>
+					<tbody>
+						<tr>
+							<td>
+								<div>
+									<div class="col-md-4">
+										<div class="form-group">
+											<label>Nome</label>
+											<input type="text" name="Fornecedor" class="form-control">	
+										</div>
+									</div>
+									<div class="col-md-3">
+										<div class="form-group">
+											<label>CPF/CNPJ</label>
+											<input type="text" name="CNPJForn" class="form-control">
+										</div>
+									</div>
+									<div class="col-md-2">
+										<div class="form-group">
+											<label>% Compras</label>
+											<input type="text" name="percCompras" class="form-control">
+										</div>
+									</div>
+								</div>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+
+				<div class="col-md-12">
+					<div class="form-group">
+						<label>17. Principais Fornecedores</label>
+
+						<div alx-container-rows="tabelaPForns"></div>
+					</div>
+					<button class="btn btn-add fs-sm-margin-top" onclick="alxForns.add();"><i class="fluigicon fluigicon-plus-circle icon-sm"></i></button>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-12">
+					<div class="form-group">
+						<label for="recip_negociada">18.1 Reciprocidade Negociada</label>
+						<textarea name="recip_negociada" rows="5" class="form-control"></textarea>
+					</div>
+				</div>
+				<div class="col-md-12">
+					<div class="form-group">
+						<label for="recip_negociada">18.2 Oportunidades de Negócios</label>
+						<textarea name="oport_negocios" rows="5" class="form-control"></textarea>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-xs-12">
+					<p class="p-title">19. Faturamento dos ultimos 12 meses</p>
+				</div>
+			</div>
+
+			<div class="tabela" id="faturamento">
+				<div class="row cabecalho">
+					<div class="col-xs-3">
+						<span>Mês</span>
+					</div>
+					<div class="col-xs-3">
+						<span>à vista</span>
+					</div>
+					<div class="col-xs-3">
+						<span>à prazo</span>
+					</div>
+					<div class="col-xs-3">
+						<span>Total</span>
+					</div>
+				</div>
+
+				<div class="row corpo">
+					<div class="col-xs-3">
+						<input type="text" name="mes1" class="fs-no-border mes">
+					</div>
+					<div class="col-xs-3">
+						<input type="number" name="v1" class="fs-no-border fs-no-spin aVista">
+					</div>
+					<div class="col-xs-3">
+						<input type="number" name="p1" class="fs-no-border fs-no-spin aPrazo">
+					</div>
+					<div class="col-xs-3 total-linha">
+						<span></span>
+					</div>
+				</div>
+
+				<div class="row corpo">
+					<div class="col-xs-3">
+						<input type="text" name="mes2" class="fs-no-border  mes">
+					</div>
+					<div class="col-xs-3">
+						<input type="number" name="v2" class="fs-no-border fs-no-spin aVista">
+					</div>
+					<div class="col-xs-3">
+						<input type="number" name="p2" class="fs-no-border fs-no-spin aPrazo">
+					</div>
+					<div class="col-xs-3 total-linha">
+						<span></span>
+					</div>
+				</div>
+
+				<div class="row corpo">
+					<div class="col-xs-3 ">
+						<input type="text" name="mes3" class="fs-no-border mes">
+					</div>
+					<div class="col-xs-3">
+						<input type="number" name="v3" class="fs-no-border fs-no-spin aVista">
+					</div>
+					<div class="col-xs-3">
+						<input type="number" name="p3" class="fs-no-border fs-no-spin aPrazo">
+					</div>
+					<div class="col-xs-3 total-linha">
+						<span></span>
+					</div>
+				</div>
+
+				<div class="row corpo">
+					<div class="col-xs-3">
+						<input type="text" name="mes4" class="fs-no-border  mes">
+					</div>
+					<div class="col-xs-3">
+						<input type="number" name="v4" class="fs-no-border fs-no-spin aVista">
+					</div>
+					<div class="col-xs-3">
+						<input type="number" name="p4" class="fs-no-border fs-no-spin aPrazo">
+					</div>
+					<div class="col-xs-3 total-linha">
+						<span></span>
+					</div>
+				</div>
+
+				<div class="row corpo">
+					<div class="col-xs-3 ">
+						<input type="text" name="mes5" class="fs-no-border mes">
+					</div>
+					<div class="col-xs-3">
+						<input type="number" name="v5" class="fs-no-border fs-no-spin aVista">
+					</div>
+					<div class="col-xs-3">
+						<input type="number" name="p5" class="fs-no-border fs-no-spin aPrazo">
+					</div>
+					<div class="col-xs-3 total-linha">
+						<span></span>
+					</div>
+				</div>
+
+				<div class="row corpo">
+					<div class="col-xs-3">
+						<input type="text" name="mes6" class="fs-no-border mes">
+					</div>
+					<div class="col-xs-3">
+						<input type="number" name="v6" class="fs-no-border fs-no-spin aVista">
+					</div>
+					<div class="col-xs-3">
+						<input type="number" name="p6" class="fs-no-border fs-no-spin aPrazo">
+					</div>
+					<div class="col-xs-3 total-linha">
+						<span></span>
+					</div>
+				</div>
+
+				<div class="row corpo">
+					<div class="col-xs-3 ">
+						<input type="text" name="mes7" class="fs-no-border mes">
+					</div>
+					<div class="col-xs-3">
+						<input type="number" name="v7" class="fs-no-border fs-no-spin aVista">
+					</div>
+					<div class="col-xs-3">
+						<input type="number" name="p7" class="fs-no-border fs-no-spin aPrazo">
+					</div>
+					<div class="col-xs-3 total-linha">
+						<span></span>
+					</div>
+				</div>
+
+				<div class="row corpo">
+					<div class="col-xs-3 ">
+						<input type="text" name="mes8" class="fs-no-border mes">
+					</div>
+					<div class="col-xs-3">
+						<input type="number" name="v8" class="fs-no-border fs-no-spin aVista">
+					</div>
+					<div class="col-xs-3">
+						<input type="number" name="p8" class="fs-no-border fs-no-spin aPrazo">
+					</div>
+					<div class="col-xs-3 total-linha">
+						<span></span>
+					</div>
+				</div>
+
+				<div class="row corpo">
+					<div class="col-xs-3 ">
+						<input type="text" name="mes9" class="fs-no-border mes">
+					</div>
+					<div class="col-xs-3">
+						<input type="number" name="v9" class="fs-no-border fs-no-spin aVista">
+					</div>
+					<div class="col-xs-3">
+						<input type="number" name="p9" class="fs-no-border fs-no-spin aPrazo">
+					</div>
+					<div class="col-xs-3 total-linha">
+						<span></span>
+					</div>
+				</div>
+
+				<div class="row corpo">
+					<div class="col-xs-3">
+						<input type="text" name="mes10" class="fs-no-border  mes">
+					</div>
+					<div class="col-xs-3">
+						<input type="number" name="v10" class="fs-no-border fs-no-spin aVista">
+					</div>
+					<div class="col-xs-3">
+						<input type="number" name="p10" class="fs-no-border fs-no-spin aPrazo">
+					</div>
+					<div class="col-xs-3 total-linha">
+						<span></span>
+					</div>
+				</div>
+
+				<div class="row corpo">
+					<div class="col-xs-3 ">
+						<input type="text" name="mes11" class="fs-no-border mes">
+					</div>
+					<div class="col-xs-3">
+						<input type="number" name="v11" class="fs-no-border fs-no-spin aVista">
+					</div>
+					<div class="col-xs-3">
+						<input type="number" name="p11" class="fs-no-border fs-no-spin aPrazo">
+					</div>
+					<div class="col-xs-3 total-linha">
+						<span></span>
+					</div>
+				</div>
+
+				<div class="row corpo">
+					<div class="col-xs-3">
+						<input type="text" name="mes12" class="fs-no-border  mes">
+					</div>
+					<div class="col-xs-3">
+						<input type="number" name="v12" class="fs-no-border fs-no-spin aVista">
+					</div>
+					<div class="col-xs-3">
+						<input type="number" name="p12" class="fs-no-border fs-no-spin aPrazo">
+					</div>
+					<div class="col-xs-3 total-linha">
+						<span></span>
+					</div>
+				</div>
+
+				<div class="row total">
+					<div class="col-xs-3">
+						<span>Total</span>
+					</div>
+					<div class="col-xs-3">
+						<span class="total_vista"></span>
+					</div>
+					<div class="col-xs-3">
+						<span class="total_prazo"></span>
+					</div>
+					<div class="col-xs-3 total-linha">
+						<span class="total_geral"></span>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-4">
+					<div class="form-group">
+						<label>20. Prazo médio dos recebiveis</label>
+						<input type="number" name="prazo" class="form-control">
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="form-group">
+						<label>21. Compras dos últimos 12 meses</label>
+						<input type="text" name="compras" class="form-control">
+					</div>
+				</div>
+			</div>
+
+			<!-- ****************** PORTFOLIO ****************** -->
+
+			<div class="row">
+				<div class="col-xs-12">
+					<P class="p-title">Financiamentos</P>
+				</div>
+				<div class="col-xs-6">
+					 <div class="form-group">
+					 	<label>Aquisição de bens - Veículos automotores</label>
+					 	<input type="text" name="aq_bens" class="form-control money">
+					 </div>
+				</div>
+				<div class="col-xs-6">
+					 <div class="form-group">
+					 	<label>Outros finaciamentos</label>
+					 	<input type="text" name="otrs" class="form-control money">
+					 </div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-xs-12">
+					<P class="p-title">Limites</P>
+				</div>
+				<div class="col-xs-6">
+					<div class="form-group">
+					 	<label>Capital de giro rotativo</label>
+					 	<input type="text" name="capital_giro" class="form-control money">
+					</div>
+				</div>
+				<div class="col-xs-6">
+					<div class="form-group">
+					 	<label>Cartão de crédito</label>
+					 	<input type="text" name="cartao_credito" class="form-control money">
+					</div>
+				</div>
+				<div class="col-xs-12">
+					<div class="form-group">
+						<label>Conta garantida</label>
+						<input type="text" name="conta_garantida" class="form-control money">
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-xs-12">
+					<P class="p-title">Parcelado comercial</P>
+				</div>
+				<div class="col-xs-6">
+					<div class="form-group">
+					 	<label for="capital_giro365">Capital de giro com prazo de vencimento até 365 dias</label>
+					 	<input type="text" name="capital_giro365" class="form-control money">
+					</div>
+				</div>
+				<div class="col-xs-6">
+					<div class="form-group">
+					 	<label for="capital_giro365mais">Cartão de giro com prazo de vencimento igual ou superior a 365 dias</label>
+					 	<input type="text" name="capital_giro365mais" class="form-control money">
+					</div>
+				</div>
+				<div class="col-xs-12">
+					<div class="form-group">
+						<label for="emprestimos">Empréstimos</label>
+						<input type="text" name="emprestimos" class="form-control money">
+					</div>
+				</div>
+				<div class="col-xs-12">
+					<div class="form-group">
+						<label for="credito_preap">Crédito pré-aprovado</label>
+						<input type="text" name="credito_preap" class="form-control money">
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-xs-12">
+					<P class="p-title">Rural</P>
+				</div>
+				<div class="col-xs-6">
+					<div class="form-group">
+					 	<label for="comercializacao">Comercialização e pré-comercialização</label>
+					 	<input type="text" name="comercializacao" class="form-control money">
+					</div>
+				</div>
+				<div class="col-xs-6">
+					<div class="form-group">
+					 	<label for="custeio">Custeio e pré-custeio</label>
+					 	<input type="text" name="custeio" class="form-control money">
+					</div>
+				</div>
+				<div class="col-xs-12">
+					<div class="form-group">
+						<label for="investimento_agrop">Investimento agropecuário</label>
+						<input type="text" name="investimento_agrop" class="form-control money">
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-xs-12">
+					<P class="p-title">Recebíveis</P>
+				</div>
+				<div class="col-xs-6">
+					<div class="form-group">
+					 	<label for="comercializacao">Antecipação da fatura de cartão de crédito</label>
+					 	<input type="text" name="antecip_cartao" class="form-control money">
+					</div>
+				</div>
+				<div class="col-xs-6">
+					<div class="form-group">
+					 	<label for="custeio">Títulos descontados</label>
+					 	<input type="text" name="titulos_descontados" class="form-control money">
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-xs-12">
+					<label>Total do Portfólio</label>
+					<input type="text" name="total_portfolio" class="form-control money">
+				</div>
+			</div>
+
+			<!-- gravar gps ao enviar relátorio -->
+		</div>
+
+		<div class="container" id="parecer_gerente">
+			<div class="row fs-lg-margin-top">
+				<div class="form-group col-xs-12">
+					<label>Valor total do portfólio:</label>
+					<span id="total_port"></span>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-12 col-md-6 col-lg-4">
+					<div class="form-group">
+						<div class="custom-checkbox custom-checkbox-info">
+						    <input type="checkbox" name="pertenceGE" id="pertenceGE">
+						    <label for="pertenceGE">Pertence à um grupo econômico</label>
+						</div>
+					</div>
+				</div>
+				<div class="form-group col-xs-12 col-md-6">
+					<div class="custom-checkbox custom-checkbox-info">
+						    <input type="checkbox" name="ligadoC" id="ligadoC">
+						    <label for="ligadoC">Ligado a conselheiro/dirigente</label>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-xs-12">
+					<div class="form-group">
+						<label for="parecer">Parecer</label>
+						<textarea name="parecer" id="gerente" rows="5"></textarea>
+					</div>
+				</div>
+			</div>
+
+			<div class="row maior-500">
+				<div class="col-xs-12">
+					<p class="p-title">3 Ultimos demonstrativos contábeis (Ativo/Passivo/DRE)</p>
+					<button class="btn btn-primary"><i class="fluigicon fluigicon-file-pdf icon-sm"></i>Anexar</button>
+				</div>
+				<div class="col-xs-12 form-group">
+					<label>Descrição do(s) arquivo(s)</label>
+					<textarea name="ultmos_demonstrativos" class="form-control" rows="2"></textarea>
+				</div>
+			</div>
+			<div class="row maior-500">
+				<div class="col-xs-12">
+					<p class="p-title">Balancete</p>
+					<button class="btn btn-primary"><i class="fluigicon fluigicon-file-pdf icon-sm"></i>Anexar</button>
+				</div>
+				<div class="col-xs-12 form-group">
+					<label>Descrição do(s) arquivo(s)</label>
+					<textarea name="balancetes" class="form-control" rows="2"></textarea>
+				</div>
+			</div>
+			<div class="row maior-500">
+				<div class="col-xs-12">
+					<p class="p-title">Outros</p>
+					<button class="btn btn-primary"><i class="fluigicon fluigicon-file-pdf icon-sm"></i>Anexar</button>
+				</div>
+				<div class="col-xs-12 form-group">
+					<label>Descrição do(s) arquivo(s)</label>
+					<textarea name="desc_outros" class="form-control" rows="2"></textarea>
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-xs-12">
+					<div class="custom-checkbox custom-checkbox-success">
+					    <input name="prioridade" type="checkbox" id="prior">
+					    <label for="prior">Prioridade</label>
+					</div>
+				</div>
+				<div class="col-xs-12 fs-xs-margin-top" id="prioridade">
+					<div class="custom-radio custom-radio-info fs-display-inline-block">
+					    <input type="radio" name="nPrioridade" value="Baixa" id="pBaixa">
+					    <label for="pBaixa">Baixa</label>
+					</div>
+					<div class="custom-radio custom-radio-info fs-display-inline-block">
+					    <input type="radio" name="nPrioridade" value="Média" id="pMedia">
+					    <label for="pMedia">Média</label>
+					</div>
+					<div class="custom-radio custom-radio-info fs-display-inline-block">
+					    <input type="radio" name="nPrioridade" value="Alta" id="pAlta">
+					    <label for="pAlta">Alta</label>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+				<div class="form-group col-xs-12">
+					<label>Relatório completo?</label>
+					<div class="custom-radio custom-radio-primary">
+					    <input type="radio" name="relatorio" value="primary" id="relsim">
+					    <label for="relsim">Sim</label>
+					</div>
+					<div class="custom-radio custom-radio-success">
+					    <input type="radio" name="relatorio" value="Não" id="relnao">
+					    <label for="relnao">Não</label>
+					</div>
+				</div>
+
+				<div class="col-xs-12">
+					<div class="custom-radio custom-radio-primary">
+					    <input type="radio" name="dossie" value="Alçada" id="A">
+					    <label for="A">Alçada</label>
+					</div>
+					<div class="custom-radio custom-radio-success">
+					    <input type="radio" name="dossie" value="Simplificado" id="S">
+					    <label for="S">Simplificado</label>
+					</div>
+					<div class="custom-radio custom-radio-info">
+					    <input type="radio" name="dossie" value="Completo" id="C">
+					    <label for="C">Completo</label>
+					</div>
+				</div>
+		</div>
+
+		<div class="container" id="triagem">
+			<div class="row">
+				<div class="col-xs-12">
+					<p class="p-title">Análise Simplificada</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="form-group col-xs-6 col-md-4">
+					<label>Cooperativa</label>
+					<input type="text" name="coop_triagem" class="input-info">
+				</div>
+				<div class="form-group col-xs-6 col-md-4">
+					<label>PA</label>
+					<input type="text" name="PA" class="input-info">
+				</div>
+				<div class="form-group col-xs-6 col-md-4">
+					<label>Data da Chegada</label>
+					<input type="text" name="data_chegada" class="input-info">
+				</div>
+				<div class="form-gorup col-xs-6 col-md-4">
+					<label>Proponente</label>
+					<input type="text" name="proponente" class="form-control">
+				</div>
+				<div class="form-group col-xs-6 col-md-4">
+					<label>CNPJ</label>
+					<input type="text" name="cnpj" class="form-control">
+				</div>
+				<div class="form-group col-xs-6 col-md-4">
+					<label>Pleito Solicitado</label>
+					<input type="text" name="pleito" class="form-control">
+				</div>
+			</div>
+
+			<div class="tabela">
+				<div class="row cabecalho">
+					<div class="col-md-10">
+						<span>Item</span>
+					</div>
+					<div class="col-md-2">
+						<span>Status</span>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-10">
+						<label>Novo dossiê com análise recente (reanálise).</label>
+					</div>
+					<div class="col-md-2 select">
+						<select name="novo_dossie" class="form-control">
+							<option>Divergente</option>
+							<option>OK</option>
+							<option>Não aplicável</option>
+							<option>Pendente</option>
+							<option>Não Disponivel</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-10">
+						<label>Dossiê Matriz + filiais</label>
+					</div>
+					<div class="col-md-2 select">
+						<select name="dossie_matriz" class="form-control">
+							<option>Divergente</option>
+							<option>OK</option>
+							<option>Não aplicável</option>
+							<option>Pendente</option>
+							<option>Não Disponivel</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-10">
+						<label>Relatório de Visita - Documento anexado e/ou impostado no sistema Calcred (4355).</label>
+					</div>
+					<div class="col-md-2 select">
+						<select name="relatorio_visita" class="form-control">
+							<option>Divergente</option>
+							<option>OK</option>
+							<option>Não aplicável</option>
+							<option>Pendente</option>
+							<option>Não Disponivel</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-10">
+						<label>Relação de faturamento dos últimos 12 meses, com assinatura do representante legal da empresa, validada pelo contador ou gerente responsável pela empresa na singular.</label>
+					</div>
+					<div class="col-md-2 select fs-md-margin-top">
+						<select name="rel_faturamento" class="form-control">
+							<option>Divergente</option>
+							<option>OK</option>
+							<option>Não aplicável</option>
+							<option>Pendente</option>
+							<option>Não Disponivel</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-10">
+						<label>Consulta Serasa (proponente - Vigência 30 dias).</label>
+					</div>
+					<div class="col-md-2 select">
+						<select name="consulta_serasa" class="form-control">
+							<option>Divergente</option>
+							<option>OK</option>
+							<option>Não aplicável</option>
+							<option>Pendente</option>
+							<option>Não Disponivel</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-10">
+						<label>Consulta SFN (Bacen) - Dívida vencida, ADP, prejuízo.</label>
+					</div>
+					<div class="col-md-2 select">
+						<select name="consulta_SFN" class="form-control">
+							<option>Divergente</option>
+							<option>OK</option>
+							<option>Não aplicável</option>
+							<option>Pendente</option>
+							<option>Não Disponivel</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-10">
+						<label><b>Grupo Econômico</b> (Serasa, Sisbr e o informado no parecer gerencial).</label>
+					</div>
+					<div class="col-md-2 select">
+						<select name="gp_economico" class="form-control">
+							<option>Divergente</option>
+							<option>OK</option>
+							<option>Não aplicável</option>
+							<option>Pendente</option>
+							<option>Não Disponivel</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-10">
+						<label>Consultas CND - Certidão Negativa de Débito (PGFN/Previdência, FGTS e Estadual).</label>
+					</div>
+					<div class="col-md-2 select">
+						<select name="consultas_cdn" class="form-control">
+							<option>Divergente</option>
+							<option>OK</option>
+							<option>Não aplicável</option>
+							<option>Pendente</option>
+							<option>Não Disponivel</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-10">
+						<label>Última Renovação Cadastral no sistema SISBR <b>(4368/4485).</b></label>
+					</div>
+					<div class="col-md-2 select">
+						<select name="ultima_renovacao" class="form-control">
+							<option>Divergente</option>
+							<option>OK</option>
+							<option>Não aplicável</option>
+							<option>Pendente</option>
+							<option>Não Disponivel</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-10">
+						<label>Documentos para a classificação do tomador no CRL (Cálculo de Riscos e Limites) <b>- 4368/4485/4355</b>. </label>
+					</div>
+					<div class="col-md-2 select">
+						<select name="docs_CRL" class="form-control">
+							<option>Divergente</option>
+							<option>OK</option>
+							<option>Não aplicável</option>
+							<option>Pendente</option>
+							<option>Não Disponivel</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-10">
+						<label>Pessoa Jurídica <b>Recém constituída -</b> Questionário devidamente preenchido e assinado pelo gerente.</label>
+					</div>
+					<div class="col-md-2 select">
+						<select name="questionario_pjRC" class="form-control">
+							<option>Divergente</option>
+							<option>OK</option>
+							<option>Não aplicável</option>
+							<option>Pendente</option>
+							<option>Não Disponivel</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-10">
+						<label>Pessoa Jurídica <b>Microempresa e MEI -</b> Questionário devidamente preenchido e assinado pelo gerente.</label>
+					</div>
+					<div class="col-md-2 select">
+						<select name="questionario_pjMEI" class="form-control">
+							<option>Divergente</option>
+							<option>OK</option>
+							<option>Não aplicável</option>
+							<option>Pendente</option>
+							<option>Não Disponivel</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-10">
+						<label>Pessoa Jurídica <b>Faturamento Menor -</b> Questionário e Balanço Perguntado devidamente preenchido e assinado pelo gerente.</label>
+					</div>
+					<div class="col-md-2 select">
+						<select name="questionario_pjFMenor" class="form-control">
+							<option>Divergente</option>
+							<option>OK</option>
+							<option>Não aplicável</option>
+							<option>Pendente</option>
+							<option>Não Disponivel</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-10">
+						<label>Pessoa Jurídica <b>Rural Faturamento Menor -</b> Questionário e Balanço Perguntado devidamente preenchido e assinado pelo gerente.</label>
+					</div>
+					<div class="col-md-2 select">
+						<select name="questionario_pjRural" class="form-control">
+							<option>Divergente</option>
+							<option>OK</option>
+							<option>Não aplicável</option>
+							<option>Pendente</option>
+							<option>Não Disponivel</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-10">
+						<label>Pessoa Jurídica <b>Faturamento Maior -</b> Demostrativo Contábil - no mínimo 01 exercício - devidamente assinado</label>
+					</div>
+					<div class="col-md-2 select">
+						<select name="demonstrativo_pj" class="form-control">
+							<option>Divergente</option>
+							<option>OK</option>
+							<option>Não aplicável</option>
+							<option>Pendente</option>
+							<option>Não Disponivel</option>
+						</select>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="container" id="box-gpe">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="panel-group collapse-green" id="accordion-variant-colors">
+					    <div class="panel panel-default">
+					        <div class="panel-heading">
+					            <h4 class="panel-title">
+					                <a class="collapse-icon up" data-toggle="collapse" data-parent="#accordion-variant-colors" href="#grupo-econ">
+					                Formar Grupo Econômico
+					                </a>
+					            </h4>
+					        </div>
+					        <div id="grupo-econ" class="panel-collapse collapse in">
+					            <div class="panel-body">
+						             <div class="row">
+						             	<div class="form-group col-xs-12 col-md-6">
+						             		<label>Buscar processos</label>
+						             		<div class="input-group">
+											  	<input type="text" name="busca_processo" class="form-control">
+											    <span class="input-group-btn"><button class="btn btn-primary"><i class="fluigicon fluigicon-search icon-sm"></button></i></span>
+											</div>
+						             	</div>
+						             	<div class="form-group col-xs-12 col-md-6">
+						             		<label>Nome do agrupamento</label>
+						             		<input type="text" name="nome_gp" class="form-control">
+						             	</div>
+						             </div>
+					       		</div>
+					        </div>
+					    </div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="container" id="planilhamento">
+			<div class="row">
+				<div class="col-xs-12">
+					<div class="form-group">
+						<label for="sobre_empresa">Sobre a empresa</label>
+						<textarea name="sobre_empresa" rows="5" class="form-control"></textarea>
+					</div>
+				</div>
+
+				<div class="col-xs-12">
+					<div class="form-group">
+						<label for="tendencias">Tendências de mercado</label>
+						<textarea name="tendencias" rows="5" class="form-control"></textarea>
+					</div>
+				</div>
+
+				<div class="col-xs-12">
+					<div class="form-group"> 
+						<label for="partes_risco">Partes relacionadas e risco atual</label>
+						<textarea name="partes_risco" rows="5" class="form-control"></textarea>
+					</div>
+				</div>
+
+				<div class="col-xs-12">
+					<div class="form-group">
+						<label for="outros">Outros pontos a destacar</label>
+						<textarea name="outros" rows="5" class="form-control"></textarea>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-xs-12">
+					<div class="form-group">
+						<label>Pendência</label>
+						<div class="custom-radio custom-radio-success">
+							<input type="radio" name="pendencia" value="Sim" id="pSim">
+							<label for="pSim">Sim</label>
+						</div>
+						<div class="custom-radio custom-radio-success">
+							<input type="radio" name="pendencia" value="Não" id="pNao">
+							<label for="pNao">Não</label>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-12">
+					<div class="form-group">
+						<label for="just_pendencia">Justificativa</label>
+						<textarea name="just_pendencia" rows="5" class="form-control"></textarea>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="container" id="analise">
+			<div class="row" id="tabela-limites">
+				<div class="col-xs-12">
+					<div class="responsive-table">
+						<table class="table">
+							<thead>
+								<tr>
+									<th></th>
+									<th>Solicitado</th>
+									<th>MCM</th>
+									<th>Analista</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<th>Aquisição de bens <br> Veículos automotores</th>
+									<td>
+										<input type="text" name="aquisicao_solicitante">
+									</td>
+									<td>
+										<input type="text" name="aquisicao_mcm">
+									</td>
+									<td>
+										<input type="text" name="aquisicao_analista"> 
+									</td>
+								</tr>
+								<tr>
+									<th>Outros Financiamentos</th>
+									<td>
+										<input type="text" name="financiamentos_solicitante">
+									</td>
+									<td>
+										<input type="text" name="financiamentos_mcm">
+									</td>
+									<td>
+										<input type="text" name="financiamentos_analista">
+									</td>
+								</tr>
+								<tr>
+									<th>Capital de giro rotativo</th>
+									<td>
+										<input type="text" name="capitalGiro_solicitante">
+									</td>
+									<td>
+										<input type="text" name="capitalGiro_mcm">
+									</td>
+									<td>
+										<input type="text" name="capitalGiro_analista">
+									</td>
+								</tr>
+								<tr>
+									<th>Cartão de crédito</th>
+									<td>
+										<input type="text" name="cartCredito_solicitante">
+									</td>
+									<td>
+										<input type="text" name="cartCredito_mcm">
+									</td>
+									<td>
+										<input type="text" name="cartCredito_analista">
+									</td>
+								</tr>
+								<tr>
+									<th>Conta garantida</th>
+									<td>
+										<input type="text" name="contaGarantida_solicitante">
+									</td>
+									<td>
+										<input type="text" name="contaGarantida_mcm">
+									</td>
+									<td>
+										<input type="text" name="contaGarantida_analista">
+									</td>
+								</tr>
+								<tr>
+									<th>Capital de giro com prazo de vencimento até 365 dias</th>
+									<td>
+										<input type="text" name="capital365_solicitante">
+									</td>
+									<td>
+										<input type="text" name="capital365_mcm">
+									</td>
+									<td>
+										<input type="text" name="capital365_analista">
+									</td>
+								</tr>
+								<tr>
+									<th>Capital de giro com prazo de vencimento igual ou superior a 365 dias</th>
+									<td>
+										<input type="text" name="capital365Maior_solicitante">
+									</td>
+									<td>
+										<input type="text" name="capital365Maior_mcm">
+									</td>
+									<td>
+										<input type="text" name="capital365Maior_analista">
+									</td>
+								</tr>
+								<tr>
+									<th>Outros</th>
+									<td>
+										<input type="text" name="outros_solicitante">
+									</td>
+									<td>
+										<input type="text" name="outros_mcm">
+									</td>
+									<td>
+										<input type="text" name="outros_analista">
+									</td>
+								</tr>
+								<tr>
+									<th>Empréstimos</th>
+									<td>
+										<input type="text" name="emprestimos_solicitante">
+									</td>
+									<td>
+										<input type="text" name="emprestimos_mcm">
+									</td>
+									<td>
+										<input type="text" name="emprestimos_analista">
+									</td>
+								</tr>
+								<tr>
+									<th>Crédito Pré-Aprovado</th>
+									<td>
+										<input type="text" name="creditoPreA_solicitante">
+									</td>
+									<td>
+										<input type="text" name="creditoPreA_mcm">
+									</td>
+									<td>
+										<input type="text" name="creditoPreA_analista">
+									</td>
+								</tr>
+								<tr>
+									<th>Comercialização e pré-comercialização</th>
+									<td>
+										<input type="text" name="comercializacao_solicitante">
+									</td>
+									<td>
+										<input type="text" name="comercializacao_mcm">
+									</td>
+									<td>
+										<input type="text" name="comercializacao_analista">
+									</td>
+								</tr>
+								<tr>
+									<th>Custeio e pré-custeio</th>
+									<td>
+										<input type="text" name="custeio_solicitante">
+									</td>
+									<td>
+										<input type="text" name="custeio_mcm">
+									</td>
+									<td>
+										<input type="text" name="custeio_analista">
+									</td>
+								</tr>
+								<tr>
+									<th>Investimento Agropecuário</th>
+									<td>
+										<input type="text" name="investAgro_solicitante">
+									</td>
+									<td>
+										<input type="text" name="investAgro_mcm">
+									</td>
+									<td>
+										<input type="text" name="investAgro_analista">
+									</td>
+								</tr>
+								<tr>
+									<th>Antecipação da fatura de cartão de crédito</th>
+									<td>
+										<input type="text" name="antFatura_solicitante">
+									</td>
+									<td>
+										<input type="text" name="antFatura_mcm">
+									</td>
+									<td>
+										<input type="text" name="antFatura_analista">
+									</td>
+								</tr>
+								<tr>
+									<th>Títulos descontados</th>
+									<td>
+										<input type="text" name="titulos_solicitante">
+									</td>
+									<td>
+										<input type="text" name="titulos_mcm">
+									</td>
+									<td>
+										<input type="text" name="titulos_analista">
+									</td>
+								</tr>
+
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="form-group col-xs-12">
+					<label>Parecer</label>
+					<div>
+						<textarea name="parecer_analista" id="analise"></textarea>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+
+		<div class="container" id="comite">
+			<div class="row">
+				<div class="col-xs-12">
+					<label>Parecer</label>
+					<div>
+						<textarea name="parecer_comite" id="comite"></textarea>
+					</div>
+				</div>
+			</div> 
+
+			<div class="row">
+				<div class="col-xs-12">
+					<div class="custom-radio custom-radio-success">
+					    <input type="radio" name="dec_comite" value="aprovar" id="aprovar">
+					    <label for="aprovar">Assinar e aprovar processo</label>
+					</div>
+					<div class="custom-radio custom-radio-success">
+					    <input type="radio" name="dec_comite" value="proximo" id="atribuir">
+					    <label for="atribuir">Assinar e atribuir o próximo responsável</label>
+					</div>
+					<div class="custom-radio custom-radio-warning">
+					    <input type="radio" name="dec_comite" value="analista" id="dAnalista">
+					    <label for="dAnalista">Devolver para Analista</label>
+					</div>
+					<div class="custom-radio custom-radio-warning">
+					    <input type="radio" name="dec_comite" value="gerente" id="dGerente">
+					    <label for="dGerente">Devolver para Gerente</label>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!--***************   Alçada   ***************** -->
+
+		<div class="container" id="analise_alcada">
+			<div class="row">
+				<div class="form-group col-xs-12">
+					<label>Tem pendência?</label>
+					<div class="custom-radio custom-radio-success">
+					    <input type="radio" name="pendencia_alc" value="não" id="radio-3">
+					    <label for="radio-3">Não</label>
+					</div>
+					<div class="custom-radio custom-radio-danger">
+					    <input type="radio" name="pendencia_alc" value="impeditiva" id="radio-3">
+					    <label for="radio-3">Sim, impeditiva</label>
+					</div>
+					<div class="custom-radio custom-radio-info">
+					    <input type="radio" name="pendencia_alc" value="não impeditiva" id="radio-3">
+					    <label for="radio-3">Sim, não impeditiva</label>
+					</div>
+				</div>
+			</div>
+			<div class="row" id="impeditiva">
+				<div class="col-xs-12">
+					<label>Justificativa</label>
+					<textarea name="just_alcada" rows="5" class="form-control"></textarea>
+				</div>					
+			</div>
+		</div>
+
+	</form>
+</div>
+
+<script type="text/javascript">
+	 function showCamera(param) {
+              JSInterface.showCamera(param);
+       }
+
+</script>
+</body>
+</html>

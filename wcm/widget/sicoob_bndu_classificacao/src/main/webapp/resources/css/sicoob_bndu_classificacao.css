@@ -1,0 +1,165 @@
+/* Coloque aqui seu codigo CSS */
+.message {
+    margin-top: 10px;
+}
+
+.slotint {
+	background-color: transparent !important;
+}
+
+body {
+	background: #FAFAFA;
+}
+
+@media (min-width: 1400px) {
+    .fluig-style-guide .container {
+        width: 1370px;
+    }
+}
+
+.fluig-style-guide .default-table {
+	background: white;
+	width: 100%;
+	border-collapse:separate;
+	border-radius: 10px;
+	overflow: hidden;
+	box-shadow: 0 5px 6px -3px rgba(0, 0, 0, 0.18);
+}
+.fluig-style-guide .default-table th,
+.fluig-style-guide .default-table td {
+	padding: 10px;
+}
+
+
+.fluig-style-guide .default-table tr {
+ 	-webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.fluig-style-guide .default-table tr th:first-child,
+.fluig-style-guide .default-table tr td:first-child {
+	padding-left: 20px;
+}
+
+.fluig-style-guide .default-table tr th:last-child,
+.fluig-style-guide .default-table tr td:last-child {
+	padding-right: 15px;
+}
+
+.fluig-style-guide .default-table thead {
+	background: #00AE9D;
+}
+
+.fluig-style-guide .default-table thead th {
+	color: white;
+}
+
+.subinfo {
+	display: block;
+	color: #aaa;
+}
+
+div#c-bndu {
+    background: #fff;
+    padding: 20px 35px;
+}
+
+#c-bndu .btn.btn-primary {
+	background-color: #00ae9d;
+	padding: 7px 20px;
+	letter-spacing: 0.5px;
+	font-weight: 600;
+	border-radius: 5px;
+	text-transform: uppercase;
+}
+
+button#criar-pro {
+    float: right;
+}
+
+#c-bndu .custom-checkbox.custom-checkbox-success input[type=checkbox]:checked+label:before {
+    background-color: #00ae9d;
+}
+
+#c-bndu .custom-checkbox input[type=checkbox]+label:before,
+#c-bndu .custom-checkbox input[type=radio]+label:before,
+#c-bndu .custom-radio input[type=checkbox]+label:before,
+#c-bndu .custom-radio input[type=radio]+label:before {
+    width: 18px;
+    height: 18px;
+}
+
+#c-bndu .custom-checkbox input[type=checkbox]+label:before {
+    border-radius: 5px;
+}
+
+#c-bndu .custom-checkbox input[type=checkbox]:checked+label:after,
+#c-bndu .custom-checkbox input[type=checkbox]:not(:checked)+label:after {
+    width: 20px;
+    height: 20px;
+}
+
+#c-bndu tbody tr:hover {
+	cursor: pointer;
+}
+
+#c-bndu tbody tr:not(:first-child):hover td,
+#c-bndu tbody tr:hover +tr td {
+	border-top: 2px solid #00ae9d;
+}
+
+#c-bndu tbody tr:last-child td {
+	border-bottom: 2px solid white;
+}
+
+#c-bndu tbody tr:last-child td:last-child {
+	border-radius: 0 0 10px 0;
+}
+
+#c-bndu tbody tr:last-child td:first-child {
+	border-radius: 0 0 0 10px;
+}
+
+#c-bndu tbody tr:last-child:hover td,
+#c-bndu tbody tr:last-child:hover td {
+	border-bottom: 2px solid #00ae9d;
+}
+
+#c-bndu tbody tr:not(:first-child) td,
+#c-bndu tbody tr +tr td {
+	border-top: 2px solid #f8f8f8;
+}
+
+#c-bndu tbody tr td:first-child {
+	border-left: 2px solid white;
+}
+
+#c-bndu tbody tr td:last-child {
+	border-right: 2px solid white;
+}
+
+#c-bndu tbody tr:hover td:first-child {
+	border-left: 2px solid #00ae9d;
+}
+
+#c-bndu tbody tr:hover td:last-child {
+	border-right: 2px solid #00ae9d;
+}
+
+#c-bndu i.fluigicon.fluigicon-verified.icon-sm {
+    background: #fff;
+    width: 18px;
+    height: 18px;
+    padding: 3.5px;
+    color: #00ae9d;
+    font-size: 12px;
+    border-radius: 5px;
+}
+
+#c-bndu .default-table td {
+    border-right: 1px solid #f8f8f8;
+}

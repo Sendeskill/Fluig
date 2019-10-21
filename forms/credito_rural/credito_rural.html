@@ -1,0 +1,1215 @@
+<html lang="pt-br">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" rel="stylesheet" href="/style-guide/css/fluig-style-guide.min.css"/>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+
+    <script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+    <script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
+    <script type="text/javascript" src="/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="jquery.maskMoney.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="jquery.mask.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="handlebars.min-latest.js" charset="utf-8"></script>
+    <script type="text/javascript" src="alx.js" charset="utf-8"></script>
+    <script type="text/javascript" src="script.js" charset="utf-8"></script>
+</head>
+<body id="fluig-sicoob">
+    <div class="fluig-style-guide bg">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-12" id="header">
+                    <img src="img/logo_sicoob.png" class="hidden-phone"/>
+                    <div id="logo"></div>
+                    <span class="center">Crédito Rural -  </span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12" id="header2">
+                </div>
+            </div>
+        </div>
+
+	<form name="form" role="form">
+		<input type="hidden" name="limite" value="1">
+		<input type="hidden" name="quem_aprova" value="1">
+		<input type="hidden" name="alcada" value="1" >
+		<input type="hidden" name="apr_credito" value="1">
+		<input type="hidden" name="pastec" value="1">
+
+        <div class="container-fluid" id="busca_cooperado">
+
+        	<!-- tabs -->
+	        <div class="tabs" id="tabs-container">
+	            <ul class="nav nav-tabs" role="tablist" id="tabs">
+	                <li>
+	                	<a href="#cooperado" role="tab" data-number="1" data-toggle="tab" id="first-tab" class="complete">1</a>
+	                	<span class="linha"></span>
+	                </li>
+	                <li>
+	                	<a href="#tipo" role="tab"  data-number="2" data-toggle="tab" id="second-tab">2</a>
+	                	<span class="linha"></span>
+	                </li>
+	                <li id="projeto">
+	                	<a href="#projeto_custeio" role="tab"  data-number="3" data-toggle="tab" >3</a>
+	                	<span class="linha"></span>
+	                </li>
+
+	                <li id="semLimite" style="display: none">
+	                	<a href="#sem_limite" role="tab"  data-number="4" data-toggle="tab" id="limite"><i class="flaticon flaticon-close icon-lg"></i></a>
+	                	<span class="linha"></span>
+	                </li>
+	                
+	                <li>
+	                	<a href="#concluido" role="tab"  data-number="5" data-toggle="tab" id="proposta"><i class="fluigicon fluigicon-verified icon-md"></i></a>
+	                </li style="pointer-events: none">
+	            </ul>
+	        </div><!-- tabs -->
+
+	        <div class="tab-content">
+				<div class="tab-pane" id="cooperado">
+					<div class="row" id="busca">
+						<div class="col-sm-12 col-md-8 col-md-offset-2">
+							<div class="form-group">
+								<label>Buscar Cooperado</label>
+								<div class="input-group">
+									<input type="text" name="buscaCoop" placeholder="Buscar por nome ou CPF/CNPJ" class="form-control CPF-CNPJ">
+									<span class="input-group-btn"><button class="btn btn-primary"><i class="fluigicon fluigicon-search icon-sm"></i></button></span>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="row" id="coop-info">
+						<div class="col-sm-12 col-md-3">
+							<div class="form-group">
+								<label>Nome</label>
+								<input type="text" name="nome" class="input-info" value="Nome do Cooperado">
+							</div>
+						</div>
+
+						<div class="col-sm-12 col-md-2">
+							<div class="form-group">
+								<label>CPF</label>
+								<input type="text" name="cpf" class="input-info" value="000.000.000-00">
+							</div>
+						</div>
+
+						<div class="col-sm-12 col-md-2">
+							<div class="form-group">
+								<label>Cooperativa</label>
+								<input type="text" name="coop" class="input-info" value="001">
+							</div>
+						</div>
+
+						<div class="col-sm-12 col-md-2">
+							<div class="form-group">
+								<label>Conta</label>
+								<input type="text" name="conta" class="input-info" value="001">
+							</div>
+						</div>
+
+						<div class="col-sm-12 col-md-2">
+							<div class="form-group">
+								<label>Estado Civil</label>
+								<input type="text" name="estado_civil" class="input-info" value="Solteiro">
+							</div>
+						</div>
+
+						<div class="col-sm-12 col-md-2">
+							<div class="form-group">
+								<label>Telefone</label>
+								<input type="text" name="tel" class="input-info" value="(00) 00000-0000">
+							</div>
+						</div>
+ 
+						<div class="col-sm-12 col-md-3">
+							<div class="form-group">
+								<label>Nacionalidade</label>
+								<input type="text" name="nacionalidade" class="input-info" value="Brasileiro">
+							</div>
+						</div>
+
+						<div class="col-sm-12 col-md-4">
+							<div class="form-group">
+								<label>Endereço</label>
+								<input type="text" name="endereco" class="input-info" value="Rua Lorem Ipsum dolor sit amet, 000">
+							</div>
+						</div>
+
+						<div class="col-sm-12 col-md-3">
+							<div class="form-group">
+								<label>Cidade</label>
+								<input type="text" name="cidade" class="input-info" value="Curitiba">
+							</div>
+						</div>				
+					</div>
+				</div>
+
+				<!-- step2 -->
+				<div class="tab-pane" id="tipo">
+					<div class="row">
+						<div class="col-sm-12 col-md-4 col-md-offset-2">
+							<div class="form-group ">
+								<label>Finalidade do crédito</label>
+								<select name="fin_cred" class="form-control">
+									<option></option>
+								</select>
+							</div>
+						</div>
+						<div class="col-sm-12 col-md-4 ">
+							<div class="form-group">
+								<label for="tipo_exploracao">Tipo de exploração</label>
+								<select name="tipo_exploracao" class="form-control" id="tipo_exploracao">
+									<option></option>
+									<option value="1">Agrícola</option>
+									<option value="2">Pecuária</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-sm-12 col-md-4 col-md-offset-2">
+							<div class="form-group">
+								<label>Item financiado</label>
+								<select name="item_financiado" class="form-control">
+									<option></option>
+								</select>
+							</div>
+						</div>
+						<div class="col-sm-12 col-md-4">
+							<div class="form-group">
+								<label>Unidade de medida</label>
+								<select name="unid_medida" class="form-control">
+									<option></option>
+								</select>
+							</div>
+						</div>
+
+						<!-- campos pecuaria -->
+						<div class="col-sm-12 col-md-4 col-md-offset-2 pecuaria" >
+							<div class="form-group">
+								<label>Quantidade do item</label>
+								<input type="text" name="qtd_item" class="form-control">
+							</div>
+						</div> 
+
+						<div class="col-sm-12 col-md-4 pecuaria">
+							<div class="form-group">
+								<label>Produtividade</label>
+								<input type="text" name="produtividade_pec" class="form-control">
+							</div>
+						</div>
+
+						<!-- campos agricola -->
+						<div class="col-sm-12 col-md-4 col-md-offset-2 agricola">
+							<div class="form-group">
+								<label>Nivel de tecnologia</label>
+								<select name="nivel_tecnologia" class="form-control">
+									<option></option>
+								</select>
+							</div>
+						</div>
+
+						<div class="col-sm-12 col-md-4 agricola">
+							<div class="form-goup">
+								<label>Área</label>
+								<div class="input-group fs-full-width">
+									<input type="text" name="area" class="form-control"> 
+								    <span class="input-group-addon">ha</span>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-sm-12 col-md-8 col-md-offset-2 agricola">
+							<div class="form-group">
+								<label>Produtividade</label>
+								<div class="row">
+									<div class="col-md-8 fs-xs-margin-top">
+										<input name="prod_slider" id="produtividade_slider" data-slider-min="0" data-slider-max="10">
+									</div>
+									<div class="col-md-4">
+										<div class="input-group">
+										    <input type="number" name="prod" class="form-control col-md-4">
+										    <span class="input-group-addon">xx/ha</span>
+										</div>
+									</div>									
+								</div>
+							</div>
+						</div>
+						<!-- campos agricola-->
+
+						<div class="col-sm-12 col-md-4 col-md-offset-2">
+							<div class="form-group">
+								<label>Valor máximo financiado</label>
+								<div class="input-group fs-full-width">
+								    <span class="input-group-addon ">R$</span>
+								    <input type="text" name="valor_max_financiado" class="form-control money" value=""  data-thousands="." data-decimal=",">
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-12 col-md-4">
+							<div class="form-group">
+								<label>Valor da proposta</label>
+								<div class="input-group fs-full-width">
+								    <span class="input-group-addon">R$</span>
+								    <input type="text" name="valor_proposta" class="form-control money" value=""  data-thousands="." data-decimal=",">
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="row" id="busca_tec" style="display: none">
+						<div class="col-sm-12 col-md-8 col-md-offset-2">
+							<div class="form-group">
+								<label>Responsável Técnico</label>
+								<div class="input-group fs-full-width">
+									<input type="text" name="astec" placeholder="Buscar ASTEC" class="form-control">
+									<span class="input-group-addon"><i class="fluigicon fluigicon-search icon-sm"></i></span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!------------------- PROJETO  DE CUSTEIO ------------------>
+				<div class="tab-pane projeto" id="projeto_custeio">
+					<div class="row">
+						<div class="form-group col-xs-12 col-md-3">
+							<label>Tipo agropecuário</label>
+							<select name="tipo_agropecuario" class="form-control">
+								<option></option>
+							</select>
+						</div>
+						<div class="form-group col-xs-12 col-md-3">
+							<label>Tipo de integração</label>
+							<select name="tipo_integracao" class="form-control">
+								<option></option>
+							</select>
+						</div>
+						<div class="form-group col-xs-12 col-md-3">
+							<label>Tipo de cultivo</label>
+							<select name="tipo_cultivo" class="form-control">
+								<option></option>
+							</select>
+						</div>
+						<div class="form-group col-xs-12 col-md-3">
+							<label>Ciclo de produção</label>
+							<select name="ciclo_producao" class="form-control" >
+								<option></option>
+							</select>
+						</div>
+						<div class="form-group col-xs-12 col-md-3">
+							<label>Safra</label>
+							<select name="safra" class="form-control">
+								<option></option>
+							</select>
+						</div>
+
+						<div class="form-group col-xs-12 col-md-3">
+							<label>Porte do produtor</label>
+							<select name="porte_produtor" class="form-control" >
+								<option></option>
+							</select>
+						</div>
+					
+						<div class="form-group col-xs-12 col-md-3 agricola">
+							<label>Grão/semente</label>
+							<select name="grao_agricola" class="form-control">
+								<option></option>
+							</select>
+						</div>
+						<div class="form-group col-xs-12 col-md-3 agricola">
+							<label>Tipo de irrigação</label>
+							<select name="tipo_irrigacao_agricola" class="form-control">
+								<option></option>
+							</select>
+						</div>
+						<div class="form-group col-xs-12 col-md-3 agricola">
+							<label>Zoneamento agrícola</label>
+							<select name="zoneamento_agricola" class="form-control">
+								<option></option>
+							</select>
+						</div>
+						<div class="form-group col-xs-12 col-md-3 agricola">
+							<label>Tipo do seguro</label>
+							<select name="seguro_agricola" class="form-control" >
+								<option></option>
+							</select>
+						</div>
+					</div>
+
+					<div class="row agricola" id="previsoes">
+						<p>Previsões de plantio</p>
+						<div class="col-md-3">
+							<label>Previsão de início do plantio</label>
+							<input type="text" name="previsao_inicio_plantio" class="form-control calendar">
+						</div>
+						<div class="col-md-3">
+							<label>Previsão para o fim do plantio</label>
+							<input type="text" name="previsao_fim_plantio" class="form-control calendar">
+						</div>
+						<div class="col-md-3">
+							<label>Previsão de início da colheita</label>
+							<input type="text" name="previsao_inicio_colheita" class="form-control calendar">
+						</div>
+						<div class="col-md-3">
+							<label>Previsão para o fim da colheita</label>
+							<input type="text" name="previsao_fim_colheita" class="form-control calendar">
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-xs-12">
+							<p class="title">Imóvel de Localização</p>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-md-12">
+							<label>Croqui de localização</label>
+							<button class="btn btn-outline">Anexar imagem</button>
+						</div>
+					</div>
+
+					<!-- tabela IMÓVEL -->
+					<div class="tabela" id="tabela_imovel">
+						<div class="row cabecalho">
+							<div class="col-md-1">
+								<span>Nº matrícula</span>
+							</div>
+							<div class="col-md-2">
+								<span>Município</span>
+							</div>
+							<div class="col-md-3">
+								<span>Proprietário</span>
+							</div>
+							<div class="col-md-2">
+								<span>CPF/CNPJ</span>
+							</div>
+							<div class="col-md-1">
+								<span>Área total</span>
+							</div>
+							<div class="col-md-1">
+								<span>Área financiada</span>
+							</div>
+							<div class="col-md-1">
+								<span>Reserva Legal</span>
+							</div>
+							<div class="col-md-1">
+								<span>Coordenadas</span>
+							</div>
+						</div>
+
+						<div class="row corpo">
+							<table tablename="tabela_imovel"  noaddbutton="true" nodeletebutton="true" style="display: none;">
+								<thead><tr><th></th></tr></thead>
+								<tbody>
+									<tr>
+										<td>
+											<div alx-row>
+												<div class="row">
+													<div class="col-md-1">
+														<input type="number" name="n_matricula" class="form-control">
+													</div>
+													<div class="col-md-2">
+														<div class="col-md-5 fs-no-padding-left">
+															<select name="UF" class="form-control">
+																<option>UF</option>
+															</select>
+														</div>
+														<div class="col-md-7 fs-no-padding">
+															<select name="cidade_imovel" class="form-control">
+																<option>Cidade</option>
+															</select>
+														</div>
+													</div>
+													<div class="col-md-3">
+														<input type="text" name="proprietaria" class="form-control">
+													</div>
+													<div class="col-md-2">
+														<input type="text" name="CPFCNPJ" class="form-control">
+													</div>
+													<div class="col-md-1">
+														<div class="input-group">
+															<input type="text" name="area_total" class="form-control">
+											 				<span class="input-group-addon">ha</span>
+											 			</div>
+													</div>
+													<div class="col-md-1">
+														<div class="input-group">
+															<input type="text" name="area_financiada" class="form-control">
+											 				<span class="input-group-addon">ha</span>
+											 			</div>
+													</div>
+													<div class="col-md-1">
+														<div class="input-group">
+															<input type="text" name="reserva_legal" class="form-control">
+											 				<span class="input-group-addon">%</span>
+											 			</div>
+													</div>
+													<div class="col-md-1">
+														<button class="coordenadas btn btn-primary"><i class="flaticon flaticon-edit-square icon-sm"></i></button>
+													</div>
+
+													<div class="box-coord" style="display: none">
+														<div class="row">
+															<div class="col-xs-12">
+																<button class="btn-close"><i class="flaticon flaticon-close icon-sm"></i></button>
+															</div>
+														</div>
+														
+														<div class="row">
+															<div class="col-md-4">
+																<label>Latitude</label>
+																<input type="text" name="latitude" class="form-control">
+															</div>
+															<div class="col-md-4">
+																<label>Longitude</label>
+																<input type="text" name="longitude" class="form-control">
+															</div>
+															<div class="col-md-4">
+																<label>Altitude</label>
+																<input type="text" name="altitude" class="form-control">
+															</div>
+														</div>
+														<button class="btn btn-primary btn-salvar fs-float-right">
+															Salvar
+														</button>
+													</div>
+												</div>
+											</div>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						
+							<div alx-container-rows="tabela_imovel" class="imovel"></div>
+
+							<div>
+								<button class="btn btn-add" onclick="alxImovel.add();"><i class="fluigicon fluigicon-plus icon-xs"></i></button>
+							</div>
+						</div>
+					</div>
+
+
+					<!--- ORÇAMENTO ------>
+					<div class="row">
+						<div class="col-xs-12">
+							<p class="title">Orçamento</p>
+						</div>
+					</div>
+
+					<div class="row agricola">
+						<div class="form-group col-md-3">
+							<label>Tipo de orçamento</label>
+							<select name="tipo_orcamento" class="form-control">
+								<option value="Simplificado">Simplificado</option>
+								<option value="Analitico">Analítico</option>
+							</select>
+						</div>
+					</div>
+					<div class="row agricola">
+						<div class="col-md-3 form-group">
+							<label>Nível de tecnologia</label>
+							<input readonly name="nivel_tec" value="[nome do nivel]" class="input-info">
+						</div>
+						<div class="col-md-9">
+							<div class="col-md-4 col-lg-2">
+								<label class="fs-display-inline-block">% de financiamento</label>
+							</div>
+							
+							<div class="col-md-8 col-lg-10">
+								<input name="financiamento" id="financiamento_slider" data-slider-min="0" data-slider-max="100" >
+							</div>
+						</div>
+					</div>
+
+					<div class="tabela pecuaria" id="orcamento_pecuario" style="display: none">
+						<div class="row cabecalho">
+							<div class="col-md-1 col-lg-2">
+								<span>Grupo</span>
+							</div>
+							<div class="col-md-4">
+								<span>Descrição do item</span>
+							</div>
+							<div class="col-md-2 col-lg-1">
+								<span>Unidade</span>
+							</div>
+							<div class="col-md-2 col-lg-2">
+								<span>Valor unitário</span>
+							</div>
+							<div class="col-md-2 col-lg-1">
+								<span>Quantidade</span>
+							</div>
+							<div class="col-md-2">
+								<span>Valor total</span>
+							</div>
+						</div>
+
+						<div class="row corpo">
+							<div alx-container-rows="tabela_orcamento_pecuario"></div>
+
+							<!-- tabela pai Orcamento Pecuario -->
+							<table tablename="tabela_orcamento_pecuario" noaddbutton="true" nodeletebutton="true" style="display: none;">
+								<thead><tr><th></th></tr></thead>
+								<tbody>
+									<tr>
+										<td>
+											<div alx-row class="box-grupo">
+												<input type="hidden" name="grupo_id">
+												<div class="row grupo">
+													<div class="col-md-10">
+														<input type="text" name="nome_grupo" class="input-info">
+													</div>
+													<div class="col-md-2">
+														<button class="btn btn-add" onclick="alxOrcamentoPecuario.getChild('tabela_grupo_p').add(this)"><i class="fluigicon fluigicon-plus icon-xs"></i></button>
+													</div>
+												</div>
+	
+												<div alx-container-rows="tabela_grupo_p"></div>
+											</div>
+										</td>
+									</tr>
+								</tbody>
+							</table>		
+
+							<!-- tabela filho Orçamento Pecuario -->
+							<table tablename="tabela_grupo_p" noaddbutton="true" nodeletebutton="true" style="display: none;">
+								<thead><tr><th></th></tr></thead>
+								<tbody>
+									<tr>
+										<td>
+											<div alx-row>
+												<input type="hidden" name="item_p_id">
+												<div class="row linha-grupo">
+													<div class="col-md-offset-1 col-md-4 col-lg-offset-2">
+														<input type="text" name="descricao_pecuario" class="form-control">
+													</div>
+													<div class="col-md-1">
+														<select name="unidade_pecuario" class="form-control">
+															<option></option>
+														</select>
+													</div>
+													<div class="col-md-2">
+														<div class="input-group">
+															<span class="input-group-addon">R$</span>
+													    	<input type="text" name="valor_und_pecuario" class="money form-control">
+														</div>
+													</div>
+
+													<div class="col-md-1">
+														<input type="number" name="qtd_pecuario"  class="form-control">
+													</div>
+													<div class="col-md-2">
+														<input name="valor_total_item" class="input-info form-control">
+													</div>
+												</div>
+											</div>
+										</td>
+									</tr>
+								</tbody>
+							</table>	
+						</div>
+
+						<div class="row rodape">
+							<div class="col-md-6">
+								<label class="fs-display-inline-block fs-md-margin-top">% de financiamento</label>
+								<input name="financiamento" id="financiamento_slider_pec" data-slider-min="0" data-slider-max="100" >
+							</div>
+
+							<div class="col-md-4 label">
+								<span class="destaque">Valor total do orçamento</span>
+								<span>Valor de recursos próprios</span>
+								<span>Valor financiado</span>
+							</div>
+
+							<div class="col-md-2">
+								<input type="text" value="R$00000,00" name="valor_total_orcamento" class="input-info destaque">
+								<input type="text" value="R$00000,00" name="valor_recursos" class="input-info">
+								<input type="text" value="R$00000,00" name="valor_total_financiado" class="input-info">
+							</div>
+						</div>
+					</div>
+
+					<div class="tabela" id="orcamento_simplificado"  style="display: none">
+						<div class="row cabecalho">
+							<div class="col-md-3">
+								<span>Item</span>
+							</div>
+							<div class="col-md-3">
+								<span>Valor financiado</span>
+							</div>
+							<div class="col-md-3">
+								<span>Valor de recursos próprios</span>
+							</div>
+							<div class="col-md-3">
+								<span>Valor orçado</span>
+							</div>
+						</div>
+						
+						<div class="row corpo">
+							<table tablename="tabela_orcamento_simplificado" noaddbutton="true" nodeletebutton="true" style="display: none;">
+								<thead><tr><th></th></tr></thead>
+								<tbody>
+									<tr>
+										<td>
+											<div alx-row>
+												<div class="row">
+													<div class="col-md-3">
+														<input name="nome_itemS" readonly class="input-info">
+													</div>
+													<div class="col-md-3">
+														<div class="input-group">
+															<span class="input-group-addon">R$</span>
+															<input name="valor_financiado" value="00.000,00" readonly class="input-info form-control">
+														</div>
+													</div>
+													<div class="col-md-3">
+														<div class="input-group">
+															<span class="input-group-addon">R$</span>
+															<input name="valor_recursos_agricola" value="00.000,00" readonly class="input-info form-control">
+														</div>
+													</div>
+													<div class="col-md-3">
+														<div class="input-group">
+														    <span class="input-group-addon">R$</span>
+														    <input type="text" name="valor_orcado" value="00.000,00" readonly class="form-control" >
+														</div>
+													</div>
+												</div>
+											</div>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+
+							<div alx-container-rows="tabela_orcamento_simplificado"></div>
+						</div>
+						
+						<div class="row rodape">
+							<div class="col-md-3">
+								<span class="destaque">Total</span>
+							</div>
+							<div class="col-md-3">
+								<input type="text" name="total_financiado_simplificado" value="R$00.000,00" class="input-info">
+							</div>
+							<div class="col-md-3">
+								<input type="text" name="total_recursos_simplificado" value="R$00.000,00" class="input-info">
+							</div>
+							<div class="col-md-3">
+								<input type="text" name="total_orcado_simplificado" value="R$00.000,00" class="input-info">
+							</div>
+						</div>
+					</div>
+
+					<div class="tabela" id="orcamento_analitico"  style="display: none">
+						<div class="row cabecalho">
+							<div class="col">
+								<span>Item</span>
+							</div>
+							<div class="col">
+								<span>Data</span>
+							</div>
+							<div class="col">
+								<span>Valor financiado</span>
+							</div>
+							<div class="col">
+								<span>Valor de recursos próprios</span>
+							</div>
+							<div class="col">
+								<span>Valor orçado</span>
+							</div>
+						</div>
+						
+						<div class="row corpo">
+
+							<!-- tabela pai Orçamento Agricola Analitico -->
+							<table tablename="tabela_orcamento_analitico" noaddbutton="true" nodeletebutton="true" style="display: none;">
+								<thead><tr><th></th></tr></thead>
+								<tbody>
+									<tr>
+										<td>
+											<div alx-row class="box-grupo">
+												<input type="hidden" name="item_id">
+
+												<div class="row grupo">
+													<div class="col-md-10">
+														<input type="text" name="nome_item" class="input-info">
+													</div>
+													<div class="col-md-2">
+														<button class="btn btn-add" onclick="alxOrcamentoAgricolaA.getChild('tabela_item_analitico').add(this)"><i class="fluigicon fluigicon-plus icon-xs"></i></button>
+													</div>
+												</div>
+	
+												<div alx-container-rows="tabela_item_analitico"></div>
+											</div>
+											
+										</td>
+									</tr>
+								</tbody>
+							</table>
+							
+							<!-- tabela filho itens Orçamento Agricola Analitico -->
+							<table tablename="tabela_item_analitico" noaddbutton="true" nodeletebutton="true" style="display: none;">
+								<thead><tr><th></th></tr></thead>
+								<tbody>
+									<tr>
+										<td>
+											<div alx-row>
+												<input type="hidden" name="campos_id">
+												<div class="row linha-grupo">
+													<div>
+														<input type="text" name="data_item" placeholder="dd/mm/aaaa" class="form-control calendar">
+													</div>
+													<div class="input-group">
+													    <span class="input-group-addon">R$</span>
+													    <input type="text" name="valor_financiado_item" readonly  value="R$00.000,00"  class="money form-control">
+													</div>
+													<div class="input-group">
+													    <span class="input-group-addon">R$</span>
+													    <input type="text" name="valor_recursos_item" readonly value="R$00.000,00"  class="money form-control">
+													</div>
+													<div class="input-group">
+													    <span class="input-group-addon">R$</span>
+													    <input type="text" name="valor_orcado_item" value="R$00.000,00"  class="money form-control">
+													</div>
+												</div>
+											</div>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+
+							<div alx-container-rows="tabela_orcamento_analitico"></div>
+						</div>
+						
+						<div class="row rodape">
+							<div class="total">
+								<span class="destaque">Total</span>
+							</div>
+							<div>
+								<input type="text" name="total_financiado_analitico" value="R$00.000,00" class="input-info">
+							</div>
+							<div>
+								<input type="text" name="total_recursos_analitico" value="R$00.000,00" class="input-info">
+							</div>
+							<div>
+								<input type="text" name="total_orcado_analitico" value="R$00.000,00" class="input-info">
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Sem Limite -->
+				<div class="tab-pane" id="sem_limite" style="display: none">
+					<div class="row">
+						<div class="col-sm-12">
+							<p class="msg-limite">Não há limite.</p>
+						</div>
+					</div>
+				</div>		
+
+				<!-- Concluido -->
+				<div class="tab-pane" id="concluido">
+					<div class="row">
+						<div class="col-sm-12">
+							<p class="msg-success">Proposta gerada com sucesso</p>
+							<div class="proposta">
+								<span>2019434010001</span>
+								<span></span>
+							</div>
+						</div>
+					</div>
+				</div>			
+			</div> 	
+
+			<div class="row">
+				<div class="col-md-offset-10 col-md-2 fs-md-margin-top">
+					<button class="btn btn-primary" onclick="next();">Próximo</button>
+				</div>
+			</div>		
+		</div>
+
+		<table tablename="tabela_anexo" noaddbutton="true" nodeletebutton="true" style="display: none;">
+			<thead><tr><th></th></tr></thead>
+			<tbody>
+				<tr>
+					<td>
+						<div alx-row>
+							<div class="col-md-6">
+								<div class="box-docs">
+									<div class="titulo">
+										<button class="btn icon edit"><i class="flaticon flaticon-edit-square icon-md"></i></button>
+										<input type="text" name="titulo_doc1" readonly value="Documento Exemplo">
+										<button class="btn icon" data-toggle="tooltip" data-placement="left" title="Descrição do documento"><i class="fluigicon fluigicon-info-sign icon-xl"></i></button>
+										<button class="btn icon" data-toggle="tooltip" data-placement="left" title="Checklists Negados" id="alerta-correcao">
+											<i class="fluigicon fluigicon-bell icon-sm"></i>
+											<span class="notif">
+												!
+											</span>
+										</button>
+									</div>
+			
+									<div class="contents">
+										<div class="col-md-7">
+											<div class="row">
+												<span class="nome-arquivo">doc-exemplo.pdf</span>
+												<div class="progress">
+													<div class="progress-bar progress-bar-striped active"  role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%"></div>
+												</div>
+												 <i class="flaticon flaticon-trash icon-sm"></i>
+											</div>
+			
+											<div class="row">
+												<span class="nome-arquivo">doc-exemplo.pdf</span>
+												<div class="progress">
+													<div class="progress-bar progress-bar-striped active"  role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%"></div>
+												</div>
+												 <i class="flaticon flaticon-trash icon-sm"></i>
+											</div>
+										</div>
+			
+										<div class="col-md-5 fs-no-padding-right">
+											<div class="box-upload">
+												<img src="/style-guide/images/illustrations/upload-file.svg" title="upload file">
+												<input type="button" value="Envie Arquivos" onclick="showCamera('Nome do arquivo em anexo');" class="btn-upload">
+											</div>
+										</div>
+									</div>
+			
+								</div>
+							</div>
+						</div>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+  
+		<div class="container" id="anexo_docs">
+			<div alx-container-rows="tabela_anexo" class="row"></div>
+
+			<div class="row">
+				<div class="col-sm-12">
+					<button class="btn btn-act" onclick="anexo.add()"><i class="fluigicon fluigicon-plus icon-xs"></i>Adicionar Documento</button>
+				</div>	
+			</div>
+		</div>
+
+		<div class="container" id="imprimir">
+			<div class="row fs-txt-center">
+				<div class="col-xs-12 col-md-6">
+					<button class="btn btn-primary">Imprimir Projeto</button>
+				</div>
+				<div class="col-xs-12 col-md-6">
+					<button class="btn btn-primary">Upload da Assinatura</button>
+				</div>
+			</div>
+		</div>
+
+		<div class="container" id="avaliacao_docs">
+			<div class="row">
+				<div class="col-sm-12" id="parecer">
+					<div class="titulo collapse-icon"  data-toggle="collapse" data-target="#parecer-fields">
+						<p>Parecer</p>
+					</div>
+
+					<div class="contents collapse" id="parecer-fields">
+						<label>Avaliação Documentos:</label>
+						<div class="cstm-radio checking"> 
+							<label for="aprovado">
+							    <input type="radio" name="avaliacao" value="aprovado" id="aprovado" class="positivo">
+							    <i class="fluigicon fluigicon-thumbs-up icon-sm"></i>
+							</label>
+							
+							<label for="reprovado">
+							    <input type="radio" name="avaliacao" value="reprovado" id="reprovado" class="negativo">
+							    <i class="fluigicon fluigicon-thumbs-down icon-sm"></i>
+							</label>
+						</div>
+
+						<textarea name="parecer_docs" class="form-control" rows="5"></textarea>
+					</div>
+				</div>
+
+				<div class="col-sm-12" id="parecer_tecnico">
+					<div class="titulo collapse-icon"  data-toggle="collapse" data-target="#parecer-fields">
+						<p>Parecer</p>
+					</div>
+
+					<div class="contents collapse" id="parecer-fields">
+						<div class="form-group">
+							<label>Avaliação Documentos:</label>
+							<div class="cstm-radio checking"> 
+								<label for="aprovado">
+								    <input type="radio" name="avaliacao_tec" value="aprovado" id="aprovado_tec" class="positivo">
+								    <i class="fluigicon fluigicon-thumbs-up icon-sm"></i>
+								</label>
+								
+								<label for="reprovado">
+								    <input type="radio" name="avaliacao_tec" value="reprovado" id="reprovado_tec" class="negativo">
+								    <i class="fluigicon fluigicon-thumbs-down icon-sm"></i>
+								</label>
+							</div>
+
+							<textarea name="parecer_tecnico" class="form-control" placeholder="Descreva parecer técnico" rows="5"></textarea>
+						</div>
+						<div class="form-group">
+							<div class="custom-checkbox custom-checkbox-primary fs-xs-margin-bottom">
+							    <input type="checkbox" id="pontos_atencao" name="pontos_atencao">
+							    <label for="pontos_atencao">Pontos de atenção</label>
+							</div>
+
+							<textarea name="desc_pontosA" class="form-control" placeholder="Descreva pontos de atenção" rows="3"></textarea>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row" id="box-ava">
+				<div class="col-sm-12">
+					<div class="box-docs">
+						<div class="titulo">
+							<span class="label label-info">Novo</span>
+							<input type="text" name="titulo_doc" readonly value="Documento Exemplo">
+							<button class="btn icon" data-toggle="tooltip" data-placement="left" title="Descrição do documento"><i class="fluigicon fluigicon-info-sign icon-xl"></i></button>
+							<button class="btn icon fs-xs-margin-right"><i class="flaticon flaticon-cloud-download icon-xl"></i></button>
+						</div>
+
+						<div class="contents">
+							<div class="checklist">
+								<div class="checklist-row">
+								    <div class="checking">
+								        <label for="positivo">
+											<input type="radio" name="check_item1" class="positivo" id="positivo2" value="positivo" />
+											<i class="flaticon flaticon-check-circle icon-md"></i>
+										</label>
+
+										 <label for="negativo">
+											<input type="radio" name="check_item1" class="negativo" id="negativo1" value="negativo" />	
+											<i class="flaticon flaticon-cancel icon-md"></i>
+										</label>
+									</div>
+									<div class="check-name">
+								      <p>Checklist do documento 1</p>
+								    </div>
+								</div>
+
+								<div class="checklist-row">
+								    <div class="checking">
+								        <label for="positivo">
+											<input type="radio" name="check_item2" class="positivo" id="positivo2" value="positivo" />
+											<i class="flaticon flaticon-check-circle icon-md"></i>
+										</label>
+
+										 <label for="negativo">
+											<input type="radio" name="check_item2" class="negativo" id="negativo1" value="negativo" />	
+											<i class="flaticon flaticon-cancel icon-md"></i>
+										</label>
+									</div>
+									<div class="check-name">
+								    	<p>Checklist do documento 1</p>
+								    </div>
+								</div>
+
+								<div class="checklist-row">
+								    <div class="checking">
+								        <label for="positivo">
+											<input type="radio" name="check_item3" class="positivo" id="positivo2" value="positivo" />
+											<i class="flaticon flaticon-check-circle icon-md"></i>
+										</label>
+
+										 <label for="negativo">
+											<input type="radio" name="check_item3" class="negativo" id="negativo1" value="negativo" />	
+											<i class="flaticon flaticon-cancel icon-md"></i>
+										</label>
+									</div>
+									<div class="check-name">
+								      <p>Checklist do documento 1</p>
+								    </div>
+								</div>
+
+								<div class="checklist-row">
+								    <div class="checking">
+								        <label for="positivo">
+											<input type="radio" name="check_item4" class="positivo" id="positivo2" value="positivo" />
+											<i class="flaticon flaticon-check-circle icon-md"></i>
+										</label>
+
+										 <label for="negativo">
+											<input type="radio" name="check_item4" class="negativo" id="negativo1" value="negativo" />	
+											<i class="flaticon flaticon-cancel icon-md"></i>
+										</label>
+									</div>
+									<div class="check-name">
+								      <p>Checklist do documento 1</p>
+								    </div>
+								</div>
+
+								<div class="checklist-row">
+								    <div class="checking">
+								        <label for="positivo">
+											<input type="radio" name="check_item5" class="positivo" id="positivo2" value="positivo" />
+											<i class="flaticon flaticon-check-circle icon-md"></i>
+										</label>
+
+										 <label for="negativo">
+											<input type="radio" name="check_item5" class="negativo" id="negativo1" value="negativo" />	
+											<i class="flaticon flaticon-cancel icon-md"></i>
+										</label>
+									</div>
+									<div class="check-name">
+								      <p>Checklist do documento 1</p>
+								    </div>
+								</div>
+
+								<div class="checklist-row">
+								    <div class="checking">
+								        <label for="positivo">
+											<input type="radio" name="check_item6" class="positivo" id="positivo2" value="positivo" />
+											<i class="flaticon flaticon-check-circle icon-md"></i>
+										</label>
+
+										 <label for="negativo">
+											<input type="radio" name="check_item6" class="negativo" id="negativo1" value="negativo" />	
+											<i class="flaticon flaticon-cancel icon-md"></i>
+										</label>
+									</div>
+									<div class="check-name">
+								    	<p>Checklist do documento 1</p>
+								    </div>
+								</div>
+
+								<div class="checklist-row">
+								    <div class="checking">
+								        <label for="positivo">
+											<input type="radio" name="check_item7" class="positivo" id="positivo2" value="positivo" />
+											<i class="flaticon flaticon-check-circle icon-md"></i>
+										</label>
+
+										 <label for="negativo">
+											<input type="radio" name="check_item7" class="negativo" id="negativo1" value="negativo" />	
+											<i class="flaticon flaticon-cancel icon-md"></i>
+										</label>
+									</div>
+									<div class="check-name">
+								    	<p>Checklist do documento 1</p>
+								    </div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div id="apr_credito">
+				<div class="row">
+					<button class="btn btn-danger" id="btn_negado">Crédito Negado</button>
+					<button class="btn btn-primary" id="btn_aprovado">Crédito Aprovado</button>
+				</div>
+			</div>
+		</div>
+
+		<div class="container" id="registro_proposta">
+			<div class="row">
+				<div class="col-sm-12">
+					<button class="btn btn-act" onclick="cadastroModal();">Gravar no SISBR</button>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-sm-4">
+					<div class="box-docs-proposta box-docs">
+						<div class="titulo">
+							<input type="text" name="titulo_doc_prop" readonly value="Documento Exemplo" >
+						</div>
+
+						<div class="contents">
+							<div class="col-md-6">
+								<a href="#">
+									<span>Baixar Documento</span>
+									<img src="/style-guide/images/illustrations/download-file.svg" title="download-file">
+								</a>
+							</div>
+
+							<div class="col-md-6">
+								<span>Anexado ao SISBR?</span>
+								<div class="custom-checkbox custom-checkbox-primary">
+								    <input type="checkbox"  name="anexado" id="check_anexado">
+								    <label for="check_anexado"></label>
+								</div>
+							</div>
+
+						</div>
+
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<div class="container" id="controle">
+			<div class="row" id="validacao">
+				<div class="form-group col-xs-12">
+					<label>A validação do Sicor foi:</label>
+					<div class="custom-radio custom-radio-success">
+					    <input type="radio" name="validacao_sicor" value="Positivo" id="vs-pos">
+					    <label for="vs-pos">Positiva</label>
+					</div>
+					<div class="custom-radio custom-radio-success">
+					    <input type="radio" name="validacao_sicor" value="Negativo" id="vs-neg">
+					    <label for="vs-neg">Negativa</label>
+					</div>
+				</div>
+			</div>
+
+			<div class="row" id="correcao">
+				<div class="col-xs-12">
+					<label>Motivo do erro:</label>
+					<textarea name="motivo_erro" class="form-control" rows="5"></textarea>
+				</div>
+				<div class="col-xs-12">
+					<label>Número do service desk aberto</label>
+					<input type="text" name="n_service_desk" class="form-control">
+				</div>
+				<div class="col-xs-12">
+					<label>Descrição</label>
+					<textarea name="descricao" class="form-control" rows="5"></textarea>
+				</div>
+			</div>
+
+			<div class="row fs-txt-center" id="formalizacao">
+				<div class="form-group col-xs-12">
+					<div class="custom-checkbox custom-checkbox-success">
+					    <input type="checkbox" id="cFormalizacao" name="cFormalizacao">
+					    <label for="cFormalizacao">A formalização da aprovação do crédito foi realizada.</label>
+					</div>
+				</div>
+			</div>
+
+			<div class="row fs-txt-center" id="liberacao_credito">
+				<div class="form-group col-xs-12">
+					<div class="custom-checkbox custom-checkbox-success">
+					    <input type="checkbox" id="libCredito" name="liberacao_credito">
+					    <label for="libCredito">A liberação do crédito foi feita, concluir assim a proposta.</label>
+					</div>
+				</div>
+			</div>
+
+			<div class="row"  id="cancelamento">
+				<div class="col-xs-12">
+					<label>Motivo do cancelamento</label>
+					<textarea name="motivo_cancelamento" class="form-control" rows="5"></textarea>
+				</div>
+
+				<div class="col-xs-12">
+					<label>Parecer</label>
+					<textarea name="parecer_cancelamento" class="form-control" rows="5"></textarea>
+				</div>
+			</div>
+
+		</div>
+
+	</form>
+</div>
+
+</body>
+</html>

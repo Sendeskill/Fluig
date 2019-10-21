@@ -1,0 +1,482 @@
+<html lang="pt-br">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" rel="stylesheet" href="/style-guide/css/fluig-style-guide.min.css"/>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+
+    <script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+    <script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
+    <script type="text/javascript" src="/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="jquery.maskMoney.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="jquery.mask.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="handlebars.min-latest.js" charset="utf-8"></script>
+    <script type="text/javascript" src="jquery.fileupload.js" charset="utf-8"></script>
+    <script type="text/javascript" src="/webdesk/vcXMLRPC.js"></script>
+    <script type="text/javascript" src="script.js" charset="utf-8"></script>
+    
+</head>
+<body id="fluig-sicoob">
+    <div class="fluig-style-guide container-geral">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-12" id="header">
+                    <img src="img/logo_sicoob.png" class="hidden-phone"/>
+                    <div id="logo"></div>
+                    <span class="center">Incorporação BNDU</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12" id="header2">
+                </div>
+            </div>
+        </div>
+        
+        <!-- tabs -->
+        <div class="tabs" id="tabs-container">
+            <ul class="nav nav-tabs container" role="tablist" id="tabs">
+            	<li><a href="#selecionar-operacao-container" data-toggle="tab" id="selecionar-operacao-tab">Selecionar Operação</a></li>
+                <li><a href="#formulario-container" role="tab" data-toggle="tab" id="formulario-tab">Formulário</a></li>
+                <li><a href="#liberar-excecao-container" role="tab" data-toggle="tab" id="excecao-tab">Parecer - Exceção</a></li>
+                <li><a href="#aprovacao-documentos-container" role="tab" data-toggle="tab" id="analise-tab">Parecer - Análise</a></li>
+            </ul>
+        </div>
+        <!-- tabs -->
+
+        <form name="form" role="form">
+            <div class="container">
+                <div class="tab-content">
+                    
+                    <div class="tab-pane fade" id="selecionar-operacao-container">
+                        <div id="c-bndu">
+
+                            <div id="form-busca"></div>
+
+                            <table class="default-table" id="classif-table" class="unselectable">
+                                <thead>
+                                    <tr>
+                                        <th><i class="fluigicon fluigicon-verified icon-sm"></i></th>
+                                        <th>PA</th>
+                                        <th>Nome<br>CPF/CNPJ</br></th>
+                                        <th>Descrição Produto</th>
+                                        <th>Nº&nbsp;Contrato<br> Credito</th>
+                                        <th>Valor<br>Baixo</th>
+                                        <th>Valor do<br>Contrato</th>
+                                        <th>Descrição Histórico<br>Data da Baixa</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+	                </div>
+                
+                
+                    <div class="tab-pane fade" id="formulario-container">
+                        <div class="row">
+                            <div class="col-xs-6 col-sm-4 col-md-4">
+                                <div class="form-group">
+                                    <label for="origem">Origem</label>
+                                    <select id="origem" name="origem" class="form-control">
+                                        <option>Escolher origem...</option>
+                                        <option value="Dação em pagamento">Dação em pagamento</option>
+                                        <option value="Alienação Fiduciária bem Imóvel">Alienação Fiduciária bem Imóvel</option>
+                                        <option value="Alienação Fiduciária bem Móvel">Alienação Fiduciária bem Móvel</option>
+                                        <option value="Adjudicação">Adjudicação</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-xs-6 col-sm-4 col-md-3">
+                                <div class="form-group">
+                                    <label for="tipo_de_bem">Tipo de Bem...</label>
+                                    <select id="tipo_de_bem" name="tipo_de_bem" class="form-control">
+                                        <option>Escolher tipo de bem</option>
+                                        <option value="Imóveis">Imóveis</option>
+                                        <option value="Veículos e Afins">Veículos e Afins</option>
+                                        <option value="Maquinas e Equipamentos">Maquinas e Equipamentos</option>
+                                        <option value="Outros">Outros</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-xs-6 col-sm-4 col-md-2">
+                                <div class="form-group">
+                                    <label for="numero_cooperativa">Cooperativa</label><br>
+                                    <input type="number" name="numero_cooperativa" id="numero_cooperativa" value="" readonly class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-xs-6 col-sm-4 col-md-3">
+                                <div class="form-group">
+                                    <label>Número do processo</label>
+                                    <span id="numero_processo"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <table tablename="bndu_bem" noaddbutton="true" nodeletebutton="true" style="display: none;">
+                            <thead><tr><th></th></tr></thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="row bem-row bloco-row" id="bem-row">
+                                            <input type="hidden" name="bem_id" id="bem_id">
+                                            <div class="row">
+                                                <div class="remove-bem">
+                                                    <button type="button" class="btn btn-primary hidden-mode-view" onclick="Bndu.Bens.remove(this)">
+                                                        <i class="fluigicon fluigicon-remove-circle icon-sm"></i><span>Remover bem</span>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-7 col-md-3 col-lg-2">
+                                                <div class="input-group">
+                                                    <label for="valor_do_bem">Valor do Bem no Laudo</label>
+                                                    <div class="input-group">
+                                                        <div class="input-group-addon">R$</div>
+                                                        <input type="text" name="valor_do_bem" id="valor_do_bem" onfocusout="Bndu.Bens.atualizaValores()" class="form-control money valor-do-bem"/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-6 col-md-3">
+                                                <div class="form-group">
+                                                    <label for="data_do_laudo_de_avaliacao">Data do laudo de avaliação</label>
+                                                    <input type="text" name="data_do_laudo_de_avaliacao" id="data_do_laudo_de_avaliacao" class="form-control dataLaudoCalendar"/>
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-6 col-md-3">
+                                                <div class="form-group">
+                                                    <label for="data_do_dominio_do_bem">Data do domínio do bem</label>
+                                                    <input type="text" name="data_do_dominio_do_bem" id="data_do_dominio_do_bem" class="form-control calendar"/>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-xs-12 col-md-9 col-lg-8 fs-no-margin-top">
+                                                <div class="form-group">
+                                                    <label for="descricao_do_bem">Descrição do bem</label>
+                                                    <textarea rows="3" name="descricao_do_bem" id="descricao_do_bem" class="form-control"></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div id="devedores-rows"></div>
+
+                                                <div class="row add-devedor">
+                                                    <div class="col-md-4">
+                                                        <button type="button" id="add-devedor-btn" class="btn hidden-mode-view" onclick="Bndu.Bens.Devedores.add(this)">
+                                                            <i class="fluigicon fluigicon-plus-circle icon-sm"></i>
+                                                            <span>Adicionar Devedor</span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <table tablename="bndu_devedores" noaddbutton="true" nodeletebutton="true" style="display: none;">
+                            <thead><tr><th></th></tr></thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="row devedor-row" id="devedor-row">
+                                            <input type="hidden" name="devedor_bem_id">
+
+                                            <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 remover remover-devedor">
+                                                <button type="button" onclick="Bndu.Bens.Devedores.remove(this)" data-toggle="tooltip" data-placement="top" title="Remover devedor">
+                                                    <i class="fluigicon fluigicon-remove-circle icon-sm hidden-mode-view"></i>
+                                                </button>
+                                            </div>
+
+                                            <div class="col-xs-6 col-sm-5 col-md-6 col-lg-4">
+                                                <div class="form-group">
+                                                    <label for="nome">Nome</label>
+                                                    <input type="text" name="nome_devedor" id="nome" class="form-control"/>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-xs-5 col-sm-5 col-md-4 col-lg-3">
+                                                <div class="form-group">
+                                                    <label for="cpf">CPF/CNPJ</label>
+                                                    <input type="text" name="cpf_cnpj_devedor" id="cpf" class="form-control cpf-cnpj"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <div class="bens-container">
+                            <div id="bem-rows" class="bloco-container"></div>
+
+                            <div class="row">
+                                <div class="col-xs-4 col-sm-2 col-md-4 add_bem">
+                                    <button type="button" class="btn btn-primary hidden-mode-view" onclick="Bndu.Bens.add()">
+                                        <i class="fluigicon fluigicon-plus-circle icon-sm"></i>
+                                        <span>Novo bem</span>
+                                    </button>
+                                </div>
+                                <div class="col-xs-12 col-sm-5 col-md-4">
+                                    <div class="form-group val-total"> 
+                                        <label for="valor_total_dos_bens">Valor total dos bens: R$</label>
+                                        <input type="text" readonly name="valor_total_dos_bens" id="valor_total_dos_bens" class="fs-no-border" />
+                                    </div>
+                                    
+                                </div>
+                                <div class="col-xs-12 col-sm-5 col-md-4">
+                                    <div class="form-group">
+                                        <label for="total_bens">Total de bens a liquidar: </label>
+                                        <input type="number" readonly name="total_bens" value="0" class="fs-no-border" id="total_bens" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <textarea hidden id="anexos-json" name="anexos">[]</textarea>
+                            <input type="hidden" name="todos_documentos" id="todos_documentos">
+
+                            <div class="col-xs-12">
+                                <h3>Anexar Documentos</h3>
+                            </div>
+
+                            <div id="anexos" class="col-md-12"></div>
+                        </div>
+
+                        <hr>
+
+                        <div class="row">
+                            <div class="form-group col-xs-12 col-sm-4 col-md-4">
+                                <label>Valor rendas atraso + 60 dias</label><br>
+                                 <div class="input-group">
+                                    <div class="input-group-addon">R$</div>
+                                    <input type="text" name="valor_rendas_atraso_60"  class="unstyled money form-control"/>
+                                </div>
+                            </div>
+                            <div class="form-group col-xs-12 col-sm-4 col-md-4">
+                                <label>Valor a ser contabilizado</label><br>
+                                 <div class="input-group">
+                                    <div class="input-group-addon">R$</div>
+                                    <input type="text" name="valor_a_ser_contabilizado" readonly class="unstyled money form-control"/>
+                                </div>
+                            </div>
+                            <div class="form-group col-xs-12 col-sm-4 col-md-4">
+                                <label>Receitas a realizar</label><br>
+                                <input type="text" name="receitas_a_realizar" class="unstyled form-control" />
+                            </div>
+                        </div>
+
+                        <hr>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h3>Baixa das Operações</h3>
+                            </div>
+
+                            <div class="col-xs-12 col-sm-4 col-md-4">
+                                <div class="form-group">
+                                    <label>Total atualizado das operações</label><br>
+                                    <input type="text" name="total_operacoes" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-4 col-md-4">
+                                <div class="form-group">
+                                    <label>Data da baixa das operações</label><br>
+                                    <input type="text" name="data_baixa" class="calendar form-control" />
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group val-total">
+                                    <label>Valor total das operações: </label>
+                                    <div class="input-group">
+                                    <div class="input-group-addon">R$</div>
+                                        <input type="text" readonly name="valor_total_op" id="valor_total_op" class="form-control" /> 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <table tablename="bndu_operacoes" id="baixa-das-operacoes-table" style="display: none;" noaddbutton="true" nodeletebutton="true">
+                                    <thead><tr><th></th></tr></thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <div class="row operacao-row bloco-row" id="operacao-row">
+                                                    <input type="hidden" name="id_operacao" id="id_operacao">
+                                                    
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <label for="data_operacao">Data da operação</label><br>
+                                                            <input type="text" name="data_operacao" id="data_operacao" class="form-control calendar ">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <label for="valor_operacao">Valor da operação</label><br>
+                                                            <div class="input-group">
+                                                                <div class="input-group-addon">R$</div>
+                                                                <input type="text" name="valor_operacao" onfocusout="Bndu.Operacoes.atualizaValor()" class="form-control money">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <label for="numero_contrato_operacao">Número do contrato da operação</label><br>
+                                                            <input type="text" name="numero_contrato_operacao" class="form-control">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                                <div id="operacao-rows" class="bloco-container"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="row" id="credito-section" style="display: none">
+                            <div class="col-md-12">
+                                <h3>Crédito em conta corrente</h3>
+                            </div>
+                            
+                            <table tablename="bndu_credito_conta" id="contac-table" noaddbutton="true" nodeletebutton="true" style="display: none;">
+                                    <thead><tr><th></th></tr></thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <div class="row credito-conta-row" id="credito-conta-row">
+                                                    <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 credito-conta-remover remover">
+                                                        <button type="button" onclick="Bndu.CreditoContaCorrent.remove(this)">
+                                                            <i class="fluigicon fluigicon-remove-circle icon-sm hidden-mode-view"></i>
+                                                        </button>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <div class="form-group">
+                                                            <label for="data_operacao_conta">Data da operação</label><br>
+                                                            <input type="text" name="data_operacao_conta" class="form-control calendar ">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <div class="form-group">
+                                                            <label for="data_credito_conta">Data do credito</label><br>
+                                                            <input type="text" name="data_credito_conta" class="form-control calendar ">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <div class="form-group">
+                                                            <label for="conta_cooperado">Conta do cooperado</label><br>
+                                                            <input type="text" name="conta_operacao" class="form-control">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <div class="form-group">
+                                                            <label for="valor_credito">Valor</label><br>
+                                                            <div class="input-group">
+                                                                <div class="input-group-addon">R$</div>
+                                                                <input type="text" name="valor_credito" class="form-control money">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            
+                            <div class="col-md-12" id="credito-conta-rows"></div>
+
+                             <div class="col-md-4">
+                                <div class="form-group">
+                                    <button type="button" id="add-conta" class="btn" onclick="Bndu.CreditoContaCorrent.add()">
+                                         <i class="fluigicon fluigicon-plus-circle icon-sm"></i>
+                                        <span>Adicionar conta</span>
+                                     </button>
+                                 </div>
+                            </div>
+                        </div>
+                        
+                        <div id="lancamento_confirmado_sisbr_container">
+	                        <hr>
+	
+	                        <div class="row">
+	                            <div class="col-sm-12 col-md-12 col-md-12">
+	                                <div>
+	                                    <label><input type="checkbox" name="lancamento_confirmado_sisbr" id="lancamento_confirmado_sisbr" value="Y">
+	                                        Confirmo que fiz o lançamento no SISBR - <span class="data-hora"></span>
+	                                    </label>
+	                                </div>
+	                            </div>
+	                        </div>
+	                        
+	                        <hr>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-sm-12 col-md-12 col-md-12">
+                                <div class="form-group">
+                                    <label>Data do preenchimento do formulário: <span id="data"></span></label><br>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Liberar Exceção -->
+                    <div class="tab-pane fade" id="liberar-excecao-container">
+                        <div class="row">
+                            <div class="complemento-form">
+                                <div class="form-group  form-inline col-xs-12">
+                                    <label>Liberar Exceção</label>
+                                    <div class="custom-radio custom-radio-primary">
+                                        <input type="radio" name="liberar_excecao" value="Y" id="radio1">
+                                        <label for="radio1">Liberar</label>
+                                    </div>
+                                    <div class="custom-radio custom-radio-primary">
+                                        <input type="radio" name="liberar_excecao" value="N" id="radio2">
+                                        <label for="radio2">Recusar</label>
+                                    </div>
+                                </div>
+                                <div class="form-group col-xs-12 col-md-8">
+                                    <label for="parecer_excecao">Parecer</label>
+                                    <div class="complement-form-excecao"></div>
+                                </div>
+                            </div>
+                            <div class="form-group col-xs-12">
+                                <div class="complemento-list" id="complementos-excecao-list"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Análise de Documentos -->
+                    <div class="tab-pane fade" id="aprovacao-documentos-container">
+                        <div class="row">
+                            <div class="complemento-form">
+                                <div class="form-group col-xs-12">
+                                    <label for="aprovacao_documentos">Análise dos dados e documento</label>
+                                    <div class="custom-radio custom-radio-primary">
+                                        <input type="radio" name="aprovacao_documentos" value="Y" id="radio-1">
+                                        <label for="radio-1">Aprovar</label>
+                                    </div>
+                                    <div class="custom-radio custom-radio-primary">
+                                        <input type="radio" name="aprovacao_documentos" value="N" id="radio-2">
+                                        <label for="radio-2">Recusar</label>
+                                    </div>
+                                </div>
+                                <div class="form-group col-xs-12 col-md-8">
+                                    <label for="parecer_analise">Parecer</label>
+                                    <div class="complement-form-analise"></div>
+                                </div>
+                            </div>
+                            <div class="form-group col-xs-12">
+                                <div class="complemento-list " id="complementos-analise-list"></div>
+                            </div>
+                        </div>
+                    </div>
+              </div>
+            </div><!-- container -->
+        </form>
+
+        <div class="ladrilhos"></div>
+    </div><!-- fluig-style-guide -->
+</body>
+</html>

@@ -1,0 +1,221 @@
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link type="text/css" rel="stylesheet" href="/style-guide/css/fluig-style-guide.min.css"/>
+	<link rel="stylesheet" type="text/css" href="style.css"/>
+
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
+	<script type="text/javascript" src="/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
+	<script type="text/javascript" src="script.js"></script>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-maskmoney/3.0.2/jquery.maskMoney.min.js"></script>
+</head>
+<body>
+<div class="fluig-style-guide" id="fluig-sicoob">
+	<div class="form-group container-fluid">
+
+		<div class="row">
+			<div class="col-sm-12" id="header">
+				<img src="img/logo_sicoob.png" class="hidden-phone"/>
+				<span class="col-md-8">Monitor CRL - Análise</span>
+			</div>
+		</div>
+
+		<div class="row"><div class="col-sm-12" id="header2"></div></div>
+		
+		<div class="row monitor-analise" id="form-row">
+			<form name="form" role="form" class="col-xs-12 col-sm-12 col-md-11">
+				<div class="row " id="analise-info">
+					<div class="col-xs-12">
+						<input type="text" name="nome" readonly class="input-info title" value="POLIZELLI & CASTRO LTDS EPP"/>
+					</div>
+					<div class="col-xs-7 col-md-4 col-lg-2">
+						<div class="form-group">
+							<label for="n_contrato">Contr.</label>
+							<input type="text" name="n_contrato" value="3403620180002" readonly class="form-control input-info"/>
+						</div>
+					</div>
+					<div class="col-xs-5 col-md-4 col-lg-2">
+						<div class="form-group">
+							<label for="valor">Valor</label>
+							<input type="text" name="valor" value="R$374.132,12" readonly class="form-control input-info"/>
+						</div>
+					</div>
+					<div class="col-xs-7 col-md-3 col-lg-2">
+						<div class="form-group">
+							<label for="">Chegada</label>
+							<input type="date" name="chegada" readonly class="form-control input-info"/>
+						</div>
+					</div>
+					<div class="col-xs-6 col-md-4 col-lg-2">
+						<div class="form-group">
+							<label for="qtd_itens">Qtd. de itens restantes</label>
+							<input type="text" name="qtd_itens" value="9" readonly class="form-control input-info">
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-xs-12">
+						<div id="table">
+							<table class="table" id="analise-table">
+								<thead>
+									<tr class="tableHeadRow">
+										<th>Sim</th>
+										<th>Não</th>
+										<th>Just.</th>
+										<th>NA</th>
+										<th>Descrição</th>
+									</tr>
+								</thead>
+								<tbody>
+
+									<tr>
+						     		   	<td width="5%">
+							     		   	<div class="custom-radio custom-radio-success">
+											    <input type="radio" name="radio" value="sim" id="sim1" class="sim-opt ">
+											    <label for="sim1"></label>
+											</div>	     		   		
+						     		   	</td>
+						     		   	<td width="5%">
+						     		   		<div class="custom-radio custom-radio-success">
+											    <input type="radio" name="radio" value="nao" id="nao1" class="nao-opt ">
+											    <label for="nao1"></label>
+											</div>
+						     		   	</td>
+						     		   	<td width="4%">
+						     		   		<div class="custom-radio custom-radio-success">
+											    <input type="radio" name="radio" value="justificativa" id="just1" class="justificativa-opt">
+											    <label for="just1"></label>
+											</div>
+						     		   	</td>
+						     		   	<td width="5%">
+						     		   		<div class="custom-radio custom-radio-success">
+											    <input type="radio" name="radio" value="NA" id="na1" class="NA-opt ">
+											    <label for="na1"></label>
+											</div>
+						     		   	</td>
+						     		   	<td class="analise-desc">
+						     		   		<span>O tipo de tomador está corretamente classificado?</span>
+						     		   	</td>
+						        	</tr>
+								
+						        	<tr>
+						     		   	<td width="5%">
+							     		   	<div class="custom-radio custom-radio-success">
+											    <input type="radio" name="radio2" value="sim" id="sim2" class="sim-opt ">
+											    <label for="sim2"></label>
+											</div>	     		   		
+						     		   	</td>
+						     		   	<td width="5%">
+						     		   		<div class="custom-radio custom-radio-success">
+											    <input type="radio" name="radio2" value="nao" id="nao2" class="nao-opt ">
+											    <label for="nao2"></label>
+											</div>
+						     		   	</td>
+						     		   	<td width="4%">
+						     		   		<div class="custom-radio custom-radio-success">
+											    <input type="radio" name="radio2" value="justificativa" id="just2" class="justificativa-opt">
+											    <label for="just2"></label>
+											</div>
+						     		   	</td>
+						     		   	<td width="5%">
+						     		   		<div class="custom-radio custom-radio-success">
+											    <input type="radio" name="radio2" value="NA" id="na2" class="NA-opt ">
+											    <label for="na2"></label>
+											</div>
+						     		   	</td>
+						     		   	<td class="analise-desc">
+						     		   		<span>As informações cadastrais foram atualizadas?</span>
+						     		   	</td>
+						        	</tr>
+
+						        	<tr>
+						     		   <td width="5%">
+							     		   	<div class="custom-radio custom-radio-success">
+											    <input type="radio" name="radio3" value="sim" id="nao3" class="sim-opt ">
+											    <label for="nao3"></label>
+											</div>	     		   		
+						     		   	</td>
+						     		   	<td width="5%">
+						     		   		<div class="custom-radio custom-radio-success">
+											    <input type="radio" name="radio3" value="nao" id="sim3" class="nao-opt ">
+											    <label for="sim3"></label>
+											</div>
+						     		   	</td>
+						     		   	<td width="5%">
+						     		   		<div class="custom-radio custom-radio-success">
+											    <input type="radio" name="radio3" value="justificativa" id="just3" class="justificativa-opt">
+											    <label for="just3"></label>
+											</div>
+						     		   	</td>
+						     		   	<td width="4%">
+						     		   		<div class="custom-radio custom-radio-success">
+											    <input type="radio" name="radio3" value="NA" id="na3" class="NA-opt ">
+											    <label for="na3"></label>
+											</div>
+						     		   	</td>
+						     		   	<td class="analise-desc">
+						     		   		<span>Os dados de balanços, questionários e balanços perguntados, foram preenchidso corretamente/de forma consistente?</span>
+						     		   	</td>
+						        	</tr>
+
+						        	<tr>
+						     		   	<td width="5%">
+							     		   	<div class="custom-radio custom-radio-success">
+											    <input type="radio" name="radio4" value="sim" id="nao4" class="sim-opt ">
+											    <label for="nao4"></label>
+											</div>	     		   		
+						     		   	</td>
+						     		   	<td width="5%">
+						     		   		<div class="custom-radio custom-radio-success">
+											    <input type="radio" name="radio4" value="nao" id="sim4" class="nao-opt ">
+											    <label for="sim4"></label>
+											</div>
+						     		   	</td>
+						     		   	<td width="4%">
+						     		   		<div class="custom-radio custom-radio-success">
+											    <input type="radio" name="radio4" value="justificativa" id="just4" class="justificativa-opt">
+											    <label for="just4"></label>
+											</div>
+						     		   	</td>
+						     		   	<td width="5%">
+						     		   		<div class="custom-radio custom-radio-success">
+											    <input type="radio" name="radio4" value="NA" id="na4" class="NA-opt ">
+											    <label for="na4"></label>
+											</div>
+						     		   	</td>
+						     		   	<td class="analise-desc">
+						     		   		<span>Foram realizadas as consultas nos cadastros de restritivos e no SCR?</span>
+						     		   	</td>
+						        	</tr>
+						        	
+						        </tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="form-group col-xs-12">
+						<label>Considerações adicionais para análise</label>
+						<textarea name="consideracoes" rows="5" class="descricaoS form-control"></textarea>
+					</div>
+				</div>
+
+				<div class="row actions-btn">
+					<div class="col-sm-12">
+						<button class="btn btn-second">CANCELAR</button>
+						<button class="btn btn-primary">GRAVAR</button>
+					</div>
+				</div>
+
+			</form>
+		</div>
+	</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,501 @@
+@import url('https://fonts.googleapis.com/css?family=Asap:400,600,700&display=swap');
+
+body, #fluig-sicoob form, #fluig-sicoob table td, #fluig-sicob table th, #fluig-sicoob button.btn, #fluig-sicoob button, #fluig-sicoob .btn {
+     font-family: 'Asap', sans-serif;
+} 
+
+body{
+    margin: 0px;
+}
+
+#fluig-sicoob [readonly] {
+    cursor: not-allowed;
+    pointer-events: none;
+    background-image: none;
+    border: 0;
+    background-color: #fafafa;
+    color: #555;
+    font-size: 14px;
+}
+
+#fluig-sicoob i {
+    margin-right: 5px;
+    padding-top: 1px;
+}
+
+#fluig-sicoob hr {
+    border-top-color: rgb(203, 219, 200);
+    margin-bottom: 25px;
+}
+
+#fluig-sicoob .container-fluid{
+    background-color: #eee;
+    width: 100%;
+    height: fit-content;
+}
+
+#fluig-sicoob form{
+    background-color: #fff;
+    padding: 30px;
+    margin: 0 4.222222%;
+}
+
+#fluig-sicoob .form-group input, #fluig-sicoob .form-input input, #fluig-sicoob .form-group select, #fluig-sicoob .form-group textarea{
+    border: 1px solid #ddd;
+    height: 28px;
+    padding: 0 5px;
+    width: -webkit-fill-available;
+    border-radius: 5px;
+    box-shadow: none!important;
+}
+
+form select {
+    border: 1px solid #ddd!important;
+    box-shadow: none!important;
+}
+
+.form-control:focus {
+    box-shadow: none!important;
+}
+
+/* Header */
+div#header {
+    background-color: #003641;
+    height: 60px;
+    position: relative;
+    text-align: center;
+    width: 100%;
+    display: flex;
+    vertical-align: middle;
+    align-items: center;
+    font-family: 'Asap', sans-serif;
+}
+
+div#header span {
+    color: #fff;
+    top: 5px;
+    text-transform: uppercase;
+    font-size: 20px;
+    text-align: center;
+    width: calc(100%);
+    position: relative;
+    font-weight: 700;
+}
+
+div#header2 {
+    background-color: #00AE9D;
+    height: 4px;
+    margin: 0 !important;
+}
+
+#header img {
+    padding-top: 7px;
+    padding-left: 7%;
+    float: left;
+    height: 45px;
+    box-sizing: content-box;
+    position: absolute;
+    left: 0;
+}
+
+#fluig-sicoob button.btn, #fluig-sicoob button {
+    background-color: #00Ae9d;
+    color: #fff;
+    font-weight: 600;
+    border: none;
+    font-size: 14px;
+    outline: 0;
+    transition: all 0.2s;
+    line-height: 15px;
+    padding: 8px 20px 8px 20px;
+    border-radius:5px;
+}
+
+#fluig-sicoob i{
+    margin-right: 5px;
+    top: 2px;
+}
+
+.unstyled::-webkit-inner-spin-button {
+    display: none;
+    -webkit-appearance: none;
+}
+
+#fluig-sicoob .ladrilhos img {
+    height: 25px;
+    width: 100%;
+}
+
+#fluig-sicoob #table {
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 0 0px 30px;
+    border: 1px solid #eee;
+}
+
+.bpm-mobile-trash-column span.fs-display-block {
+    padding: 10px 5px 10px 10px!important;
+}
+
+.bpm-mobile-trash-column span.fs-display-block i {
+    font-size: 20px;
+}
+
+#fluig-sicoob input:focus, #fluig-sicoob textarea:focus {
+    border-color: #00Ae9d;
+    outline: none;
+}
+
+#fluig-sicoob .form-group {
+    margin-top: 0px;
+}
+
+#fluig-sicoob hr {
+    border-top-color: #7db61c;
+    margin-bottom: 25px;
+}
+
+#fluig-sicoob  .form-group textarea {
+    box-shadow: none;
+    width: -webkit-fill-available;
+    height: unset;
+}
+
+#fluig-sicoob form label {
+    font-weight: 500;
+}
+
+#fluig-sicoob .coop input{
+    max-width: fit-content!important;
+}
+
+@media (max-width: 450px){
+    .hidden-phone{
+        display: none;
+    }
+
+    textarea.descricao{
+        height: 70px;
+    }
+    
+    div#header span{
+        width: -webkit-fill-available;
+    }
+
+    #fluig-sicoob form{
+        margin: 0;
+    }
+}
+
+#form-row{
+    height: -webkit-fill-available;
+}
+
+#fluig-sicoob .custom-checkbox.custom-checkbox-sicoob input[type=checkbox]:checked+label:before {
+    background-color: #00Ae9d;
+}
+#fluig-sicoob .custom-checkbox.custom-checkbox-sicoob  input[type=checkbox]:checked+label:before {
+    background-color: #00Ae9d;
+}
+
+#monitor-table td.cooperativa, #monitor-table td.status {
+    text-align: center;
+}
+
+#fluig-sicoob #monitor-table tr.analisar:hover {
+    border: 2px solid #00Ae9d;
+    color: #00Ae9d;
+}
+
+#fluig-sicoob table#monitor-table {
+    border-radius: 3px;
+    padding: 5px!important;
+}
+
+#fluig-sicoob div#filtros {
+    border: 2px solid #00Ae9d;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 25px;
+}
+
+#monitor-table thead {
+    background-color: #00Ae9d;
+    color: #fff;
+    border-radius: 30px;
+}
+
+#monitor-table tr.em-analise .status i, i.flaticon.em-analise {
+    color: #F9A825;
+    font-weight: 900;
+}
+
+#monitor-table tr.analisado .status i, i.flaticon.analisado {
+    color: #4CAF50;
+    font-weight: 900;
+}
+
+#monitor-table tr.analisar .status i, i.flaticon.analisar {
+    color: #00Ae9d;
+    font-weight: 600;
+}
+
+#fluig-sicoob #monitor-table tr.analisar:hover .custom-checkbox label:before {
+    border: 2px solid #00Ae9d;
+}
+
+#fluig-sicoob .custom-checkbox-sicoob {
+    top: 3px;
+}
+
+#fluig-sicoob #monitor-table tr.analisar:hover td, #fluig-sicoob #monitor-table tr.analisar.selected td {
+    color: #00Ae9d;
+    font-weight: 500;
+}
+
+#fluig-sicoob .row.legenda div {
+    width: fit-content;
+    float: right;
+}
+
+#fluig-sicoob .row.legenda {
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+#fluig-sicoob tr.em-analise:hover tr {
+    pointer-events: none;
+}
+
+#fluig-sicoob tr.em-analise:hover, #fluig-sicoob tr.analisado:hover {
+    cursor: default;
+}
+
+div#fluig-sicoob table th {
+    color: #ffffff;
+    font-weight: 600;
+}
+
+div#fluig-sicoob table th:first-child {
+    border-radius: 5px 0 0 0;
+}
+
+div#fluig-sicoob table th:last-child {
+    border-radius: 0 5px 0 0;
+}
+
+#fluig-sicoob input::placeholder, #fluig-sicoob textarea::placeholder {
+    color: #9E9E9E;
+}
+
+#fluig-sicoob #monitor-table tr {
+    border-right: 2px solid transparent;
+    border-left: 2px solid transparent;
+}
+
+#monitor-table .custom-checkbox label:before {
+    margin: 0px 0px 0 4px;
+}
+
+#monitor-table .custom-checkbox-sicoob label:after {
+    left: 4px;
+}
+
+#fluig-sicoob thead {
+    background-color: #00Ae9d;
+    font-weight: 600;
+    border: 1px solid #00ae9d;
+}
+
+#fluig-sicoob #analise-table td, #fluig-sicoob #analise-table th {
+    border-right: 1px solid #eee;
+    padding: 10px;
+}
+
+.fluig-style-guide .custom-radio.custom-radio-sicoob input[type=radio]:checked+label:after {
+    background-color: #00ae9d;
+}
+
+.fluig-style-guide .custom-radio.custom-radio-sicoob input[type=radio]:checked+label:after {
+    background-color: #00ae9d;
+}
+
+#fluig-sicoob #analise-table td:last-child, #fluig-sicoob #analise-table th:last-child {
+    border: none;
+}
+
+#fluig-sicoob tbody tr {
+    border: 1px solid #eee;
+}
+
+#fluig-sicoob #analise-table td.nao-fields {
+    border: 2px solid #00ae9d;
+    border-width: 0 0 2px 0;
+    display: flex;
+    position: relative;
+    background: #00ae9d;
+}
+
+#fluig-sicoob #analise-table button.additem-btn {
+    background: 0;
+    color: #00ae9d;
+    padding: 0px;
+}
+
+#fluig-sicoob #analise-table tr.selected {
+    border: 2px solid #00ae9d;
+}
+
+#fluig-sicoob #analise-table tr.nao-itens, #fluig-sicoob #analise-table tr.justif-campo {
+    border: 0;
+    overflow: hidden;
+    width: calc(100% - 32px);
+    display: inline-flex;
+    position: absolute;
+    margin-top: -1px;
+    border-top: 2px solid #00ae9d;
+    height: 56px;
+    background: #fff;
+}
+
+#fluig-sicoob button.btn.btn-second {
+    background: 0;
+    color: #9e9e9e;
+}
+
+#fluig-sicoob button.btn.btn-primary:hover {
+    background: #003641;
+}
+
+#fluig-sicoob button.btn.btn-second:hover {
+    color: #fff;
+    background: rgba(0, 54, 65, 0.72);
+}
+
+#fluig-sicoob .additem-btn i {
+    margin: 0;
+}
+
+#fluig-sicoob #analise-table tr td.ordem_item.nao-fields {
+    border-width: 0px 2px 2px;
+    border-radius: 0 0 15px 0;
+    background: #fafafa;
+    width: 130px;
+    padding-left: 8px;
+    overflow: hidden;
+}
+
+#fluig-sicoob #analise-table tr td.descricao_item {
+    border-width: 0px 0 2px 2px;
+    border-radius: 0 0 0 15px;
+    padding: 0;
+    width: -webkit-fill-available;
+    background: #00ae9d;
+}
+
+#fluig-sicoob #analise-table tr.space {
+    height: 55px;
+    border: 0;
+    background: 0;
+}
+
+#fluig-sicoob #analise-table tr td.descricao_item textarea {
+    border: 1px solid #00ae9d;
+    background: #fff;
+    padding: 8px;
+    padding-left: 15px;
+    z-index: 999999;
+    height: 100%;
+    border-radius: 0 0 15px 15px;
+    position: relative;
+    border-width: 0 1px 1px 0;
+}
+
+#fluig-sicoob #analise-table .add_item {
+    border-top: 0;
+    border-right: 0;
+    width: 5%;
+    text-align: center;
+}
+
+#fluig-sicoob #analise-table .anexo-item button {
+    padding: 10px 7px 12px 12px;
+    border-radius: 0;
+}
+
+#fluig-sicoob #analise-table td.anexo-item {
+    padding: 0;
+}
+
+#fluig-sicoob .table>thead>tr>th {
+    border-bottom: none;
+}
+
+#fluig-sicoob #analise-table tr.justif-campo {
+    border: 2px solid #00ae9d;
+    border-width: 1px 2px 2px 2px;
+    height: 56px;
+    margin-left: calc(10% - 4px);
+    width: calc(90% - 28px);
+    border-radius: 0 0 15px 15px;
+}
+
+#fluig-sicoob #analise-table .justif-campo td.descricao_item {
+    width: 100%;
+}
+
+#fluig-sicoob .row.actions-btn {
+    float: right;
+    margin-top: 10px;
+}
+
+#fluig-sicoob .custom-checkbox input[type=checkbox]+label:before, #fluig-sicoob .custom-checkbox input[type=radio]+label:before, #fluig-sicoob .custom-radio input[type=checkbox]+label:before,#fluig-sicoob .custom-radio input[type=radio]+label:before {
+    margin-right: 0;
+}
+
+.custom-radio.custom-radio-success {
+    width: 15px;
+    margin: 0;
+}
+
+#fluig-sicoob #analise-table tr.space td {
+    border: 0;
+}
+
+#fluig-sicoob input.input-info {
+    background: #fff;
+    border: 0;
+    height: 14px;
+    font-weight: 600;
+    padding: 0;
+}
+
+#fluig-sicoob div#analise-info {
+    margin: 5px 0 20px 0;
+}
+
+#fluig-sicoob input.input-info.title {
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+#fluig-sicoob button.btn-collapse {
+    color: #00Ae9d;
+    background: 0;
+    float: right;
+    padding: 0;
+}
+
+#fluig-sicoob .btn-collapse i {
+    font-weight: 900;
+    font-size: 18px;
+}
+
+table#analise-table {
+    margin-bottom: 0;
+}
+
+#fluig-sicoob .ordem_item label {
+    margin: 0;
+    padding: 4px;
+}

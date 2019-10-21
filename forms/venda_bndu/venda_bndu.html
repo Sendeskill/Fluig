@@ -1,0 +1,185 @@
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link type="text/css" rel="stylesheet" href="/style-guide/css/fluig-style-guide.min.css"/>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
+	<script type="text/javascript" src="/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
+	<script type="text/javascript" src="script.js" charset="utf-8"></script>
+	
+</head>
+<body>
+	<div class="fluig-style-guide" id="fluig-sicoob">
+	<div class="container-fluid fs-no-padding">
+		<div class="row">
+			<div class="col-sm-12" id="header">
+				<img src="img/logo_sicoob.png">
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-12" id="header2">
+				<h3>Venda BNDU</h3>
+			</div>
+		</div>
+		<form name="form" role="form" class="col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+		
+			<input type="hidden" name="todos_documentos" value="sim">
+			<input type="hidden" name="aprovacao_diretor" value="aprovado">
+			<input type="hidden" name="aprovacao_documentos" value="aprovado">
+		
+			<div class="row">
+			    <div class="col-sm-12 col-md-6">
+			        <div class="form-group ">
+			        	<label for="tipo_processo">Origem</label>
+			            <select id="tipo_processo" name="origem" class="form-control">
+							<option value="dacao_em_pagamento">Dação em pagamento</option>
+							<option value="alienacao_fiduciaria_bem_imovel">Alienação Fiduciária bem Imóvel</option>
+							<option value="alienacao_fiduciaria_bem_movel">Alienação Fiduciária bem móvel</option>
+							<option value="adjudicacao">Adjudicação</option>
+						</select>
+			        </div>
+			    </div>
+			    <div class="col-sm-12 col-md-6">
+			        <div class="form-group ">
+			        	<label for="tipo_de_bem">Tipo de Bem</label>
+			            <select id="tipo_de_bem" name="tipo_de_bem" class="form-control">
+							<option value="imoveis">Imóveis</option>
+							<option value="veiculos_e_afins">Veículos e Afins</option>
+							<option value="maquinas_e_equipamentos">Maquinas e Equipamentos</option>
+							<option value="outros">Outros</option>
+						</select>
+			        </div>
+			    </div>
+			</div>
+			
+			<div class="row">
+			    <div class="form-group col-sm-12 col-md-8">
+			        	<label for="numero_liquidar">Número total de bens a liquidar</label><br>
+			        	<input type="digits" name="numero_liquidar"/>
+			    </div>
+			</div>
+			
+			<div class="row">
+				<div class="col-sm-12">
+					<div id="table">
+						<h4>Identificação do bem</h4>
+						<table tablename="tabledetailname1" class="table table-condensed" noaddbutton="true">
+							<thead>
+								<tr class="tableHeadRow">
+									<th class="tableColumn">Valor do Bem</th>
+									<th class="tableColumn">Data do laudo de avaliação</th>
+									<th class="tableColumn">Data do domínio do bem</th>
+									<th class="tableColumn">Descrição do Bem</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr class="tableBodyRow">
+									<td class="fs-v-align-middle">
+										<div class="form-input">
+											<input type="text" name="valor_do_bem" class="form-control">
+										</div>
+									</td>
+								
+									<td class="fs-v-align-middle">
+										<div class="form-input">
+											<input type="text" name="data_do_laudo_de_avaliacao" class="form-control">
+										</div>
+									</td>
+									
+									<td class="fs-v-align-middle">
+										<div class="form-input">
+											<input type="text" name="data_do_dominio_do_bem" class="form-control">
+										</div>
+									</td>
+								
+									<td class="fs-v-align-middle">
+										<div class="form-input">
+											<input type="text" name="descricao_do_bem" class="form-control">
+										</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<button type="button" class="btn " onclick="wdkAddChild('tabledetailname1')"><i class="fluigicon fluigicon-plus icon-xs"></i>Novo bem</button>
+				</div>
+				<br>
+			</div>
+			
+			<div class="row">
+				<div class="form-group col-sm-12 col-md-8">
+					<label>Total dos bens</label><br>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="form-group col-sm-12 col-md-8">
+					<label>Data da baixa das operações</label><br>
+					<input type="date" name="data_baixa" class="unstyled" />
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="form-group col-sm-12 col-md-8">
+					<label>Total atualizado das operações</label><br>
+					<input type="digits" name="total_operacoes"/>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="form-group col-sm-12 col-md-8">
+					<label>Valor rendas atraso + 60 dias</label><br>
+					<input type="digits" name="valor_atraso"/>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class=" form-group col-sm-12 col-md-8">
+					<label>Valor a ser contabilizado</label><br>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="form-group col-sm-12 col-md-8">
+					<label>Receitas a realizar</label><br>
+					<input type="digits" name="receitas_arealizar"/>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="form-group col-sm-12 col-md-8">
+					<label></label>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="form-group col-sm-12 col-md-8">
+					<label>Valor total das operações</label>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class=" form-group col-sm-12 col-md-8">
+					<label>Data do preenchimento do formulário: <span id="data"></span></label><br>
+				</div>
+			</div>
+
+		</form>
+
+	</div><!-- container -->
+	<div class="ladrilhos">
+			<img src="https://www.sicoob.com.br/portal-sicoob-internet-responsivo/images/sicoob/ladrilhos.png" alt="ladrilhos">
+		</div>
+	</div><!-- fluig-style-guide -->
+
+	<script type="text/javascript">
+		var d = new Date();
+		var strDate =  d.getDate() + "/" + (d.getMonth()+1) + "/" + d.getFullYear() ;
+
+		$('#data').html(strDate);
+		
+	</script>
+</body>
+</html>

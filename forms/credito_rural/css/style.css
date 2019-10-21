@@ -1,0 +1,1083 @@
+@import url('https://fonts.googleapis.com/css?family=Asap:400,500,600,700&display=swap');
+
+body, #fluig-sicoob form, #fluig-sicoob button.btn, #fluig-sicoob button, #fluig-sicoob .btn{
+     font-family: 'Asap', sans-serif;
+}
+
+ #fluig-sicoob table td, #fluig-sicoob table thead th{
+    font-family: 'Arial', sans-serif;
+ }
+
+body{
+    margin: 0px;
+}
+
+#fluig-sicoob .container-fluid{
+    background-color: #fff;
+    width: 100%;
+    height: fit-content;
+}
+
+#fluig-sicoob form{
+    background-color: #fff;
+    height: max-content;
+}
+
+#fluig-sicoob .form-group input, #fluig-sicoob .form-input input, #fluig-sicoob .form-group textarea{
+    border: 1px solid #ddd;
+    padding: 0 5px;
+    width: -webkit-fill-available;
+    box-shadow: none!important;
+    background-image: linear-gradient(to left,#00ae9d,#28bbac),linear-gradient(to left,#003641,#003641);
+    background-repeat: no-repeat;
+    background-position: left bottom,left bottom,calc(100% - 4px) center;
+    background-size: 0 2px,100% 2px,24px 24px;
+}
+
+form select {
+    border: 1px solid #ddd!important;
+    box-shadow: none!important;
+}
+
+.form-control:focus {
+    box-shadow: none!important;
+}
+
+/* Header */
+div#header {
+    background-color: #003641;
+    height: 60px;
+    position: relative;
+    text-align: center;
+    width: 100%;
+    display: flex;
+    vertical-align: middle;
+    align-items: center;
+    font-family: 'Asap', sans-serif;
+}
+
+div#header span {
+    color: #fff;
+    top: 5px;
+    text-transform: uppercase;
+    font-size: 20px;
+    text-align: center;
+    width: calc(100%);
+    position: relative;
+    font-weight: 700;
+}
+
+div#header2 {
+    background-color: #00AE9D;
+    height: 4px;
+    margin: 0 !important;
+}
+
+#header img {
+    padding-top: 7px;
+    padding-left: 7%;
+    float: left;
+    height: 45px;
+    box-sizing: content-box;
+    position: absolute;
+    left: 0;
+}
+
+#fluig-sicoob button.btn-primary {
+    background-color: #00Ae9d;
+    color: #fff;
+    font-weight: 600;
+    text-transform: uppercase;
+    border: none;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    outline: 0;
+    line-height: 15px;
+    padding: 10px 15px 10px 15px;
+    border-radius:5px;
+    transition: all .2s;
+}
+
+#fluig-sicoob i{
+    margin-right: 5px;
+    top: 1px;
+}
+
+.unstyled::-webkit-inner-spin-button {
+    display: none;
+    -webkit-appearance: none;
+}
+
+#fluig-sicoob .ladrilhos img {
+    height: 25px;
+    width: 100%;
+}
+
+#fluig-sicoob #table {
+    border-radius: 5px;
+    margin: 0 0px 5px;
+}
+
+.bpm-mobile-trash-column span.fs-display-block {
+    padding: 10px 5px 10px 10px!important;
+}
+
+.bpm-mobile-trash-column span.fs-display-block i {
+    font-size: 20px;
+}
+
+#fluig-sicoob input:focus, #fluig-sicoob textarea:focus {
+    border-color: #00Ae9d;
+    outline: none;
+}
+
+#fluig-sicoob .form-group {
+    margin-top: 0px;
+}
+
+#fluig-sicoob hr {
+    border-top-color: #7db61c;
+    margin-bottom: 25px;
+}
+
+#fluig-sicoob  .form-group textarea {
+    box-shadow: none;
+    width: -webkit-fill-available;
+    height: unset;
+}
+
+#fluig-sicoob form label {
+    font-weight: 600;
+    font-family: 'Arial', sans-serif;
+}
+
+#fluig-sicoob .coop input{
+    max-width: fit-content!important;
+}
+
+@media (max-width: 450px){
+    .hidden-phone{
+        display: none;
+    }
+
+    textarea.descricao{
+        height: 70px;
+    }
+    
+    div#header span{
+        width: -webkit-fill-available;
+    }
+
+    #fluig-sicoob form{
+        margin: 0;
+    }
+}
+
+#form-row{
+    height: -webkit-fill-available;
+}
+
+#fluig-sicoob .custom-checkbox.custom-checkbox-sicoob input[type=checkbox]:checked+label:before {
+    background-color: #00Ae9d;
+}
+#fluig-sicoob .custom-checkbox.custom-checkbox-sicoob  input[type=checkbox]:checked+label:before {
+    background-color: #00Ae9d;
+}
+
+#fluig-sicoob table {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0);
+    margin-bottom: 0;
+    padding: 5px!important;
+}
+
+
+
+#fluig-sicoob table th:first-child {
+    border-radius: 5px 0 0 0;
+}
+#fluig-sicoob table th:last-child {
+    border-radius: 0 5px 0 0;
+}
+
+#fluig-sicoob input::placeholder {
+    color: #c0c0c0;
+}
+
+#fluig-sicoob #cooperado input.input-info {
+    background: #fff;
+    border: 0;
+    height: 25px;
+    width: -webkit-fill-available;
+    font-weight: 500;
+    pointer-events: none;
+    padding: 0px;
+    border-top: 2px solid #47b601;
+    border-radius: 0;
+}
+
+#fluig-sicoob .bg {
+    background: #eee;
+}
+
+#fluig-sicoob .nav-tabs>li> a {
+    border-radius: 50%;
+    border: 3px solid #28A745;
+    font-size: 24px;
+    padding: 8px;
+    width: 55px;
+    height: 55px;
+    pointer-events: none;
+    font-weight: 600;
+    color: #28A745;
+}
+
+#fluig-sicoob .nav-tabs {
+    border: 0;
+    margin: 30px auto;
+    text-align: center;
+    width: 95%;
+    padding: 0 0 0 24%;
+}
+
+#fluig-sicoob div#concluido {
+    color: #48b800;
+    text-align: center;
+}
+
+#fluig-sicoob p.msg-success {
+    font-weight: 600;
+    font-size: 18px;
+    margin-top: 40px;
+}
+
+#fluig-sicoob .proposta {
+    border: 2px solid;
+    border-radius: 5px;
+    font-size: 32px;
+    padding: 20px 30px;
+    width: min-content;
+    text-align: center;
+    margin: auto;
+}
+
+#fluig-sicoob .nav-tabs>li.active>a {
+    background: #48b800;
+    color: #fff;
+}
+
+#fluig-sicoob span.linha {
+    width: calc(100% - 55px);
+    height: 3px;
+    background-color: #28A745;
+    position: absolute;
+    margin: -1px 0 0 0;
+    top: 50%;
+    right: 0;
+}
+
+#fluig-sicoob .nav-tabs li {
+    width: 20%;
+}
+
+#fluig-sicoob .nav-tabs>li>#third-tab i {
+    padding-top: 5px;
+    padding-left: 4px;
+}
+
+#fluig-sicoob div#info {
+    border: 1px solid #00ae9d;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+#fluig-sicoob button#btn-prox {
+    float: right;
+}
+
+#fluig-sicoob button#btn-voltar {
+    background: #fff;
+    border: 1px solid #00ae9d;
+    color: #00Ae9d;
+}
+
+#fluig-sicoob button.btn:hover, #fluig-sicoob button:hover {
+    background: #003641;
+    color: #fff;
+}
+
+#fluig-sicoob .nav-tabs li:last-child {
+    width: 55px;
+}
+
+#fluig-sicoob .container {
+    background-color: #fff;
+    padding: 15px;
+    min-height: 600px;
+}
+
+#fluig-sicoob .search-group .search-bar input {
+    width: 93%;
+    display: inline-block;
+    border-radius: 5px 0 0 5px;
+    border-right: 0;
+    background: 0;
+    border-bottom: 2px solid #00ae9d;
+}
+
+#fluig-sicoob button.search-btn.btn {
+    border-radius: 0 5px 5px 0;
+    display: inline-block;
+    position: absolute;
+    background: #00ae9d;
+    padding: 5px 12px;
+    height: 34px;
+    color: #fff;
+}
+
+#fluig-sicoob #coop-info {
+    padding: 25px 20px 10px 20px;
+    margin: 10px 0px;
+    border-radius: 5px;
+    border: 2px solid #00ae9d;
+}
+
+#fluig-sicoob span.input-group-addon {
+    background: #003641;
+    border: 0;
+    padding-top: 10px;
+    width: 40px;
+}
+
+#fluig-sicoob  .slider-handle.round {
+    border-radius: 15px;
+}
+
+#fluig-sicoob .slider-handle {
+    background-color: #6ec010;
+    background-image: -webkit-linear-gradient(top,#8BC34A 0,#4CAF50 100%);
+    background-image: -o-linear-gradient(top,#58595b 0,#58595b 100%);
+    background-image: linear-gradient(to bottom,#8BC34A 0,#4CAF50 100%);
+    opacity: 0.9;
+}
+
+#fluig-sicoob .slider-selection {
+    background-image: -webkit-linear-gradient(top,#48b800 0,#00ae9d 100%);
+    background-image: -o-linear-gradient(top,#777 0,#777 100%);
+    background-image: linear-gradient(to bottom,#42ae05 0,#00ae9d 100%);
+}
+
+#fluig-sicoob .box-docs {
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 4px 9px -3px rgba(0, 0, 0, 0.2);
+    margin: 15px 0px;
+}
+
+#fluig-sicoob .box-docs.box-docs-proposta .titulo {
+    background: #00ae9d;
+    padding: 10px;
+    text-align: center;
+    font-size: 16px;
+}
+
+#fluig-sicoob .box-docs .titulo input[readonly] {
+    background: 0;
+    border: 0;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    margin-left: 5px;
+}
+
+#fluig-sicoob .box-docs .titulo .btn {
+    background: 0;
+    padding: 0;
+    float: right;
+}
+
+#fluig-sicoob .box-docs .titulo .btn i {
+    font-size: 17px;
+}
+
+#fluig-sicoob .box-docs .contents {
+    padding: 20px 20px;
+    height: 200px;
+}
+
+#fluig-sicoob .box-docs .box-upload {
+    background: #F5F5F5;
+    height: -webkit-fill-available;
+    border-radius: 5px;
+    border: 3px dashed #E0E0E0;
+    padding: 6px;
+    text-align: center;
+}
+
+#fluig-sicoob .box-docs .box-upload img {
+    width: 115px;
+}
+
+#fluig-sicoob .box-docs .box-upload input.btn-upload {
+    border: 0;
+    background: 0;
+    font-weight: 600;
+    color: #ababab;
+}
+
+#fluig-sicoob .box-docs .progress {
+    height: 12px;
+    margin-top: 3px;
+    width: calc(100% - 30px);
+    display: inline-block;
+}
+
+#fluig-sicoob .box-docs .progress-bar {
+    background-color: green;
+}
+
+#fluig-sicoob .box-docs span.nome-arquivo {
+    font-size: 12px;
+}
+
+#fluig-sicoob .box-docs .contents i.flaticon-trash {
+    float: right;
+    color: #a3a3a3;
+}
+
+#fluig-sicoob #anexo_docs button.btn.btn-add-doc {
+    width: 100%;
+    padding: 9px;
+}
+
+#fluig-sicoob #anexo_docs button.btn.btn-add-doc i {
+    font-size: 13px;
+    margin: 0 10px;
+}
+
+#fluig-sicoob #avaliacao_docs .contents .checking label {
+    position: relative;
+    color: #dbdbdb;
+}
+
+#fluig-sicoob #avaliacao_docs .contents input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    z-index: 99999;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+#fluig-sicoob #avaliacao_docs .contents input[type="radio"] + i {
+    -webkit-transition: all 0.2s;
+    transition: all 0.2s;
+    cursor: pointer;
+}
+
+#fluig-sicoob #avaliacao_docs .contents label i {
+    font-weight: 700;
+}
+
+#fluig-sicoob #avaliacao_docs .contents input[class="positivo"]:hover + i,
+#fluig-sicoob #avaliacao_docs .contents input[class="positivo"]:checked + i,
+#fluig-sicoob #avaliacao_docs .contents input[class="positivo"]:focus + i {
+   color: #00a146;
+}
+
+#fluig-sicoob #avaliacao_docs .contents input[class="negativo"]:hover +i,
+#fluig-sicoob #avaliacao_docs .contents input[class="negativo"]:checked + i,
+#fluig-sicoob #avaliacao_docs .contents input[class="negativo"]:focus + i {
+    color: #ed1717;
+}
+
+#fluig-sicoob .box-docs .checklist {
+    -webkit-column-count: 2;
+    column-count: 2;
+    width: 75%;
+}
+
+#fluig-sicoob .box-docs .checking label i {
+    font-size: 21px;
+}
+
+#fluig-sicoob .box-docs .titulo .btn.edit {
+    float: left;
+}
+
+#fluig-sicoob #avaliacao_docs .box-docs .checking, #fluig-sicoob #avaliacao_docs .box-docs .check-name {
+    display: table-cell;
+}
+
+#fluig-sicoob .box-docs .titulo .btn i.flaticon-cloud-download {
+    font-size: 22px;
+}
+
+#fluig-sicoob .box-docs .titulo .btn i.fluigicon.fluigicon-info-sign {
+    margin-top: 3px;
+}
+
+#fluig-sicoob .box-docs .checklist-row {
+    display: inline-flex;
+    margin-right: 15px;
+}
+
+#fluig-sicoob #avaliacao_docs .box-docs .contents {
+    height: 175px;
+}
+
+#fluig-sicoob #parecer .titulo, #fluig-sicoob #parecer_tecnico .titulo {
+    background: #003641;
+    color: #fff;
+    font-weight: 500;
+    border-radius: 2px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+#fluig-sicoob #parecer .titulo p, #fluig-sicoob #parecer_tecnico .titulo p {
+    padding: 5px 15px;
+    margin: 0;
+    font-weight: 500;
+}
+
+#fluig-sicoob #avaliacao_docs div#parecer-fields {
+    border: 1px solid #003641;
+    padding: 25px 15px;
+    border-top: 0;
+    border-radius: 0 0 5px 5px;
+}
+
+#fluig-sicoob .search-group .zoom input {
+    border: 0;
+    width: unset;
+    display: unset;
+}
+
+#fluig-sicoob .zoom .input-group-addon {
+    background-color: #00ae9d;
+    border-color: #00ae9d;
+}
+
+#fluig-sicoob .box-docs-proposta .contents {
+    height: 150px;
+    text-align: center;
+}
+
+#fluig-sicoob .box-docs .titulo {
+    background: #48b800;
+    padding: 6px 15px;
+    color: #fff;
+}
+
+#fluig-sicoob .btn.btn-act {
+    background: #00ae9d;
+    color: #fff;
+    width: -webkit-fill-available;
+    text-transform: uppercase;
+    font-weight: 600;
+    padding: 5px;
+    font-size: 14px;
+}
+
+#fluig-sicoob .btn.btn-act i {
+    margin-right: 10px;
+}
+
+#fluig-sicoob a:hover {
+    text-decoration: none;
+}
+
+#fluig-sicoob .contents a img {
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+#fluig-sicoob .box-docs span, #fluig-sicoob .box-docs label {
+    color: #9f9f9f;
+    font-weight: 500;
+}
+
+#fluig-sicoob .box-docs-proposta .custom-checkbox input[type=checkbox]+label:before, #fluig-sicoob .box-docs-proposta .custom-checkbox input[type=radio]+label:before, #fluig-sicoob .box-docs-proposta .custom-radio input[type=checkbox]+label:before, #fluig-sicoob .box-docs-proposta .custom-radio input[type=radio]+label:before {
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+}
+
+#fluig-sicoob .box-docs-proposta .custom-checkbox input[type=checkbox]:checked+label:after, #fluig-sicoob .box-docs-proposta .custom-checkbox input[type=checkbox]:not(:checked)+label:after {
+    width: 40px;
+    height: 40px;
+    background-size: 20px;
+}
+
+#fluig-sicoob .box-docs-proposta .custom-checkbox.custom-checkbox-primary input[type=checkbox]:checked+label:before {
+    background: #4CAF50;
+}
+
+#fluig-sicoob .box-docs-proposta .custom-checkbox label {
+    margin-top: 20px;
+}
+
+#fluig-sicoob .modal-footer .btn-primary {
+    float: right;
+    margin-left: 10px;
+    text-transform: capitalize;
+}
+
+#fluig-sicoob .modal-footer .btn-default {
+    border: 0;
+}
+
+#fluig-sicoob .modal-header {
+    background-color: #003641;
+    color: #fff;
+    font-family: 'Asap';
+    text-transform: uppercase;
+    text-align: center;
+    padding: 12px 25px 8px 25px;
+}
+
+#fluig-sicoob .modal-content {
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: none;
+    border: 0;
+}
+
+#fluig-sicoob .modal-dialog {
+    border-radius: 5px;
+    box-shadow: none;
+    overflow: hidden;
+    border: 0;
+}
+
+#fluig-sicoob div#cadastro-modal {
+    box-shadow: 0 5px 10px -5px rgba(0, 0, 0, 0.5);
+}
+
+#fluig-sicoob .modal-content .modal-header .close>span:after {
+    background: 0;
+}
+
+#fluig-sicoob .modal .close span {
+    color: transparent;
+    text-shadow: none!important;
+}
+
+#fluig-sicoob .modal-content .modal-header .modal-title {
+    font-size: 20px;
+}
+
+#fluig-sicoob .modal .close span:after {
+    color: #fff;
+}
+
+#fluig-sicoob #parecer-fields .cstm-radio.checking {
+    display: inline;
+    margin-left: 5px;
+}
+
+#fluig-sicoob span.label {
+    color: #fff;
+    border-radius: 18px;
+    box-shadow: 0 1px 4px -2px rgba(0, 0, 0, 0.31);
+}
+
+#fluig-sicoob .nav-tabs>li>a.complete {
+    pointer-events: auto;
+    cursor: pointer;
+    background: #28A745;
+    color: #fff;
+}
+
+#fluig-sicoob .nav-tabs>li>a:hover {
+    background: #bfd101;
+    border-color: #bfd101;
+    color: #fff;
+}
+
+#fluig-sicoob .box-docs .titulo input {
+    padding: 0 5px;
+    border: 0;
+    color: #212121;
+    background: #ffffffb5;
+}
+
+#fluig-sicoob #dados_proposta label {
+    font-weight: 600;
+}
+
+#fluig-sicoob #cadastro-modal .modal-body {
+    padding: 30px  35px 20px 35px;
+}
+
+#fluig-sicoob #dados_proposta input, #fluig-sicoob #dados_proposta select, #fluig-sicoob #dados_proposta #pInfo span {
+    border-width: 2px 0 0 0!important;
+    background: 0;
+    border-color: #00ae9d;
+    padding: 0;
+    color: #212121;
+    border-radius: 0;
+}
+
+#fluig-sicoob #dados_proposta div#pInfo {
+    margin: 15px 0;
+    border: 1px solid #dbe6ce;
+    border-radius: 5px;
+    padding: 20px 0 10px 0;
+}
+
+#fluig-sicoob div#apr_credito {
+    margin-bottom: 15px;
+    float: right;
+    margin-top: 15px;
+}
+
+#fluig-sicoob #apr_credito button#btn_negado {
+    background: #dc3f34;
+    margin-right: 10px;
+    text-transform: uppercase;
+}
+
+#fluig-sicoob #alerta-correção {
+    margin-right: 5px;
+    width: min-content;
+    margin-top: 2px;
+}
+
+#fluig-sicoob .box-docs .titulo span.notif {
+    background: #FF5722;
+    color: #fff;
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    font-size: 10px;
+    padding: 1px;
+    border-radius: 50%;
+    right: 73px;
+    margin-top: 4px;
+}
+
+#fluig-sicoob p.title {
+    font-size: 18px;
+    font-weight: 700;
+    padding: 5px;
+    border-bottom: 1px solid green;
+}
+
+#fluig-sicoob .tabela .cabecalho div {
+    text-align: center;
+    background: #eee;
+    padding: 10px;
+    color: #6c6c6c;
+    border: 2px solid #e5e5e5;
+    border-width: 0 0 2px 2px;
+}
+
+#fluig-sicoob .tabela {
+    border: 2px solid  #e5e5e5;
+    border-radius: 5px;
+    font-weight: 500;
+    margin-bottom: 15px;
+    overflow: hidden;
+}
+
+#fluig-sicoob div#cooperado, #fluig-sicoob #tipo {
+    max-width: 1000px;
+    margin: auto;
+}
+
+#fluig-sicoob .tabela .row {
+    margin: 0;
+}
+
+#fluig-sicoob button.btn-outline {
+    border-radius: 50px;
+    padding: 4px 15px;
+    margin-left: 10px;
+    background: 0;
+    color: #028b7f;
+    border: 1px solid #00ae9d;
+    margin-bottom: 8px;
+}
+
+#fluig-sicoob .tabela .cabecalho div:first-child {
+    border-left: 0;
+}
+
+#fluig-sicoob .tabela .rodape {
+    background: #003641;
+    color: #fff;
+    text-align: center;
+    padding: 0px;
+}
+
+#fluig-sicoob .tabela .rodape input.input-info {
+    background: 0;
+    border: 0;
+    font-size: 16px;
+    color: #fff;
+}
+
+#fluig-sicoob .tabela .rodape .label {
+    display: grid;
+    text-align: right;
+    padding: 10px 20px;
+    font-weight: 400;
+    border-right: 1px solid #fff;
+    border-radius: 0;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+#fluig-sicoob .tabela .rodape .label .destaque {
+    font-size: 18px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+#fluig-sicoob input.input-info {
+    background: transparent;
+    border: 0;
+}
+
+#fluig-sicoob .btn-add {
+    border-radius: 30px;
+    padding: 8px;
+    box-shadow: 0px 2px #eee;
+    color: #fff;
+    background: #00ae9d;
+}
+
+#fluig-sicoob .btn-add i {
+    margin: 0;
+}
+
+#fluig-sicoob .projeto .tabela .box-grupo {
+    border: 1px solid #eee;
+    margin: 5px;
+    background: #fff;
+    height: 100%;
+    border-radius: 5px;
+}
+
+#fluig-sicoob .tabela .rodape .destaque.input-info {
+    font-size: 18px;
+    padding: 9px 0 2px;
+}
+
+#fluig-sicoob .tabela .rodape .input-info {
+    line-height: 19px;
+}
+
+#fluig-sicoob .projeto .tabela .row.grupo {
+    position: absolute;
+    vertical-align: middle;
+    display: flex;
+    align-items: center;
+    flex-direction: initial;
+}
+
+#fluig-sicoob .tabela .row.linha-grupo {
+    margin: 0 -15px;
+}
+
+#fluig-sicoob .tabela .row.linha-grupo>div:first-child {
+    border-left: 1px solid #eee;
+    padding-left: 20px;
+    box-shadow: inset 4px 0px 3px -3px #eee;
+}
+
+#fluig-sicoob .projeto .tabela .linha-grupo>div {
+    border-bottom: 1px solid #eee;
+    padding: 5px 12px;
+    border-right: 1px dotted #eee;
+}
+
+#fluig-sicoob .projeto .tabela .row.grupo div {
+    vertical-align: middle;
+    height: 100%;
+    text-align: center;
+}
+
+#fluig-sicoob .projeto .tabela .grupo button.btn.btn-add {
+    margin-right: 23px;
+    margin-top: 9px;
+    z-index: 9999999999999999;
+    position: relative;
+}
+
+#fluig-sicoob .row.grupo .input-info {
+    text-align: center;
+}
+
+#fluig-sicoob .projeto div#previsoes {
+    border: 2px dotted #eee;
+    margin: 10px 0;
+    padding: 0 0 15px 0;
+}
+
+#fluig-sicoob .projeto div#previsoes p {
+    background: #fff;
+    position: relative;
+    top: -13px;
+    font-size: 15px;
+    font-weight: 700;
+    text-align: center;
+    width: 162px;
+    margin: 0 7px;
+}
+
+#fluig-sicoob .tabela .imovel .row {
+    background: #fff;
+    margin: 5px;
+    border-radius: 5px;
+    border: 1px solid #e8e8e8;
+}
+
+#fluig-sicoob .tabela .row.corpo {
+    background: #f6f5f5;
+}
+
+#fluig-sicoob .tabela .imovel .row>div {
+    padding: 6px;
+    padding-right: 12px;
+    border-right: 1px dotted #eee;
+}
+
+#fluig-sicoob .tabela .imovel .coordenadas {
+    padding: 9px;
+    text-align: center;
+    margin-left: 35%;
+}
+
+#fluig-sicoob .tabela .imovel .coordenadas i {
+    margin: 0;
+}
+
+#fluig-sicoob .rodape .slider.slider-horizontal {
+    margin-top: 5px;
+}
+
+#fluig-sicoob #orcamento_analitico .row .col {
+    width: 19.7%;
+    display: inline-block;
+}
+
+#fluig-sicoob #orcamento_analitico .row.cabecalho {
+    background: #eee;
+}
+
+#fluig-sicoob #orcamento_analitico.tabela .row.linha-grupo>div {
+    width: 19.6%;
+    display: inline-flex;
+}
+
+#fluig-sicoob #orcamento_analitico .row.linha-grupo>div:first-child {
+    margin-left: 20.2%;
+}
+
+#fluig-sicoob #orcamento_analitico.tabela .grupo button.btn.btn-add {
+    margin-left: 31px;
+}
+
+#fluig-sicoob #orcamento_analitico .rodape>div {
+    width: 19.5%;
+    display: inline-block;
+    text-align: center;
+    padding: 10px;
+}
+
+#fluig-sicoob #orcamento_analitico .rodape .total {
+    width: 39.7%;
+    text-align: right;
+    font-size: 18px;
+    font-weight: 600;
+    padding-right: 20px;
+    text-transform: uppercase;
+    border-right: 1px solid;
+}
+
+#fluig-sicoob #orcamento_analitico .rodape>div input {
+    text-align: center;
+    font-size: 16px;
+}
+
+#fluig-sicoob #orcamento_simplificado [alx-row] .row {
+    margin: 5px;
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 5px;
+}
+
+#fluig-sicoob #orcamento_simplificado [alx-row] .row>div {
+    border-right: 1px dotted #eee;
+    padding: 5px 15px;
+    text-align: center;
+}
+
+#fluig-sicoob #orcamento_simplificado [alx-row] .row>div input {
+    text-align: center;
+}
+
+#fluig-sicoob div#tabela_imovel {
+    text-align: center;
+}
+
+#fluig-sicoob #tabela_imovel .btn-add {
+    position: absolute;
+    z-index: 99999999999999;
+}
+
+#fluig-sicoob #tabela_imovel .row.corpo {
+    padding-bottom: 15px;
+}
+
+#fluig-sicoob #orcamento_simplificado .rodape>div {
+    padding: 10px;
+    border-right: 1px dotted #1f6652;
+}
+
+#fluig-sicoob .tabela .imovel .box-coord {
+    position: absolute;
+    background: #fff;
+    width: 320px;
+    border: 1px solid #eee;
+    box-shadow: 0 2px 6px -3px #b8b8b8;
+    border-radius: 10px;
+    float: right;
+    z-index: 99999999999999;
+    right: 15px;
+}
+
+#fluig-sicoob .box-coord button.btn-close {
+    float: right;
+    border: 0;
+    padding: 0;
+    right: -7px;
+    top: 5px;
+    position: relative;
+    background: 0;
+}
+
+#fluig-sicoob .tabela .imovel .box-coord .row {
+    border: 0;
+    padding: 0;
+    margin: 0;
+}
+
+#fluig-sicoob .tabela .imovel .box-coord .row>div {
+    border: 0;
+}
+
+#fluig-sicoob .box-coord .btn-salvar {
+    border-radius: 50px;
+    padding: 5px 20px;
+    margin-top: 5px;
+    margin-right: 5px;
+}
+
+#fluig-sicoob .box-coord button.btn-close:hover {
+    color: #00ae9d;
+}

@@ -1,0 +1,388 @@
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" rel="stylesheet" href="/style-guide/css/fluig-style-guide.min.css"/>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+
+    <script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+    <script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
+    <script type="text/javascript" src="/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="jquery.fileupload.js"></script>
+    <script type="text/javascript" src="alx.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/jquery-maskmoney/3.0.2/jquery.maskMoney.min.js"></script>
+</head>
+<body>
+<div class="fluig-style-guide" id="fluig-sicoob">
+    <form name="form" role="form">
+
+        <!--CABEÇALHO-->
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-12" id="header">
+                    <img src="img/logo_sicoob.png" class="hidden-phone"/>
+                    <span class="col-md-8">Monitor de Cadastro</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12" id="header2"></div>
+            </div>
+        </div>
+        <!--FIM CABEÇALHO-->
+
+        <div class="container" id="checklist">
+
+            <!--INFORMAÇÕES VINDAS DA TABELA DE LIMITES-->
+            <div class="row " id="analise-info">
+                <div class="col-xs-12">
+                    <input type="text" name="nome" readonly class="input-info title"/>
+                </div>
+                <div class="col-xs-5 col-md-4 col-lg-2">
+                    <div class="form-group">
+                        <label for="valor">Valor</label>
+                        <div class="input-group col-xs-4">
+                            <span class="input-group-addon">R$</span>
+                            <input readonly
+                                   type="text"
+                                   name="valor"
+                                   id="valor"
+                                   class="form-control fs-sm-margin-left fs-xs-margin-top input-info"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-7 col-md-3 col-lg-2">
+                    <div class="form-group">
+                        <label for="chegada">Chegada</label>
+                        <input readonly
+                               type="text"
+                               id="chegada"
+                               name="chegada"
+                               class="form-control input-info"/>
+                    </div>
+                </div>
+            </div>
+            <!--FIM INFORMAÇÕES DA TABELA-->
+
+            <div class="row separate">
+                <table tablename="tabela_monitor_crl" noaddbutton="true" nodeletebutton="true" style="display: none;">
+                    <thead>
+                    <tr>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>
+                            <div alx-row>
+                                <input type="hidden" name="subitem_selected" id="subitem_selected">
+                                <div class="row">
+                                    <div class="col-xs-2 option">
+                                        <div class="custom-radio custom-radio-success">
+                                            <input type="radio"
+                                                   name="opcao"
+                                                   value="sim"
+                                                   alx-id="sim"
+                                                   class="sim-opt">
+                                            <label alx-for="sim"></label>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-2 option">
+                                        <div class="custom-radio custom-radio-success">
+                                            <input type="radio"
+                                                   name="opcao"
+                                                   value="nao"
+                                                   alx-id="nao"
+                                                   class="nao-opt">
+                                            <label alx-for="nao"></label>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-2 option">
+                                        <div class="custom-radio custom-radio-success">
+                                            <input type="radio"
+                                                   name="opcao"
+                                                   value="just"
+                                                   alx-id="just"
+                                                   class="justificativa-opt">
+                                            <label alx-for="just"></label>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-2 option">
+                                        <div class="custom-radio custom-radio-success">
+                                            <input type="radio"
+                                                   name="opcao"
+                                                   value="NA"
+                                                   alx-id="NA"
+                                                   class="NA-opt">
+                                            <label alx-for="NA"></label>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-1 option">
+                                        <input readonly
+                                               type="text"
+                                               name="Item"
+                                               id="Item"
+                                               class="input-info fs-display-inline-block ordem">
+                                    </div>
+                                    <div class="col-xs-9 analise-desc fs-full-width">
+                                        <input readonly
+                                               type="text"
+                                               id="descricao"
+                                               name="descricao"
+                                               class="input-info fs-display-inline-block fs-full-width">
+                                    </div>
+                                </div>
+                                <div class="row" alx-id="justificativa">
+                                    <div class="col-xs-12 col-md-11 col-md-offset-1 descricao_item">
+                                        <textarea name="desc_just"
+                                                  placeholder="Justificativa"></textarea>
+                                    </div>
+                                </div>
+                                <div alx-id="subitem">
+                                    <div class="row">
+                                        <div class="col-xs-12 col-md-11 col-md-offset-1 subItens"
+                                             alx-id="monitor_crl_subitem"></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xs-11 col-md-10 col-md-offset-1 descricao_item">
+                                            <textarea name="descricao_sub"></textarea>
+                                        </div>
+                                        <div class="col-xs-1 fs-no-padding">
+                                            <label class="btn btn-primary fs-lg-padding-top btn-anexo"
+                                                   anexo-campo="anexos"
+                                                   anexo-list="lista_anexos"
+                                                   fileupload>
+                                                <i class="fluigicon fluigicon-paperclip icon-sm"></i>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <textarea name="anexos" hidden>[]</textarea>
+                                    <div class="row">
+                                        <div class="col-xs-12 col-md-11 col-md-offset-1 anx lista_anexos">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!--ADERÊNCIA-->
+                                <div class="row aderencia" alex-id="aderencia">
+                                    <p class="block-title">Aderência</p>
+                                    <div class="col-xs-12 col-md-3">
+                                        <div class="custom-radio custom-radio-success">
+                                            <input type="radio"
+                                                   name="aderencia"
+                                                   value="concordar"
+                                                   alx-id="conc"
+                                                   class="concordar">
+                                            <label alx-for="conc">Concordar</label>
+                                        </div>
+                                        <div class="custom-radio custom-radio-danger">
+                                            <input type="radio"
+                                                   name="aderencia"
+                                                   value="discordar"
+                                                   alx-id="disc"
+                                                   class="discordar">
+                                            <label alx-for="disc">Discordar</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 col-md-7">
+                                        <label class="btn btn-primary fs-full-width"
+                                               fileupload
+                                               anexo-campo="anexos2"
+                                               anexo-list="lista-anexo2">
+                                            <i class="fluigicon fluigicon-paperclip icon-sm"></i>
+                                            Anexar arquivos comprobatórios
+                                        </label>
+                                        <div class="fs-sm-margin-top anx lista-anexo2"></div>
+                                    </div>
+                                    <textarea name="anexos2" hidden>[]</textarea>
+                                    <div class="col-xs-12">
+                                        <div class="form-group">
+                                            <label for="just_aderencia">Justificar</label>
+                                            <textarea id="just_aderencia"
+                                                      name="just_aderencia"
+                                                      rows="4"
+                                                      class="form-control"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="backup col-xs-12" style="display: none;">
+                                        <p class="block-title">Nova Aderência</p>
+                                        <div class="row backup1" style="display: none;">
+                                            <div class="col-xs-12 col-md-3">
+                                                <div class="custom-radio custom-radio-success">
+                                                    <input type="radio"
+                                                           name="aderencia_b"
+                                                           value="concordar"
+                                                           alx-id="conc_b"
+                                                           class="concordar adr">
+                                                    <label alx-for="conc_b">Concordar</label>
+                                                </div>
+                                                <div class="custom-radio custom-radio-danger">
+                                                    <input type="radio"
+                                                           name="aderencia_b"
+                                                           value="discordar"
+                                                           alx-id="disc_b"
+                                                           class="discordar adr">
+                                                    <label alx-for="disc_b">Discordar</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-12 ">
+                                                <div class="form-group">
+                                                    <label for="just_aderencia">Justificar</label>
+                                                    <textarea name="just_aderencia_b"
+                                                              rows="4"
+                                                              class="form-control">
+													</textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row backup2" style="display: none;">
+                                            <div class="col-xs-12 col-md-3">
+                                                <div class="custom-radio custom-radio-success">
+                                                    <input type="radio"
+                                                           name="aderencia_c"
+                                                           value="concordar"
+                                                           alx-id="conc_c"
+                                                           class="concordar adr">
+                                                    <label alx-for="conc_c">Concordar</label>
+                                                </div>
+                                                <div class="custom-radio custom-radio-danger">
+                                                    <input type="radio"
+                                                           name="aderencia_c"
+                                                           value="discordar"
+                                                           alx-id="disc_c"
+                                                           class="discordar adr">
+                                                    <label alx-for="disc_c">Discordar</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-12 ">
+                                                <div class="form-group">
+                                                    <label for="just_aderencia">Justificar</label>
+                                                    <textarea name="just_aderencia_c" rows="4"
+                                                              class="form-control">
+													</textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--FIM ADERÊNCIA-->
+
+                                <!--ANÁLISE ADERÊNCIA-->
+                                <div class="row analise" alx-id="analiseAd">
+                                    <p class="block-title">Análise da Aderência</p>
+                                    <div class="col-xs-12 col-md-3">
+                                        <div class="custom-radio custom-radio-success concordado">
+                                            <input type="radio"
+                                                   name="analise"
+                                                   value="encerrar"
+                                                   alx-id="aEnc">
+                                            <label alx-for="aEnc">Encerrar</label>
+                                        </div>
+                                        <div class="custom-radio custom-radio-danger discordado concordado">
+                                            <input type="radio"
+                                                   name="analise"
+                                                   value="discordar"
+                                                   alx-id="aDisc">
+                                            <label alx-for="aDisc">Discordar</label>
+                                        </div>
+                                        <div class="custom-radio custom-radio-success discordado">
+                                            <input type="radio"
+                                                   name="analise"
+                                                   value="revisada"
+                                                   alx-id="aRev">
+                                            <label alx-for="aRev">Aderência Revisada</label>
+                                        </div>
+                                        <div class="custom-radio custom-radio-warning discordado">
+                                            <input type="radio"
+                                                   name="analise"
+                                                   value="negativa"
+                                                   alx-id="aNeg">
+                                            <label alx-for="aNeg">Negativa em Discorde</label>
+                                        </div>
+                                    </div>
+                                    <textarea name="anexos3" hidden>[]</textarea>
+                                    <div class="col-xs-12 col-md-7">
+                                        <label class="btn btn-primary fs-full-width"
+                                               fileupload
+                                               anexo-campo="anexos3"
+                                               anexo-list="lista-anexo3">
+                                            <i class="fluigicon fluigicon-paperclip icon-sm"></i>
+                                            Anexos
+                                        </label>
+
+                                        <div class="fs-sm-margin-top anx lista-anexo3">
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 fs-sm-margin-top">
+                                        <div class="form-group">
+                                            <label for="justificativa">Justificativa</label>
+                                            <textarea id="justificativa"
+                                                      name="justAnalise"
+                                                      rows="4"
+                                                      class="form-control"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--FIM ANÁLISE ADERÊNCIA-->
+
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="col-xs-12">
+                    <div id="table">
+                        <div id="analise-table">
+                            <div class="row" id="head">
+                                <div class="col-xs-2 option">
+                                    Sim
+                                </div>
+                                <div class="col-xs-2 option">
+                                    Não
+                                </div>
+                                <div class="col-xs-2 option">
+                                    Just.
+                                </div>
+                                <div class="col-xs-2 option">
+                                    NA
+                                </div>
+                                <div class="col-xs-12 col-md-8">
+                                    Descrição
+                                </div>
+                            </div>
+                            <div alx-container-rows="tabela_monitor_crl" class="body"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--COMENTÁRIOS GERAIS-->
+            <div class="row">
+                <div class="form-group col-xs-12">
+                    <label>Considerações adicionais para análise</label>
+                    <textarea name="consideracoes"
+                              rows="5"
+                              class="descricaoS form-control">
+					</textarea>
+                </div>
+            </div>
+            <!--FIM COMENTÁRIOS GERAIS-->
+
+            <!--CAMPOS UTILIZADOS PARA REDIRECIONAR O PROCESSO-->
+            <input type="hidden" name="negativo" id="negativo">
+            <input type="hidden" name="concorde" id="concorde">
+            <input type="hidden" name="correcao" id="correcao" value="0">
+            <!--FIM CAMPOS UTILIZADOS PARA REDIRECIONAR O PROCESSO-->
+
+        </div>
+    </form>
+</div>
+<script type="text/javascript">
+    function showCamera(param) {
+        JSInterface.showCamera(param);
+    }
+</script>
+</body>
+</html>

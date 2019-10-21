@@ -1,0 +1,173 @@
+@import url('https://fonts.googleapis.com/css?family=Asap:400,600,700&display=swap');
+
+body, #fluig-sicoob, #fluig-sicoob form, #fluig-sicoob table td, #fluig-sicob table th, #fluig-sicoob button.btn, #fluig-sicoob button, #fluig-sicoob .btn {
+     font-family: 'Asap', sans-serif;
+}
+
+body{
+    margin: 0px;
+}
+
+#fluig-sicoob .container-fluid{
+    background-color: #eee;
+    width: 100%;
+    height: fit-content;
+}
+
+#fluig-sicoob form{
+    background-color: #fff;
+    padding: 30px 60px;
+}
+
+#fluig-sicoob .form-group input, #fluig-sicoob .form-input input, #fluig-sicoob .form-group select, #fluig-sicoob .form-group textarea{
+    border: 1px solid #ddd;
+    padding: 0 5px;
+    border-radius: 5px;
+    box-shadow: none!important;
+}
+
+form select {
+    border: 1px solid #ddd!important;
+    box-shadow: none!important;
+}
+
+.form-control:focus {
+    box-shadow: none!important;
+}
+
+div#header {
+    background-color: #003641;
+    height: 60;
+    text-transform: uppercase;
+    position: relative;
+    text-align: center;
+    align-items: center;
+    vertical-align: middle;
+    display: flex;
+    font-family: 'Asap', sans-serif;
+}
+
+div#header span {
+    color: #fff;
+    display: block;
+    font-size: 20px;
+    top: 5px;
+    text-align: center;
+    position: relative;
+    font-weight: 700;
+}
+
+div#header2 {
+    background-color: #00Ae9d;
+    height: 4px;
+    margin: 0!important;
+}
+
+#header img{
+    padding-top: 7px;
+    padding-left: 7%;
+    height: 45px;
+    box-sizing: content-box;
+    float: left;
+    left: 0;
+}
+
+#fluig-sicoob button.btn, #fluig-sicoob button {
+    background-color: #00Ae9d;
+    color: #fff;
+    font-weight: 500;
+    border: none;
+    font-size: 14px;
+    outline: 0;
+    padding: 5px 10px;
+    border-radius:5px;
+}
+
+#fluig-sicoob i{
+    margin-right: 8px;
+    padding-top: 2px;
+}
+
+.unstyled::-webkit-inner-spin-button {
+    display: none;
+    -webkit-appearance: none;
+}
+
+#fluig-sicoob .ladrilhos img {
+    height: 25px;
+    width: 100%;
+}
+
+#fluig-sicoob #table {
+    border-radius: 5px;
+    margin: 0 0px 5px;
+}
+
+.bpm-mobile-trash-column span.fs-display-block {
+    padding: 10px 5px 10px 10px!important;
+}
+
+.bpm-mobile-trash-column span.fs-display-block i {
+    font-size: 20px;
+}
+
+#fluig-sicoob input:focus, #fluig-sicoob textarea:focus {
+    border-color: #00Ae9d;
+    outline: none;
+}
+
+#fluig-sicoob .form-group {
+    margin-top: 0px;
+}
+
+#fluig-sicoob hr {
+    border-top-color: #7db61c;
+    margin-bottom: 25px;
+}
+
+#fluig-sicoob  .form-group textarea {
+    box-shadow: none;
+    width: -webkit-fill-available;
+    height: unset;
+}
+
+#fluig-sicoob form label {
+    font-weight: 600;
+}
+
+@media (max-width: 450px){
+    .hidden-phone{
+        display: none;
+    }
+
+    textarea.descricao{
+        height: 70px;
+    }
+    
+    div#header span{
+        width: -webkit-fill-available;
+    }
+}
+
+#form-row{
+    height: -webkit-fill-available;
+}
+
+div#fluig-sicoob {
+    background: #eee;
+}
+
+#fluig-sicoob input.input-info {
+    border: 0;
+    padding: 0;
+}
+
+#fluig-sicoob .input-group-addon {
+    background: #003641;
+}
+
+#fluig-sicoob .input-group #inconsistencia_valor {
+    border-radius: 0 5px 5px 0;
+    padding-left: 5px;
+    padding-top: 5px;
+}

@@ -1,0 +1,318 @@
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link type="text/css" rel="stylesheet" href="/style-guide/css/fluig-style-guide.min.css"/>
+	<link rel="stylesheet" type="text/css" href="style.css"/>
+
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
+	<script type="text/javascript" src="/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
+	<script type="text/javascript" src="script.js"></script>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-maskmoney/3.0.2/jquery.maskMoney.min.js"></script>
+</head>
+<body>
+<div class="fluig-style-guide" id="fluig-sicoob">
+	<div class="form-group container-fluid">
+
+		<div class="row">
+			<div class="col-sm-12" id="header">
+				<img src="img/logo_sicoob.png" class="hidden-phone"/>
+				<span class="col-md-8">Monitor de Controle</span>
+			</div>
+		</div>
+
+		<div class="row"><div class="col-sm-12" id="header2"></div></div>
+
+		<form name="form" role="form">
+			<input type="hidden" name="n_conformidade">
+			<input type="hidden" name="automatico">
+
+			<div class="container" id="nao_conformidade">
+				<div class="row">
+					<div class="col-xs-6 col-md-3">
+						<label>Cooperativa</label>
+						<input name="Cooperativa" readonly class="input-info">
+					</div>
+					<div class="col-xs-6 col-md-3">
+						<label>PA</label>
+						<input name="PA" readonly class="input-info">
+					</div>
+					<div class="col-xs-6 col-md-3">
+						<label>Período</label>
+						<input name="periodo" readonly class="input-info fs-display-inline-block">
+						<input type="hidden" name="ano" readonly class="input-info fs-display-inline-block">
+					</div>
+					<div class="col-xs-6 col-md-3">
+						<label>Etapa:</label>
+						<input name="etapa" readonly class="input-info">
+					</div>
+				</div>
+
+				<div class="row">
+					<div>
+						<p id="pergunta">Está em conformidade?</p>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-xs-12 lista_testes">
+						<div class="box-teste">
+							<div class="linha">
+								<div class="row teste-infos">
+									<div class="col-md-1">
+										<span>Cod.:<input readonly name="CodigoM20" class="input-info"></span>
+									</div>
+									<div class="col-md-2">
+										<span>Risco:<input readonly name="NivelRisco" class="input-info"></span>
+									</div>
+									<div class="col-md-6">
+										<span>Processo:<textarea readonly name="Processo" rows="1" class="input-info"></textarea></span>
+									</div>
+									<div class="col-md-1">
+										<span>Local:<input readonly name="LocalTeste" class="input-info"></span>
+									</div>
+								</div>
+
+								<div class="row teste-opt">
+									<div class="col-xs-2 col-md-1 line-el">
+										<div class="cst-radio">
+											<label><input type="radio" name="Conformidade" value="Sim" id="radio1"> Sim</label>
+										</div>
+									</div>
+
+									<div class="col-xs-2 col-md-1 line-el">
+										<div class="cst-radio">
+											<label><input type="radio" name="Conformidade" value="Não" id="radio2" class="nao-opt"> Não</label>
+										</div>
+									</div>
+
+									<div class="col-xs-2 col-md-1 line-el">
+										<div class="cst-radio">
+											<label><input type="radio" name="Conformidade" value="NA" id="radio3"> NA</label>
+										</div>
+									</div>
+												
+									<textarea hidden name="Teste" style="display: none;"></textarea>
+									<div class="col-md-9 line-el desc-teste">
+										<span>
+										</span>
+									</div>
+								</div>
+								<div class="row fs-no-margin">
+									<textarea hidden name="ProcedimentosVerificacao" style="display: none;"></textarea>
+									<div class="col-md-12 procedimento">
+										<span>
+										</span>
+									</div>
+								</div>
+							</div>
+							
+							<div class="row opt-campos">
+								<div class="col-md-10 fs-lg-margin-top">
+									<label>Evidência</label>
+									<textarea name="evidencia" rows="4" placeholder="evidencia" class="form-control"></textarea>
+								</div>
+
+								<div class="col-md-10 nao-conformidade">
+									<label>Não Conformidade</label>
+									<textarea name="nConformidade" rows="4" placeholder="Não conformidade" class="form-control"></textarea>
+								</div>
+
+								<div class="col-md-2">
+									<button class="btn btn-anexo" onclick="showCamera();"><i class="fluigicon fluigicon-paperclip icon-xs"></i>Anexos</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<section id="analise_gestor" >
+					<div class="row">
+						<div class="col-xs-12">
+							<label>Análise do Gestor<span>*</span></label>
+						</div>
+
+						<div class="col-xs-12 form-group">
+							<div class="custom-radio custom-radio-primary fs-display-inline-block fs-xs-margin-right">
+							    <input type="radio" name="a_gestor" value="Acatado" id="g_acatado">
+							    <label for="g_acatado">Acatado</label>
+							</div>
+							<div class="custom-radio custom-radio-primary fs-display-inline-block fs-xs-margin-right">
+								<input type="radio" name="a_gestor" value="Regularizado" id="g_regularizado">
+								<label for="g_regularizado">Regularizado</label>
+							</div>
+							<div class="custom-radio custom-radio-primary fs-display-inline-block">
+							    <input type="radio" name="a_gestor" value="Rejeitado" id="g_rejeitado">
+							    <label for="g_rejeitado">Rejeitado</label>
+							</div>
+						</div>
+					</div>
+
+					<div class="row rejeitado">
+						<div class="col-xs-12">
+							<button class="btn btn-primary fs-full-width fs-md-margin-bottom" onclick="showCamera('gestor');"><i class="fluigicon fluigicon-paperclip icon-sm"></i>Anexos</button>
+						</div>
+					</div>
+					<div class="row rejeitado">
+						<div class="col-xs-12">
+							<div class="form-group">
+								<label for="g_manifestacao">Manifestação<span>*</span></label>
+								<textarea name="g_manifestacao" class="form-control" rows="5"></textarea>
+							</div>
+						</div>
+					</div>
+
+					<section id="compr_regularidade" style="display: none;">
+						<div class="row">
+							<div class="col-xs-12 col-md-3 col-lg-2">
+								<div class="form-group">
+									<label for="data_regularizacao">Data da regularização</label>
+									<input type="text" name="data_regularizacao" class="form-control calendar">
+								</div>
+							</div>
+							<div class="col-xs-12 col-md-2">
+								<button class="btn btn-primary fs-xl-margin-top fs-full-width" onclick="showCamera();"><i class="fluigicon fluigicon-paperclip icon-sm"></i>Anexos</button>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-12">
+								<div class="form-group">
+									<label for="manifestacao">Manifestação</label>
+									<textarea name="r_manifestacao" class="form-control" rows="5"></textarea>
+								</div>
+							</div>
+						</div>
+					</section>
+
+					<div class="row plano">
+						<div class="col-xs-12 col-md-3 col-lg-2">
+							<div class="form-group">
+								<label for="prazo_reg">Prazo para regularização</label>
+								<input type="text" name="prazo_reg" class="form-control calendar">
+							</div>
+						</div>
+
+						<div class="col-xs-12 col-md-2">
+							<button class="btn btn-primary fs-xl-margin-top fs-full-width" onclick="showCamera();"><i class="fluigicon fluigicon-paperclip icon-sm"></i>Anexos</button>
+						</div>
+					</div>
+					<div class="row plano">
+						<div class="col-xs-12">
+							<div class="form-group">
+								<label for="plano_acao">Plano de Ação</label>
+								<textarea name="plano_acao" class="form-control" rows="5"></textarea>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<section id="analise_plano" class="analise" style="display: none;">
+					<div class="row">
+						<div class="col-xs-12">
+							<label>Posição da Central quanto ao plano</label>
+						</div>
+						<div class="col-xs-12">
+							<div class="custom-radio custom-radio-primary fs-display-inline-block fs-xs-margin-right">
+							    <input type="radio" name="posicao_plano" value="Aceito" id="ap_aceito">
+							    <label for="ap_aceito">Aceito</label>
+							</div>
+							<div class="custom-radio custom-radio-primary fs-display-inline-block">
+							    <input type="radio" name="posicao_plano" value="Rejeitado" id="ap_rejeitado">
+							    <label for="ap_rejeitado">Rejeitado</label>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-12 fs-sm-margin-top">
+							<label for="manifest_central">Manifestação</label>
+							<textarea name="manifest_central" class="form-control" rows="5"></textarea>
+						</div>
+					</div>
+				</section>
+
+				<section id="exec_plano">
+					<div class="row">
+						<div class="col-xs-12 col-md-3">
+							<div class="form-group">
+								<label>Data da execução do plano</label>
+								<input type="text" name="data_exec" class="form-control calendar">
+							</div>
+						</div>
+						<div class="col-xs-12 col-md-3 col-lg-2">
+							<button class="btn btn-primary fs-xl-margin-top" onclick="showCamera();"><i class="fluigicon fluigicon-paperclip icon-sm"></i>Anexos</button>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-12">
+							<div class="form-group">
+								<label for="exec_plano">Comprovação da execução do Plano</label>
+								<textarea name="exec_plano" class="form-control" placeholder="Descrição" rows="5"></textarea>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<section id="analise_compr" class="analise" style="display: none;">
+					<div class="row">
+						<div class="col-xs-12">
+							<label>Aceitar Comprovação?</label>
+						</div>
+						<div class="col-xs-12">
+							<div class="custom-radio custom-radio-primary fs-display-inline-block fs-xs-margin-right">
+							    <input type="radio" name="aceitar_comp" value="Sim" id="ac-sim">
+							    <label for="ac-sim">Sim</label>
+							</div>
+							<div class="custom-radio custom-radio-primary fs-display-inline-block">
+							    <input type="radio" name="aceitar_comp" value="Não" id="ac-nao">
+							    <label for="ac-nao">Não</label>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-12">
+							<label for="parecer_compr">Parecer</label>
+							<textarea name="parecer_compr" class="form-control" rows="5"></textarea>
+						</div>
+					</div>
+				</section>
+
+				<section id="analise_manifest" class="analise">
+					<div class="row">
+						<div class="col-xs-12">
+							<label>Aceitar Manifestação?</label>
+						</div>
+						<div class="col-xs-12">
+							<div class="custom-radio custom-radio-primary fs-display-inline-block fs-xs-margin-right">
+							    <input type="radio" name="aceite" value="Sim" id="m_aceito">
+							    <label for="m_aceito">Sim</label>
+							</div>
+							<div class="custom-radio custom-radio-primary fs-display-inline-block">
+							    <input type="radio" name="aceite" value="Não" id="m_rejeitado">
+							    <label for="m_rejeitado">Não</label>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-12">
+								<label for="parecer_compr">Parecer</label>
+								<textarea name="parecer_manifest" class="form-control" rows="5"></textarea>
+							</div>
+						</div>
+					</div>
+				</section>
+			</div>
+		</form>
+	</div>
+</div>
+
+<script type="text/javascript">
+	
+	   function showCamera(param) {
+              JSInterface.showCamera(param);
+       }
+
+</script>
+</body>
+</html>

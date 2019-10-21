@@ -1,0 +1,421 @@
+@import url('https://fonts.googleapis.com/css?family=Asap:400,500,600,700&display=swap');
+
+body, #fluig-sicoob form, #fluig-sicoob button.btn, #fluig-sicoob button, #fluig-sicoob .btn{
+     font-family: 'Asap', sans-serif;
+}
+
+ #fluig-sicoob table td, #fluig-sicoob table thead th{
+    font-family: 'Arial', sans-serif;
+ }
+
+body{
+    margin: 0px;
+}
+
+#fluig-sicoob .container-fluid{
+    background-color: #eee;
+    width: 100%;
+    height: fit-content;
+}
+
+#fluig-sicoob form{
+    background-color: #fff;
+    padding: 30px;
+    margin: 0 4.222222%;
+}
+
+#fluig-sicoob .form-group input, #fluig-sicoob .form-input input, #fluig-sicoob .form-group select, #fluig-sicoob .form-group textarea{
+    border: 1px solid #ddd;
+    padding: 0 5px;
+    width: -webkit-fill-available;
+    box-shadow: none!important;
+}
+
+form select {
+    border: 1px solid #ddd!important;
+    box-shadow: none!important;
+}
+
+.form-control:focus {
+    box-shadow: none!important;
+}
+ 
+/* Header */
+div#header {
+    background-color: #003641;
+    height: 60px;
+    position: relative;
+    text-align: center;
+    width: 100%;
+    display: flex;
+    vertical-align: middle;
+    align-items: center;
+    font-family: 'Asap', sans-serif;
+}
+
+div#header span {
+    color: #fff;
+    top: 5px;
+    text-transform: uppercase;
+    font-size: 20px;
+    text-align: center;
+    width: calc(100%);
+    position: relative;
+    font-weight: 700;
+    font-family: 'Asap', sans-serif;
+}
+
+div#header2 {
+    background-color: #00AE9D;
+    height: 4px;
+    margin: 0 !important;
+}
+
+#header img {
+    padding-top: 7px;
+    padding-left: 7%;
+    float: left;
+    height: 45px;
+    box-sizing: content-box;
+    position: absolute;
+    left: 0;
+}
+
+#fluig-sicoob button.btn, #fluig-sicoob button {
+    background-color: #00Ae9d;
+    color: #fff;
+    font-weight: 600;
+    border: none;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    outline: 0;
+    line-height: 15px;
+    padding: 7px 15px 7px 14px;
+    border-radius:5px;
+}
+
+#fluig-sicoob i{
+    margin-right: 5px;
+    top: 2px;
+}
+
+.unstyled::-webkit-inner-spin-button {
+    display: none;
+    -webkit-appearance: none;
+}
+
+#fluig-sicoob .ladrilhos img {
+    height: 25px;
+    width: 100%;
+}
+
+#fluig-sicoob #table {
+    border-radius: 5px;
+    margin: 0 0px 5px;
+}
+
+.bpm-mobile-trash-column span.fs-display-block {
+    padding: 10px 5px 10px 10px!important;
+}
+
+.bpm-mobile-trash-column span.fs-display-block i {
+    font-size: 20px;
+}
+
+#fluig-sicoob input:focus, #fluig-sicoob textarea:focus {
+    border-color: #00Ae9d;
+    outline: none;
+}
+
+#fluig-sicoob .form-group {
+    margin-top: 0px;
+}
+
+#fluig-sicoob hr {
+    border-top-color: #7db61c;
+    margin-bottom: 25px;
+}
+
+#fluig-sicoob  .form-group textarea {
+    box-shadow: none;
+    width: -webkit-fill-available;
+    height: unset;
+}
+
+#fluig-sicoob form label {
+    font-weight: 600;
+    font-family: 'Asap', sans-serif;
+}
+
+#fluig-sicoob .coop input{
+    max-width: fit-content!important;
+}
+
+@media (max-width: 450px){
+    .hidden-phone{
+        display: none;
+    }
+
+    textarea.descricao{
+        height: 70px;
+    }
+    
+    div#header span{
+        width: -webkit-fill-available;
+    }
+
+    #fluig-sicoob form{
+        margin: 0;
+    }
+}
+
+#form-row{
+    height: -webkit-fill-available;
+}
+
+#fluig-sicoob .custom-checkbox.custom-checkbox-sicoob input[type=checkbox]:checked+label:before {
+    background-color: #00Ae9d;
+}
+#fluig-sicoob .custom-checkbox.custom-checkbox-sicoob  input[type=checkbox]:checked+label:before {
+    background-color: #00Ae9d;
+}
+
+#monitor-table td.cooperativa, #monitor-table td.status {
+    text-align: center;
+}
+
+#fluig-sicoob #monitor-table tr.analisar:hover {
+    border: 2px solid #00Ae9d;
+    color: #00Ae9d;
+}
+
+#fluig-sicoob table#monitor-table {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0);
+    margin-bottom: 0;
+    padding: 5px!important;
+}
+
+#fluig-sicoob div#filtros {
+    border: 2px solid #00Ae9d;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 25px;
+}
+
+#monitor-table thead {
+    background-color: #00Ae9d;
+    color: #fff;
+    border-radius: 30px;
+}
+
+#monitor-table tr.em-analise .status i, i.flaticon.em-analise {
+    color: #F9A825;
+    font-weight: 900;
+}
+
+#monitor-table tr.analisado .status i, i.flaticon.analisado {
+    color: #4CAF50;
+    font-weight: 900;
+}
+
+#monitor-table tr.analisar .status i, i.flaticon.analisar {
+    color: #00Ae9d;
+    font-weight: 600;
+}
+
+#fluig-sicoob #monitor-table tr.analisar:hover .custom-checkbox label:before {
+    border: 2px solid #00Ae9d;
+}
+
+#fluig-sicoob .custom-checkbox-sicoob {
+    top: 3px;
+}
+
+#fluig-sicoob #monitor-table tr.analisar:hover td {
+    color: #00Ae9d;
+    font-weight: 500;
+}
+
+#fluig-sicoob .row.legenda div {
+    width: fit-content;
+    float: right;
+}
+
+#fluig-sicoob .row.legenda {
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+#fluig-sicoob tr.em-analise:hover tr {
+    pointer-events: none;
+}
+
+#fluig-sicoob tr.em-analise:hover, #fluig-sicoob tr.analisado:hover {
+    cursor: default;
+}
+
+div#fluig-sicoob table th {
+    color: #fff;
+    font-weight: 600;
+    border: 0;
+}
+
+div#fluig-sicoob table th:first-child {
+    border-radius: 5px 0 0 0;
+}
+
+div#fluig-sicoob table th:last-child {
+    border-radius: 0 5px 0 0;
+}
+
+#fluig-sicoob input::placeholder {
+    color: #c0c0c0;
+}
+
+#fluig-sicoob #monitor-table tr {
+    border-right: 2px solid transparent;
+    border-left: 2px solid transparent;
+}
+
+#monitor-table .custom-checkbox label:before {
+    margin: 0px 0px 0 4px;
+}
+
+#monitor-table .custom-checkbox-sicoob label:after {
+    left: 4px;
+}
+
+#fluig-sicoob table td {
+    font-size: 13px;
+}
+
+#fluig-sicoob #monitor-table tr.analisar.selected td {
+    font-weight: 600;
+    color: #00Ae9d;
+}
+
+#fluig-sicoob .table-responsive {
+    margin-bottom: 20px;
+}
+
+#fluig-sicoob .input-group .input-group-addon {
+    border: 0;
+    background-color: #003641;
+}
+
+#fluig-sicoob p#pergunta {
+    font-size: 20px;
+    border-bottom: 2px solid #8BC34A;
+    margin: 10px 0;
+    font-weight: 600;
+    padding: 10px;
+}
+
+#fluig-sicoob .lista_testes .box-teste {
+    border-radius: 5px;
+    border: 1px solid #00a395;
+    margin-bottom: 10px;
+}
+
+#fluig-sicoob .lista_testes {
+    margin-top: 15px;
+    padding: 5px;
+}
+
+#fluig-sicoob .lista_testes .row.opt-campos {
+    margin: 0;
+    padding-bottom: 10px;
+}
+
+#fluig-sicoob .lista_testes .linha .line-el.num-teste, #fluig-sicoob .lista_testes .linha .line-el.reincidencia {
+    color: #fff;
+    background: #00A395;
+    font-weight: 600;
+}
+
+#fluig-sicoob .lista_testes .btn-anexo {
+    margin-top: 25px;
+    padding: 15px;
+    border-radius: 2px;
+}
+
+#fluig-sicoob .lista_testes .procedimento {
+    background: #ffffff;
+    font-weight: 600;
+    color: #00a395;
+    border: 1px solid #00a395;
+    border-width: 1px 0;
+    width: 100%;
+    padding: 10px;
+}
+
+#fluig-sicoob .lista_testes .linha .line-el {
+    padding: 10px 20px;
+    align-items: stretch;
+}
+
+#fluig-sicoob .lista_testes .linha .line-el.reincidencia {
+    height: 45px;
+    border-radius: 0 0 0 10px;
+    padding: 5px;
+    border-top: 1px solid #fff;
+    text-align: center;
+}
+
+#fluig-sicoob .reincidencia i {
+    float: left;
+}
+
+#fluig-sicoob .input-info {
+    border-width: 0!important;
+    background: 0;
+}
+
+#fluig-sicoob .reincidencia .input-info {
+    text-align: center;
+}
+
+#fluig-sicoob .docs-added ul {
+    border-left: 2px solid #00BCD4;
+}
+
+#fluig-sicoob .lista_testes .box-teste span:not(:last-child) {
+    display: flex;
+    border-bottom: 1px solid #8bc34a4d;
+    margin-bottom: 5px;
+}
+
+#fluig-sicoob .lista_testes .cst-radio:not(:last-child) {
+    margin-bottom: 5px;
+}
+
+#fluig-sicoob .row.teste-infos {
+    margin: 0;
+    background: #00A395;
+    display: flex;
+    color: #fff;
+}
+
+#fluig-sicoob .row.teste-infos div:not(:last-child) {
+    border-right: 1px solid #eee;
+}
+
+#fluig-sicoob .row.teste-infos div {
+    padding: 10px;
+}
+
+#fluig-sicoob .lista_testes .row.teste-opt {
+    border-bottom: 1px solid #00a395;
+    margin: 0;
+    display: flex;
+}
+
+#fluig-sicoob .lista_testes .desc-teste {
+    border-left: 1px solid #00A395;
+}
+
+#fluig-sicoob .desc-teste span textarea {
+    height: 75px;
+}

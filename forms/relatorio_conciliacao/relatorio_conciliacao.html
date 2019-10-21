@@ -1,0 +1,92 @@
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link type="text/css" rel="stylesheet" href="/style-guide/css/fluig-style-guide.min.css"/>
+	<link rel="stylesheet" type="text/css" href="style.css">
+
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
+	<script type="text/javascript" src="/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-maskmoney/3.0.2/jquery.maskMoney.min.js"></script>
+	<script type="text/javascript" src="script.js" charset="utf-8"></script>
+</head>
+<body>
+	<div class="fluig-style-guide" id="fluig-sicoob">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-sm-12" id="header">
+					<div id="logo" class="col-md-1 col-md-offset-1">
+						<img src="img/logo_sicoob.png" class="hidden-phone"/>
+					</div>
+					<span class="col-md-8">Relatório de Conciliação</span>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-12" id="header2">	
+				</div>
+			</div>
+		</div>
+
+		<div class="container">
+			<form name="form" role="form">
+					<div class="row">
+						<div class="form-group col-xs-7 col-md-6 col-lg-7">
+							<label class="fs-no-margin">Cooperativa:</label><br>
+							<div class="row">
+								<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2"> 
+									<input type="text" name="cooperativa" value="4340" readonly class="input-info"> 
+								</div>
+								<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2"> 
+									<input type="text" name="cooperativa_nome" value="SICOOB METROPOLITANO" readonly class="input-info">
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="form-group col-xs-12 col-sm-6 col-md-4 col-lg-3">
+							<label>Data da Inconsistência</label><br>
+							<input type="text" name="inconsistencia_data" class="calendar form-control" autocomplete="off" />
+						</div>
+						<div class="form-group col-xs-12 col-sm-6 col-md-4 col-lg-3">
+							<label for="inconsistencia_valor">Valor</label><br>
+							<div class="input-group">
+							    <span class="input-group-addon">R$</span>
+							    <input type="text" name="inconsistencia_valor" id="inconsistencia_valor" class="money form-control" data-thousands="." data-decimal="," />
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-12">
+							<div class="form-group">
+								<label for="inconsistencia_descricao">Descrição</label><br>
+								<textarea name="inconsistencia_descricao" id="inconsistencia_descricao" class="descricao form-control" rows="5"></textarea>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="form-group col-xs-12 col-sm-4 col-md-4 col-lg-3">
+							<label>Tratativa</label><br>
+							<select name="tratativa" id="tratativa" class="form-control">
+								<option>Selecionar tratativa</option>
+								<option value="GRI">GRI</option>
+								<option value="Cooperativa">Cooperativa</option>
+								<option value="Central">Central</option>
+							</select>
+						</div>
+						<div class="form-group col-xs-12 col-sm-4 col-md-4 col-lg-3">
+							<label for="pendencia">Pendência</label><br>
+							<select name="pendencia" class=" form-control">
+								<option>Selecionar</option>
+								<option value="pendencia_credora">Pendência Credora</option>
+								<option value="pendencia_devedora">Pendência Devedora</option>
+							</select>
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+				
+	</div>
+</body>
+</html>

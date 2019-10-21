@@ -1,0 +1,22 @@
+-- PADRÕES DE NOMENCLATURA -- 
+
+- FORMULÁRIOS:
+*Devem estar na pasta 15 (Formulários Sicoob)
+Exemplo:
+    Monitor de Cadastro
+
+- FORMULÁRIOS (DATASETS):
+Exemplo:
+    dsMonitorCadastroForm
+
+- PROCESSOS
+Exemplo:
+    monitor_cadastro
+
+- DATASETS
+Exemplo:
+    dsMonitorCadastro
+
+- WIDGETS
+Exemplo:
+    monitor_cadastro_widget
