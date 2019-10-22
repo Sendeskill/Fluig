@@ -62,6 +62,9 @@ $(function(){
         const tabela = $('#monitor-table').find('tbody');
         const status = $('[name="status_select"]').val();
 
+        var resultado = DatasetFactory.getDataset("dsMonitorCadastro", null, null,null);
+        console.log('resultado',resultado);
+
         var icon;
         if(status === 'D')
             icon = 'flaticon-circle-initial';
