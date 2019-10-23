@@ -10,31 +10,20 @@ function preview(id) {
 }
 
 $(document).ready(function(){
-	// function serviceDsCheckListCRL(cb) {
-	// 	var options = {
-	// 		url: '/api/public/ecm/dataset/search',
-	// 		contentType: 'application/json',
-	// 		dataType: 'json',
-	// 		type: 'POST',
-	// 		data: JSON.stringify({
-	// 			"datasetId" : "dsCheckListCRL",
-	// 			"limit" : "1000"
-	// 		}),
-	// 		loading: true
-	// 	};
-	// 	FLUIGC.ajax(options, cb);
-	// }
-
+	//Busca os checklists em um dataset fixo
 	function serviceDsCheckListCRL(cb) {
-		$.ajax({
-			url : 'http://fluig.teste.voxelz.com.br:80/api/public/ecm/dataset/search?datasetId=dsCheckListCRL',
-			type : "GET",
-			contentType : "application/json",
-			crossDomain: false,
-			success : function(data) {
-				console.log(data);
-			}
-		});
+		var options = {
+			url: '/api/public/ecm/dataset/search',
+			contentType: 'application/json',
+			dataType: 'json',
+			type: 'POST',
+			data: JSON.stringify({
+				"datasetId" : "dsCheckListCRL",
+				"limit" : "1000"
+			}),
+			loading: true
+		};
+		FLUIGC.ajax(options, cb);
 	}
 
 	serviceDsCheckListCRL(function(err, data) {
