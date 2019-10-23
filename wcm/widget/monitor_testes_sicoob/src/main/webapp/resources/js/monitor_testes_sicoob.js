@@ -66,7 +66,7 @@ function serviceCreateMonitorCadastro(cb, data) {
 
 // CPF/CNPJ Mask
 const CpfCnpjMaskBehavior = function (val) {
-    return val.replace(/\D/g, '').length <= 11 ? '000.000.000-009' : '00.000.000/0000-00';
+    return val.replace(/\D/g, '').length <= 11 ? '000.000.000-09' : '00.000.000/0000-00';
 }
 const cpfCnpjpOptions = {
     onKeyPress: function(val, e, field, options) {

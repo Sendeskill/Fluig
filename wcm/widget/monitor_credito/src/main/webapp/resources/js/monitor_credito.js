@@ -73,48 +73,81 @@ $(function(){
         $('#btn-analisar').hide();
         tabela.html('');
 
-        serviceSearchMonitorCredito(function(err, data) {
-            var i = 0;
-            console.log('data',data);
-// console.log(data);
-//             if( data.content[0].erro !== 'undefined')
-//                 tabela.append(`
-//                     <tr>
-//                         <td colspan="9" style="text-align:center;cursor:default;">${data.content[0].erro}</td>
-//                     </tr>
-//                 `);
-//             else{
-                for (let monit of data.content) {
-                    monit.DataLimite = moment(monit.DataLimite).format('DD/MM/YYYY');
-        
-                    resultadoPesquisa[i] = monit;
-                    
+        $.ajax({
+            url : 'http://fluig.teste.voxelz.com.br:80/api/public/ecm/dataset/search?datasetId=dsTestesTabelaMonitor',
+            type : "GET",
+            contentType : "application/json",
+            crossDomain: false,
+            success : function(data) {
+                console.log('dataJSON',data.content);
+                const cpfcpnj = "123.456.789-75"
+                $(data.content).each((index,val) => {
+                    resultadoPesquisa[index] = val;
                     tabela.append(`
                         <tr class="analisar">
                             <td>
                                 <div class="custom-checkbox custom-checkbox-sicoob">
-                                    <input type="checkbox" name="status_${i}" id="status_${i}" value="${i}"/>
-                                    <label for="status_${i}"></label>
+                                    <input type="checkbox" name="status_${index}" id="status_${index}" value="${index}"/>
+                                    <label for="status_${index}"></label>
                                 </div>
                             </td>
                             <td class="status"><i class="flaticon ${icon} icon-sm"></i></td>
-                            <td class="cooperativa">${monit.NumCooperativa}</td>
-                            <td>${monit.NumPa}</td>
-                            <td>${monit.CodigoCliente}</td>
-                            <td>cpf/cnpj</td>
-                            <td>${monit.NomeCliente}</td>
-                            <td>data cadastro</td>
-                            <td>data ultima renovação</td>
+                            <td class="cooperativa">${val.Coop}</td>
+                            <td>${val.PA}</td>
+                            <td>${val.CodigoCliente}</td>
+                            <td>${cpfcpnj}</td>
+                            <td>${val.nome_cliente}</td>
+                            <td>${val.data}</td>
+                            <td>${val.data}</td>
                         </tr>
                     `);
-                    
-                    i++;
-                }
+                });
+                // if(cpfcpnj.length >= 11){
+                //     $('.CPF-CNPJ').mask(CpfCnpjMaskBehavior, cpfCnpjpOptions);
+                // }
 
-                // $('.CPF-CNPJ').mask(CpfCnpjMaskBehavior, cpfCnpjpOptions);
                 $('#btn-analisar').show();
-            
+            },
+            error : function(data, errorThrown, status) {
+                console.log("erro");
+            }
         });
+
+        // serviceSearchMonitorCredito(function(err, data) {
+        //     var i = 0;
+
+        //     console.log('data',data);
+
+        //     for (let monit of data.content) {
+        //         monit.DataLimite = moment(monit.DataLimite).format('DD/MM/YYYY');
+    
+        //         resultadoPesquisa[i] = monit;
+                
+        //         tabela.append(`
+        //             <tr class="analisar">
+        //                 <td>
+        //                     <div class="custom-checkbox custom-checkbox-sicoob">
+        //                         <input type="checkbox" name="status_${i}" id="status_${i}" value="${i}"/>
+        //                         <label for="status_${i}"></label>
+        //                     </div>
+        //                 </td>
+        //                 <td class="status"><i class="flaticon ${icon} icon-sm"></i></td>
+        //                 <td class="cooperativa">${monit.NumCooperativa}</td>
+        //                 <td>${monit.NumPa}</td>
+        //                 <td>${monit.CodigoCliente}</td>
+        //                 <td>cpf/cnpj</td>
+        //                 <td>${monit.NomeCliente}</td>
+        //                 <td>data cadastro</td>
+        //                 <td>data ultima renovação</td>
+        //             </tr>
+        //         `);
+                
+        //         i++;
+        //     }
+
+        //     // $('.CPF-CNPJ').mask(CpfCnpjMaskBehavior, cpfCnpjpOptions);
+            
+        // });
     });
     
     $('#btn-analisar').on('click',function() {
