@@ -1,11 +1,3 @@
-function defineStructure() {
-
-}
-
-function onSync(lastSyncDate) {
-
-}
-
 function createDataset(fields, constraints, sortFields) {
 	var dataset = DatasetBuilder.newDataset();
 	
@@ -20,8 +12,4 @@ function createDataset(fields, constraints, sortFields) {
   dataset.addRow(["999","321","Roberto Robes","2019-12-15","D"]);
 
   return dataset;
-}
-
-function onMobileSync(user) {
-
 }
