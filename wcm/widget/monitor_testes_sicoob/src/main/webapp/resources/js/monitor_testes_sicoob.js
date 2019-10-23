@@ -151,9 +151,16 @@ $(function(){
     /* 
         TESTES
     */
-
-    $.get( "/public/ecm/dataset/search?datasetId=dsTestesTabelaMonitor", function( data ) {
-        console.log('datasetTestes',data);
+   $.ajax({
+        url : 'http://fluig.teste.voxelz.com.br:80/api/public/ecm/dataset/search?datasetId=dsTestesTabelaMonitor',
+        type : "GET",
+        contentType : "application/json",
+        crossDomain: false,
+        success : function(data) {
+            console.log('dataJSON',data);
+        },
+        error : function(data, errorThrown, status) {
+            console.log("erro");
+        }
     });
-
 });
