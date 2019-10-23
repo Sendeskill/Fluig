@@ -1,3 +1,20 @@
+//Aqui cria os processos das rows selecionadas
+function serviceCreateMonitorCredito(cb, data) {
+    const options = {
+        url: '/api/public/ecm/dataset/search',
+        contentType: 'application/json',
+        dataType: 'json',
+        type: 'POST',
+        data: JSON.stringify({
+                "datasetId" : "dsMonitorCredito",
+                "filterFields" : ["_action", "createMonitorCredito", "data", data],
+                "limit" : "1000"
+            }),
+        loading: true
+    };
+    FLUIGC.ajax(options, cb);
+}
+
 //Aqui faz a consulta das rows para a tabela
 function serviceSearchMonitorCredito(cb) {
     const options = {
@@ -19,36 +36,7 @@ function serviceSearchMonitorCredito(cb) {
         }),
         loading: true
     };
-
-    console.log(options);
     FLUIGC.ajax(options, cb);
-}
-
-//Aqui cria os processos das rows selecionadas
-function serviceCreateMonitorCredito(cb, data) {
-    const options = {
-        url: '/api/public/ecm/dataset/search',
-        contentType: 'application/json',
-        dataType: 'json',
-        type: 'POST',
-        data: JSON.stringify({
-                "datasetId" : "dsMonitorCredito",
-                "filterFields" : ["_action", "createMonitorCredito", "data", data],
-                "limit" : "1000"
-            }),
-        loading: true
-    };
-    FLUIGC.ajax(options, cb);
-}
-
-// CPF/CNPJ Mask
-const CpfCnpjMaskBehavior = function (val) {
-    return val.replace(/\D/g, '').length <= 11 ? '000.000.000-009' : '00.000.000/0000-00';
-}
-const cpfCnpjpOptions = {
-    onKeyPress: function(val, e, field, options) {
-        field.mask(CpfCnpjMaskBehavior.apply({}, arguments), options);
-    }
 }
 
 $(function(){
@@ -73,81 +61,39 @@ $(function(){
         $('#btn-analisar').hide();
         tabela.html('');
 
-        $.ajax({
-            url : 'http://fluig.teste.voxelz.com.br:80/api/public/ecm/dataset/search?datasetId=dsTestesTabelaMonitor',
-            type : "GET",
-            contentType : "application/json",
-            crossDomain: false,
-            success : function(data) {
-                console.log('dataJSON',data.content);
-                const cpfcpnj = "123.456.789-75"
-                $(data.content).each((index,val) => {
-                    resultadoPesquisa[index] = val;
-                    tabela.append(`
-                        <tr class="analisar">
-                            <td>
-                                <div class="custom-checkbox custom-checkbox-sicoob">
-                                    <input type="checkbox" name="status_${index}" id="status_${index}" value="${index}"/>
-                                    <label for="status_${index}"></label>
-                                </div>
-                            </td>
-                            <td class="status"><i class="flaticon ${icon} icon-sm"></i></td>
-                            <td class="cooperativa">${val.Coop}</td>
-                            <td>${val.PA}</td>
-                            <td>${val.CodigoCliente}</td>
-                            <td>${cpfcpnj}</td>
-                            <td>${val.nome_cliente}</td>
-                            <td>${val.data}</td>
-                            <td>${val.data}</td>
-                        </tr>
-                    `);
-                });
-                // if(cpfcpnj.length >= 11){
-                //     $('.CPF-CNPJ').mask(CpfCnpjMaskBehavior, cpfCnpjpOptions);
-                // }
+        serviceSearchMonitorCredito(function(err, data) {
+            var i = 0;
 
-                $('#btn-analisar').show();
-            },
-            error : function(data, errorThrown, status) {
-                console.log("erro");
-            }
-        });
-
-        // serviceSearchMonitorCredito(function(err, data) {
-        //     var i = 0;
-
-        //     console.log('data',data);
-
-        //     for (let monit of data.content) {
-        //         monit.DataLimite = moment(monit.DataLimite).format('DD/MM/YYYY');
+            for (let monit of data.content) {
+                monit.data     = moment(monit.data).format('DD/MM/YYYY');
+                monit.data_ult = moment(monit.data_ult).format('DD/MM/YYYY');
     
-        //         resultadoPesquisa[i] = monit;
+                resultadoPesquisa[i] = monit;
                 
-        //         tabela.append(`
-        //             <tr class="analisar">
-        //                 <td>
-        //                     <div class="custom-checkbox custom-checkbox-sicoob">
-        //                         <input type="checkbox" name="status_${i}" id="status_${i}" value="${i}"/>
-        //                         <label for="status_${i}"></label>
-        //                     </div>
-        //                 </td>
-        //                 <td class="status"><i class="flaticon ${icon} icon-sm"></i></td>
-        //                 <td class="cooperativa">${monit.NumCooperativa}</td>
-        //                 <td>${monit.NumPa}</td>
-        //                 <td>${monit.CodigoCliente}</td>
-        //                 <td>cpf/cnpj</td>
-        //                 <td>${monit.NomeCliente}</td>
-        //                 <td>data cadastro</td>
-        //                 <td>data ultima renovação</td>
-        //             </tr>
-        //         `);
+                tabela.append(`
+                    <tr class="analisar">
+                        <td>
+                            <div class="custom-checkbox custom-checkbox-sicoob">
+                                <input type="checkbox" name="status_${i}" id="status_${i}" value="${i}"/>
+                                <label for="status_${i}"></label>
+                            </div>
+                        </td>
+                        <td class="status"><i class="flaticon ${icon} icon-sm"></i></td>
+                        <td class="cooperativa">${monit.coop}</td>
+                        <td>${monit.pa}</td>
+                        <td>${monit.cod_cliente}</td>
+                        <td>${monit.documento}</td>
+                        <td>${monit.nome_cliente}</td>
+                        <td>${monit.data}</td>
+                        <td>${monit.data_ult}</td>
+                    </tr>
+                `);
                 
-        //         i++;
-        //     }
-
-        //     // $('.CPF-CNPJ').mask(CpfCnpjMaskBehavior, cpfCnpjpOptions);
+                i++;
+            }
             
-        // });
+            $('#btn-analisar').show();
+        });
     });
     
     $('#btn-analisar').on('click',function() {
@@ -160,7 +106,7 @@ $(function(){
         const filtro_data = JSON.stringify(selecionados);
     
         serviceCreateMonitorCredito(function(err, data) {
-            console.log('Data', data)
+            console.log('DataCreate', data);
         }, filtro_data);
     });
 });

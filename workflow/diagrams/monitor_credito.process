@@ -2359,7 +2359,7 @@
     <fonts name="Arial" size="8"/>
     <fonts name="Arial" size="8" bold="true"/>
   </pi:Diagram>
-  <bpmn2:BpmnProcess id="monitor_credito" name="monitor_credito" serverId="Fluig Sicoob" version="1" author="" extendedFields="&lt;list/>" cardIndex="monitor_credito" formSource="local" category="" volume="Default" expedient="Default" instruction="" keyWord="" complementsLevel="1" notifyResponsibleComplements="true" notifyRequisitionerComplements="true"/>
+  <bpmn2:BpmnProcess id="monitor_credito" name="monitor_credito" serverId="Fluig Sicoob" version="2" author="" extendedFields="&lt;list/>" cardIndex="monitor_credito" formSource="local" category="" volume="Default" expedient="Default" instruction="" keyWord="" complementsLevel="1" notifyResponsibleComplements="true" notifyRequisitionerComplements="true"/>
   <bpmn2:BpmnSwimLane id="bpmnswimlane1" name="Central" cores="FFFFFF"/>
   <bpmn2:BpmnSwimLane id="bpmnswimlane2" name="Cooperativa" cores="FFFFFF"/>
   <bpmn2:BpmnStartEvent id="startevent3" name="In&#xed;cio" incoming="flow14" outgoing="flow13" type="10" signalId="0" expediente="" selecionaColaboradores="1" esforcoCalculo="0"/>

@@ -1,5 +1,3 @@
-<!-- <link rel="stylesheet" type="text/css" href="/webdesk/streamcontrol/13/0/0/style.css"> -->
-
 <div class="super-widget wcm-widget-class fluig-style-guide">
      <div id="fluig-sicoob">
         <div class="container" id="monitor_escolha">
@@ -13,12 +11,10 @@
                     <div class="col-md-3">
                         <label>Cooperativa</label>
                         <input type="text" name="cooperativa" class="form-control" placeholder="Informe a Cooperativa">
-                        <!-- <input type="digits" name="cooperativa" class="form-control"> -->
                     </div>
                     <div class="col-md-3">
                         <label>PA</label>
                         <input type="text" name="PA" class="form-control" placeholder="Informe a PA">
-                        <!-- <input type="digits" name="PA" class="form-control"> -->
                     </div>
                     <div class="col-md-6">
                         <label>Nome do cliente</label>
@@ -69,12 +65,12 @@
                 <div class="table-responsive table-datatable" id="limites-monitor">
                     <table class="table table-condensed table-striped" id="monitor-table">
                         <thead>
-                            <tr>
+                            <tr style="cursor: default;">
                                 <th>
-                                    <div class="custom-checkbox custom-checkbox-sicoob">
+                                    <!-- <div class="custom-checkbox custom-checkbox-sicoob">
                                         <input type="checkbox" name="status" value="all">
                                         <label></label>
-                                    </div>
+                                    </div> -->
                                 </th>
                                 <th>Status</th>
                                 <th>Coop.</th>
@@ -84,15 +80,6 @@
                                 <th>Nome</th>
                                 <th>Cadastro</th>
                                 <th>Últ. Renovação</th>
-                                <!--APENAS CRL-->
-                                <!-- <th>Modelo</th> -->
-                                <!-- <th style="display: none;">NRT</th> -->
-                                <!-- <th>NRA</th> -->
-                                <!-- <th>Auto</th> -->
-                                <!-- <th style="display: none;">Valor LTC</th> -->
-                                <!-- <th>Valor LCA</th> -->
-                                <!-- <th>Status</th> -->
-                                <!--APENAS CRL-->
                             </tr>
                         </thead>
                         <tbody>  
