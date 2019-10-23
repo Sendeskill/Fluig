@@ -24,7 +24,6 @@ function createDataset(fields, constraints, sortFields) {
 function selectMonitorCredito(options) {
 	var dataset = DatasetBuilder.newDataset();
 	
-	//Campos
 	var NumCooperativa = getContraintByFieldName(options['constraints'], 'NumCooperativa').initialValue;
 	var NumPa          = getContraintByFieldName(options['constraints'], 'NumPa').initialValue;
 	var NomeCliente    = getContraintByFieldName(options['constraints'], 'NomeCliente').initialValue;
@@ -131,6 +130,13 @@ function createMonitorCredito(options) {
 		var consumer = oauthUtil.getGenericConsumer(OAUTH_APP_PUBLIC, OAUTH_APP_PRIVATE, OAUTH_USER_APP_PUBLIC, OAUTH_USER_APP_SECRET);
 		consumer.post(FLUIG_HOST + "/bpm/api/v1/processes/monitor_credito/start", body); 
 	}
+}
+
+function datasetErro(message) {
+	var newDataset = DatasetBuilder.newDataset();
+	newDataset.addColumn('erro');
+	newDataset.addRow(new Array(message));
+	return newDataset;
 }
 
 //Trata campos vazios

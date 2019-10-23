@@ -3,7 +3,7 @@
         <div class="container" id="monitor_escolha">
             <div class="row">
                 <div class="col-xs-12">
-                    <p><b>Limites a serem enviados ao Monitor de Cadastro</b></p>
+                    <p><b>Limites a serem enviados ao Monitor de Crédito</b></p>
                 </div>
             </div>
             <div id="filtros">
