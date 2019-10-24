@@ -14,7 +14,7 @@ function createDataset(fields, constraints, sortFields) {
 
   options['_action'] = getContraintByFieldName(constraints, '_action').initialValue;
 	
-	if (options['_action'] === 'createMonitorCredito')
+	if (options['_action'] == 'createMonitorCredito')
 		return createMonitorCredito(options);
 	else
     return selectMonitorCredito(options);
@@ -108,10 +108,10 @@ function createMonitorCredito(options) {
 	data = JSON.parse(data);
 
 	//OAUTH LOCAL
-  var OAUTH_APP_PUBLIC      = "sicoob";
-  var OAUTH_APP_PRIVATE     = "sicoob";
-  var OAUTH_USER_APP_PUBLIC = "c47c337c-7fd2-411e-92d7-0058529c28f8";
-	var OAUTH_USER_APP_SECRET = "26d00345-ba9b-4d3c-a275-bc9e876a6016ef8e6a3c-3372-4a3e-a893-782fc01bfb93";
+  var OAUTH_APP_PUBLIC      = "key_FluigOauth";
+  var OAUTH_APP_PRIVATE     = "secret_FluigOauth";
+  var OAUTH_USER_APP_PUBLIC = "f5614b89-ea0a-4ad9-ace6-ec955c595ef2";
+	var OAUTH_USER_APP_SECRET = "d8d26b64-2c40-44f5-b460-da36f90483b6cb50ad9d-1189-449b-a969-f2d2b0d02019";
 
 	for (var i = 0; i < data.length; i++) {	
 		var body = '';
@@ -120,15 +120,16 @@ function createMonitorCredito(options) {
 		body += '{';
 			body += '"targetState": 0,';
 			body += '"subProcessTargetState": 0,';
-			body += '"comment": "Comentário",';
+			body += '"comment": "",';
+			body += '"targetAssignee": "00979403995",';
 			body += '"formFields": {';
-                body += '"nome": "' + vdata.NomeCliente + '",';
-                body += '"chegada": "' + vdata.DataLimite + '",';
+                body += '"nome": "' + vdata.nome_cliente + '",';
+                body += '"chegada": "' + vdata.data + '"';
 			body += '}';
 		body += '}';
 
 		var consumer = oauthUtil.getGenericConsumer(OAUTH_APP_PUBLIC, OAUTH_APP_PRIVATE, OAUTH_USER_APP_PUBLIC, OAUTH_USER_APP_SECRET);
-		consumer.post(FLUIG_HOST + "/bpm/api/v1/processes/monitor_credito/start", body); 
+		consumer.post(FLUIG_HOST + "/bpm/api/v1/processes/monitor_cadastro/start", body); 
 	}
 }
 

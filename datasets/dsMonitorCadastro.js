@@ -103,19 +103,19 @@ function selectMonitorCadastro(options) {
 	return newDataset;
 }
 
-//Aqui criam-se os processos
-function createMonitorCadastro(options) {
-	var FLUIG_HOST = "http://fluig.zeroti.com.br:8280";
+// Aqui criam-se os processos
+function createMonitorCredito(options) {
+	var FLUIG_HOST = "http://fluig.teste.voxelz.com.br:80";
 
 	var data = getContraintByFieldName(options['constraints'], 'data').initialValue;
 
 	data = JSON.parse(data);
 
-	//OAUTH ZEROTI
-  var OAUTH_APP_PUBLIC      = "sicoob";
-  var OAUTH_APP_PRIVATE     = "sicoob";
-  var OAUTH_USER_APP_PUBLIC = "c47c337c-7fd2-411e-92d7-0058529c28f8";
-	var OAUTH_USER_APP_SECRET = "26d00345-ba9b-4d3c-a275-bc9e876a6016ef8e6a3c-3372-4a3e-a893-782fc01bfb93";
+	//OAUTH LOCAL
+  var OAUTH_APP_PUBLIC      = "key_FluigOauth";
+  var OAUTH_APP_PRIVATE     = "secret_FluigOauth";
+  var OAUTH_USER_APP_PUBLIC = "f5614b89-ea0a-4ad9-ace6-ec955c595ef2";
+	var OAUTH_USER_APP_SECRET = "d8d26b64-2c40-44f5-b460-da36f90483b6cb50ad9d-1189-449b-a969-f2d2b0d02019";
 
 	for (var i = 0; i < data.length; i++) {	
 		var body = '';
@@ -124,10 +124,11 @@ function createMonitorCadastro(options) {
 		body += '{';
 			body += '"targetState": 0,';
 			body += '"subProcessTargetState": 0,';
-			body += '"comment": "Comentário",';
+			body += '"comment": "",';
+			body += '"targetAssignee": "00979403995",';
 			body += '"formFields": {';
-                body += '"nome": "' + vdata.NomeCliente + '",';
-                body += '"chegada": "' + vdata.DataLimite + '",';
+                body += '"nome": "' + vdata.nome_cliente + '",';
+                body += '"chegada": "' + vdata.data + '"';
 			body += '}';
 		body += '}';
 
