@@ -104,7 +104,7 @@ function selectMonitorCadastro(options) {
 }
 
 // Aqui criam-se os processos
-function createMonitorCredito(options) {
+function createMonitorCadastro(options) {
 	var FLUIG_HOST = "http://fluig.teste.voxelz.com.br:80";
 
 	var data = getContraintByFieldName(options['constraints'], 'data').initialValue;
