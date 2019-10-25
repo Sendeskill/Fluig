@@ -1,13 +1,13 @@
 //Aqui cria os processos das rows selecionadas
-function serviceCreateMonitorCredito(cb, data) {
+function serviceCreateMonitorCadastro(cb, data) {
     const options = {
         url: '/api/public/ecm/dataset/search',
         contentType: 'application/json',
         dataType: 'json',
         type: 'POST',
         data: JSON.stringify({
-                "datasetId" : "dsMonitorCredito",
-                "filterFields" : ["_action", "createMonitorCredito", "data", data],
+                "datasetId" : "dsMonitorCadastro",
+                "filterFields" : ["_action", "createMonitorCadastro", "data", data],
                 "limit" : "1000"
             }),
         loading: true
@@ -16,14 +16,14 @@ function serviceCreateMonitorCredito(cb, data) {
 }
 
 //Aqui faz a consulta das rows para a tabela
-function serviceSearchMonitorCredito(cb) {
+function serviceSearchMonitorCadastro(cb) {
     const options = {
         url: '/api/public/ecm/dataset/search',
         contentType: 'application/json',
         dataType: 'json',
         type: 'POST',
         data: JSON.stringify({
-            "datasetId" : "dsMonitorCredito",
+            "datasetId" : "dsMonitorCadastro",
             "filterFields" : [
                 "NumCooperativa", $('[name="cooperativa"]').val(),
                 "NumPa", $('[name="PA"]').val(),
@@ -61,7 +61,7 @@ $(function(){
         $('#btn-analisar').hide();
         tabela.html('');
 
-        serviceSearchMonitorCredito(function(err, data) {
+        serviceSearchMonitorCadastro(function(err, data) {
             var i = 0;
 
             for (let monit of data.content) {
@@ -105,8 +105,8 @@ $(function(){
     
         const filtro_data = JSON.stringify(selecionados);
     
-        serviceCreateMonitorCredito(function(err, data) {
-            console.log('DataCreate', data);
+        serviceCreateMonitorCadastro(function(err, data) {
+            console.log('DataInsert', data);
         }, filtro_data);
     });
 });
