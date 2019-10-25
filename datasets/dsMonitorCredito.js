@@ -129,7 +129,7 @@ function createMonitorCredito(options) {
 		body += '}';
 
 		var consumer = oauthUtil.getGenericConsumer(OAUTH_APP_PUBLIC, OAUTH_APP_PRIVATE, OAUTH_USER_APP_PUBLIC, OAUTH_USER_APP_SECRET);
-		consumer.post(FLUIG_HOST + "/bpm/api/v1/processes/monitor_cadastro/start", body); 
+		consumer.post(FLUIG_HOST + "/bpm/api/v1/processes/monitor_credito/start", body); 
 	}
 }
 
