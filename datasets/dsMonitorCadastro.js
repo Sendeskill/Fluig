@@ -13,17 +13,17 @@ function createDataset(fields, constraints, sortFields) {
 	}
 
   options['_action'] = getContraintByFieldName(constraints, '_action').initialValue;
-
-  if (options['_action'] === 'createMonitorCadastro')
+	
+	if (options['_action'] == 'createMonitorCadastro')
 		return createMonitorCadastro(options);
 	else
     return selectMonitorCadastro(options);
 }
 
+//Retona os dados para a tabela
 function selectMonitorCadastro(options) {
-	var newDataset = DatasetBuilder.newDataset();
-
-    
+	var dataset = DatasetBuilder.newDataset();
+	
 	var NumCooperativa = getContraintByFieldName(options['constraints'], 'NumCooperativa').initialValue;
 	var NumPa          = getContraintByFieldName(options['constraints'], 'NumPa').initialValue;
 	var NomeCliente    = getContraintByFieldName(options['constraints'], 'NomeCliente').initialValue;
@@ -43,10 +43,6 @@ function selectMonitorCadastro(options) {
   dataset.addRow(["999","123","123","Junior Rodrigues","2018-12-11","2019-12-11","D","00979403995"]);
   dataset.addRow(["999","123","122","Lucas Karger","2018-12-11","2019-12-11","A","32415423000169"]);
   dataset.addRow(["999","321","124","Roberto Robes","2018-12-15","2019-12-15","D","00979403995"]);
-
-	// var ic = new javax.naming.InitialContext();
-	// var ds = ic.lookup('/jdbc/sicoob');
-	// var created = false;
 
 	// try {
 	// 	var conn = ds.getConnection();
@@ -100,7 +96,7 @@ function selectMonitorCadastro(options) {
   //       if (conn != null) conn.close();
 	// }
 
-	return newDataset;
+	return dataset;
 }
 
 // Aqui criam-se os processos
@@ -144,14 +140,15 @@ function datasetErro(message) {
 	return newDataset;
 }
 
+//Trata campos vazios
 function getContraintByFieldName(constraints, name) {
 	if(constraints != null && constraints.length > 0) {
 		for (var i = 0; i < constraints.length; i++) {
-    		if (constraints[i].fieldName == name) {
-    			return constraints[i];
-    		}
+			if (constraints[i].fieldName == name) {
+				return constraints[i];
+			}
 		}
-    }
+  }
 	
 	return {
 		fieldName: null,

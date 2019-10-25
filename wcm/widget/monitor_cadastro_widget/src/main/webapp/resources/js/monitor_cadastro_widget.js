@@ -106,7 +106,7 @@ $(function(){
         const filtro_data = JSON.stringify(selecionados);
     
         serviceCreateMonitorCadastro(function(err, data) {
-            console.log('DataInsert', data);
+            console.log('DataCreate', data);
         }, filtro_data);
     });
 });
