@@ -127,7 +127,7 @@ $(document).ready(function(){
 								url : '/api/public/ecm/document/createDocument',
 								data: JSON.stringify({
 									"description": file.name,
-									"parentId": 4119,
+									"parentId": 49,
 									"additionalComments": "",
 									"attachments": [{
 										"fileName": file.name
